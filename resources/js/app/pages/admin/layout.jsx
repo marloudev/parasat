@@ -15,6 +15,7 @@ import { router as route } from "@inertiajs/react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPathname } from "@/app/redux/app-slice";
 import { AssignmentInd, HistoryEdu, School } from "@mui/icons-material";
+
 const NAVIGATION = [
     {
         kind: "header",
@@ -28,7 +29,7 @@ const NAVIGATION = [
     {
         segment: "students",
         title: "Students",
-        icon: <AssignmentInd  />,
+        icon: <AssignmentInd />,
     },
     {
         segment: "courses",
@@ -90,6 +91,7 @@ function AdminLayout({ children }, props) {
     const { pathname } = useSelector((state) => state.app);
     const { window } = props;
     const dispatch = useDispatch();
+
     const router = React.useMemo(() => {
         return {
             pathname,
@@ -111,6 +113,10 @@ function AdminLayout({ children }, props) {
             router={router}
             theme={demoTheme}
             window={demoWindow}
+            branding={{
+                logo: "",
+                title: "Starter",
+            }}
         >
             <DashboardLayout>
                 <div className="p-4">{children}</div>
