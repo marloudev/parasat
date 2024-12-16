@@ -24,6 +24,7 @@ export default function Alert({ variant = 'default', message, children, onClose 
             {/* Optional icon */}
             <span className={`mr-2 ${iconClasses[variant]}`}>
                 {/* You could use a FontAwesome icon here or any other icon library */}
+                {variant === 'default' && '👋'}
                 {variant === 'success' && '✔️'}
                 {variant === 'error' && '❌'}
                 {variant === 'warning' && '⚠️'}
@@ -37,7 +38,7 @@ export default function Alert({ variant = 'default', message, children, onClose 
             {onClose && (
                 <button
                     onClick={onClose}
-                    className="ml-4 text-gray-500 hover:text-gray-700"
+                    className="ml-4 text-gray-500 hover:bg-gray-600"
                     aria-label="Close"
                 >
                     ✖️

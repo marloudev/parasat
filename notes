@@ -3,8 +3,14 @@ button - done
 badge - done
 card - done
 avatar - done
-progress
-spinner
+input field - done
+progress - done
+select - done
 table
-select
+spinner
 textarea
+
+
+git add .
+git commit -m "reusable components"
+git push
