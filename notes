@@ -9,9 +9,8 @@ select - done
 table - done
 pagination - done
 modal - done
-drawer
-textarea
-spinner
+drawer - done
+tabs - done
 
 
 git add .

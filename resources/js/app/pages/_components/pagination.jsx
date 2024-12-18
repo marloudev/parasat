@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from './button';
+
 
 const Pagination = ({ totalPages, currentPage, onPageChange }) => {
   const handlePageChange = (page) => {
@@ -14,31 +16,31 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
 
   return (
     <div className="flex items-center gap-2">
-      <button
-        className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded"
+      <Button
+        variant="default"
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
         Previous
-      </button>
+      </Button>
 
       {pageNumbers.map((page) => (
-        <button
+        <Button
           key={page}
-          className={`px-4 py-2 rounded ${page === currentPage ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+          variant={page === currentPage ? 'info' : 'default'}
           onClick={() => handlePageChange(page)}
         >
           {page}
-        </button>
+        </Button>
       ))}
 
-      <button
-        className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded"
+      <Button
+        variant="default"
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
         Next
-      </button>
+      </Button>
     </div>
   );
 };
