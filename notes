@@ -6,9 +6,12 @@ avatar - done
 input field - done
 progress - done
 select - done
-table
-spinner
+table - done
+pagination - done
+modal - done
+drawer
 textarea
+spinner
 
 
 git add .

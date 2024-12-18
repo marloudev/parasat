@@ -8,22 +8,12 @@ import Avatar from '../../_components/avatar';
 import InputField from '../../_components/inputfield';
 import Progress from '../../_components/progress';
 import Select from '../../_components/select';
+import Table from '../../_components/table';
+import Pagination from '../../_components/pagination';
+import Modal from '../../_components/modal';
+import Drawer from '../../_components/drawer';
 
 export default function AdminDashboardPage() {
-  const [progress, setProgress] = useState(30);
-
-  const increaseProgress = () => {
-    setProgress((prev) => Math.min(prev + 10, 100));
-  };
-
-  const decreaseProgress = () => {
-    setProgress((prev) => Math.min(prev - 10, 100));
-  };
-
-  const resetProgress = () => {
-    setProgress(0);
-  };
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [usernameError, setUsernameError] = useState('');
@@ -64,7 +54,7 @@ export default function AdminDashboardPage() {
 
   const handleSelectChange = (e) => {
     setSelectedOption(e.target.value);
-    setSelectError(''); // Reset error on change
+    setSelectError('');
   };
 
   const handleSelectSubmit = () => {
@@ -75,6 +65,61 @@ export default function AdminDashboardPage() {
     }
   };
 
+  const columns = [
+    { title: "ID", dataKey: "id" },
+    { title: "Name", dataKey: "name" },
+    { title: "Role", dataKey: "role" },
+    {
+      title: "Actions",
+      dataKey: "actions",
+      render: (value, row) => (
+        <button
+          onClick={() => alert(`Editing ${row.name}`)}
+          className="px-2 py-1 text-blue-500 hover:underline"
+        >
+          Edit
+        </button>
+      ),
+    },
+  ];
+
+  const data = [
+    { id: 1, name: "John Doe", role: "Admin" },
+    { id: 2, name: "Jane Smith", role: "User" },
+    { id: 3, name: "Alice Johnson", role: "Moderator" },
+  ];
+
+  const fullData = [
+    { id: 1, name: "John Doe", role: "Admin" },
+    { id: 2, name: "Jane Smith", role: "User" },
+    { id: 3, name: "Alice Johnson", role: "Moderator" },
+    { id: 4, name: "Bob Brown", role: "Admin" },
+    { id: 5, name: "Charlie Davis", role: "User" },
+    { id: 6, name: "David Evans", role: "Moderator" },
+    { id: 7, name: "Ella Foster", role: "Admin" },
+    { id: 8, name: "Fay Green", role: "User" },
+    { id: 9, name: "George Harris", role: "Moderator" },
+    { id: 10, name: "Hannah Ingram", role: "Admin" },
+  ];
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
+
+  const totalPages = Math.ceil(fullData.length / itemsPerPage);
+
+  // Calculate data for the current page
+  const currentData = fullData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const openDrawer = () => setIsDrawerOpen(true);
+
   return (
 
     <AdminLayout>
@@ -84,34 +129,29 @@ export default function AdminDashboardPage() {
         <Alert
           variant='default'
           message="This is a default alert"
-          onClose={() => setShowSuccessAlert(false)}
         />
         <Alert
           variant='success'
           message="This is a success alert"
-          onClose={() => setShowSuccessAlert(false)}
         />
         {/* Error Alert */}
         <Alert
           variant='error'
           message="This is an error alert"
-          onClose={() => setShowErrorAlert(false)}
         />
         {/* Warning Alert */}
         <Alert
           variant='warning'
           message="This is a warning alert"
-          onClose={() => setShowWarningAlert(false)}
         />
         {/* Info Alert */}
         <Alert
           variant="info"
           message="This is an info alert"
-          onClose={() => setShowInfoAlert(false)}
         />
       </div>
 
-      <div className='flex flex-col gap-8'>
+      <div className='flex flex-col gap-5'>
         {/* Button */}
         <div className="flex gap-4">
           <Button variant="default" onClick={() => alert('Default Button Clicked')}>
@@ -211,21 +251,73 @@ export default function AdminDashboardPage() {
             <Progress value={100} color="bg-blue-500" />
           </div>
 
-          {/* Select */}
-          <div className="flex flex-col gap-2">
-            <h2 className="text-lg font-semibold text-gray-800">Select Dropdown</h2>
-            <Select
-              label="Choose a barangay"
-              options={selectOptions}
-              value={selectedOption}
-              onChange={handleSelectChange}
-              error={selectError}
-              placeholder="Select your barangay"
-            />
-            <Button variant="info" onClick={handleSelectSubmit}>
-              Submit
-            </Button>
+          <div className="flex">
+            {/* Select */}
+            <div className="flex flex-col gap-2">
+              <div className="flex flex-col">
+                <h2 className="text-lg font-semibold text-gray-800">Reusable Select Component</h2>
+                <Select
+                  label="Choose a barangay"
+                  options={selectOptions}
+                  value={selectedOption}
+                  onChange={handleSelectChange}
+                  error={selectError}
+                  placeholder="Select your barangay"
+                />
+              </div>
+              <Button variant="info" onClick={handleSelectSubmit}>
+                Submit
+              </Button>
+            </div>
           </div>
+
+          {/* Table */}
+          <div className="flex flex-col">
+            <h1 className="text-2xl font-semibold mb-4">Reusable Table Component</h1>
+            <Table columns={columns} data={data} className="shadow" />
+          </div>
+        </div>
+
+        <div className="flex justify-end">
+          {/* Pagination */}
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            onPageChange={handlePageChange}
+          />
+        </div>
+
+
+        <div className="flex gap-2">
+          {/* Modal */}
+          <Button
+            variant="info"
+            onClick={openModal}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            Open Modal
+          </Button>
+          <Modal
+            open={isModalOpen}
+            setOpen={setIsModalOpen}
+          >
+            <h1>Sample Modal</h1>
+          </Modal>
+
+          {/* Drawer */}
+          <Button
+            variant="info"
+            onClick={openDrawer}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            Open Drawer
+          </Button>
+          <Drawer
+            isOpen={isDrawerOpen}
+            setIsOpen={setIsDrawerOpen}
+          >
+            <h1>Sample Drawer Content</h1>
+          </Drawer>
         </div>
 
       </div>
