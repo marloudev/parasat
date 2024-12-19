@@ -13,6 +13,7 @@ import Pagination from '../../_components/pagination';
 import Modal from '../../_components/modal';
 import Drawer from '../../_components/drawer';
 import Tab from '../../_components/tab';
+import Collapse from '../../_components/collapse';
 
 export default function AdminDashboardPage() {
   const [username, setUsername] = useState('');
@@ -330,38 +331,53 @@ export default function AdminDashboardPage() {
           </div>
 
 
-          <div className="flex flex-col gap-3">
-            {/* Tab Component */}
+          <div className="flex flex-col">
             <div className="flex flex-col">
-              <h1 className="text-2xl font-semibold">Reusable Tabs Component</h1>
-              <Tab tabs={tabs} onTabChange={(tab) => setActiveTab(tab.name)} />
-            </div>
+              {/* Tab Component */}
+              <div className="flex flex-col">
+                <h1 className="text-2xl font-semibold">Reusable Tabs Component</h1>
+                <Tab tabs={tabs} onTabChange={(tab) => setActiveTab(tab.name)} />
+              </div>
 
-            {/* Render Tab Content Based on Active Tab */}
-            {activeTab === 'Overview' && (
-              <div>
-                <h2>Overview Content</h2>
-                <p>This is the content for the Overview tab.</p>
-              </div>
-            )}
-            {activeTab === 'Analytics' && (
-              <div>
-                <h2>Analytics Content</h2>
-                <p>This is the content for the Analytics tab.</p>
-              </div>
-            )}
-            {activeTab === 'Settings' && (
-              <div>
-                <h2>Settings Content</h2>
-                <p>This is the content for the Settings tab.</p>
-              </div>
-            )}
-            {activeTab === 'Users' && (
-              <div>
-                <h2>Users Content</h2>
-                <p>This is the content for the Users tab.</p>
-              </div>
-            )}
+              {/* Render Tab Content Based on Active Tab */}
+              {activeTab === 'Overview' && (
+                <div>
+                  <h2>Overview Content</h2>
+                  <p>This is the content for the Overview tab.</p>
+                </div>
+              )}
+              {activeTab === 'Analytics' && (
+                <div>
+                  <h2>Analytics Content</h2>
+                  <p>This is the content for the Analytics tab.</p>
+                </div>
+              )}
+              {activeTab === 'Settings' && (
+                <div>
+                  <h2>Settings Content</h2>
+                  <p>This is the content for the Settings tab.</p>
+                </div>
+              )}
+              {activeTab === 'Users' && (
+                <div>
+                  <h2>Users Content</h2>
+                  <p>This is the content for the Users tab.</p>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Collapse Component */}
+          <div className="flex flex-col gap-2">
+            <h1 className="text-2xl font-semibold">Reusable Collapse Component</h1>
+            <div className="flex gap-2">
+              <Collapse title="Sample Collapse 1" variant="info">
+                <p>sample collapse 1</p>
+              </Collapse>
+              <Collapse title="Sample Collapse 2" variant="success">
+                <p>sample collapse 2</p>
+              </Collapse>
+            </div>
           </div>
         </div>
 
