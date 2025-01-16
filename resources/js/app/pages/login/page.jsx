@@ -3,7 +3,7 @@ export default function LoginPage() {
         <div className="w-screen h-screen">
             <div className="flex min-h-full flex-1">
                 <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
-                    <div className="mx-auto w-full max-w-sm lg:w-96">
+                    <div className="mx-auto w-full max-w-sm lg:w-96 ">
                         <div>
                             {/* <img
                                 alt="Your Company"
@@ -13,15 +13,6 @@ export default function LoginPage() {
                             <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
                                 Sign in to your account
                             </h2>
-                            <p className="mt-2 text-sm leading-6 text-gray-500">
-                                Not a member?{" "}
-                                <a
-                                    href="#"
-                                    className="font-semibold text-indigo-600 hover:text-indigo-500"
-                                >
-                                    Start a 14 day free trial
-                                </a>
-                            </p>
                         </div>
 
                         <div className="mt-10">
@@ -88,7 +79,7 @@ export default function LoginPage() {
                                         <div className="text-sm leading-6">
                                             <a
                                                 href="#"
-                                                className="font-semibold text-indigo-600 hover:text-indigo-500"
+                                                className="font-semibold text-blue-600 hover:text-blue-500"
                                             >
                                                 Forgot password?
                                             </a>
@@ -98,7 +89,7 @@ export default function LoginPage() {
                                     <div>
                                         <button
                                             type="submit"
-                                            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                            className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                                         >
                                             Sign in
                                         </button>
@@ -181,7 +172,7 @@ export default function LoginPage() {
                 <div className="relative hidden w-0 flex-1 lg:block">
                     <img
                         alt=""
-                        src="https://images.unsplash.com/photo-1496917756835-20cb06e75b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
+                        src="/images/para-fiber.jpg"
                         className="absolute inset-0 h-full w-full object-cover"
                     />
                 </div>
