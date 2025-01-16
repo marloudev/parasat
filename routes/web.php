@@ -15,8 +15,13 @@ Route::get('/', function () {
 });
 
 Route::get('/', function () {
+    return Inertia::render('landing_page/page');
+});
+
+Route::get('/logins', function () {
     return Inertia::render('login/page');
 });
+
 
 // Route::middleware('auth:sanctum', 'role:1')->prefix('administrator')->group(function () {
 Route::prefix('administrator')->group(function () {
