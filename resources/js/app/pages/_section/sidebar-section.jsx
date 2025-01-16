@@ -25,16 +25,10 @@ function classNames(...classes) {
 export default function SidebarSection() {
     const navigation = [
         { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-        { name: "Team", href: "#", icon: UsersIcon, current: false },
-        { name: "Projects", href: "#", icon: FolderIcon, current: false },
-        { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-        {
-            name: "Documents",
-            href: "#",
-            icon: DocumentDuplicateIcon,
-            current: false,
-        },
-        { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
+        { name: "Internet Plans", href: "#", icon: UsersIcon, current: false },
+        { name: "Applications", href: "#", icon: UsersIcon, current: false },
+        { name: "Inventory", href: "inventory", icon: FolderIcon, current: false },
+        { name: "Email notifications", href: "#", icon: CalendarIcon, current: false },
     ];
 
     const teams = [

@@ -23,6 +23,9 @@ Route::prefix('administrator')->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('admin/dashboard/page');
     });
+    Route::get('/inventory', function () {
+        return Inertia::render('admin/inventory/page');
+    });
     // Route::get('/students', function () {
     //     return Inertia::render('admin/students/page');
     // });
