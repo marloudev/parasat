@@ -1,13 +1,14 @@
 import SidebarSection from "../_section/sidebar-section";
 import TopbarSection from "../_section/topbar-section";
 
-export default function AdminLayout({children}) {
-
+export default function AdminLayout({ children }) {
 
     return (
         <>
-            <div>
-                <SidebarSection  />
+            <div className="bg-slate-200 h-screen">
+                <div>
+                    <SidebarSection />
+                </div>
                 <div className="lg:pl-72">
                     <TopbarSection />
 
