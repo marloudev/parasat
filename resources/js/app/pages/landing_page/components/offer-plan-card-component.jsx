@@ -1,0 +1,30 @@
+import React from 'react'
+
+export default function OfferPlanCardComponent({ name, monthly, annually, href, popular }) {
+
+    return (
+        <div className="pt-16 lg:px-8 lg:pt-0 xl:px-14 shadow-lg">
+            <div className='flex flex-1 items-center justify-between'>
+                <h3 className="text-base/7 font-semibold text-gray-900">
+                    {name}
+                </h3>
+                {popular && (
+                    <p className="rounded-full bg-indigo-600/10 px-2.5 py-1 text-xs/5 font-semibold text-indigo-600">
+                        Most popular
+                    </p>
+                )}
+            </div>
+            <p className="mt-6 flex items-baseline gap-x-1">
+                <span className="text-5xl font-semibold tracking-tight text-gray-900">{monthly}</span>
+                <span className="text-sm/6 font-semibold text-gray-600">/month</span>
+            </p>
+            <p className="mt-3 text-sm/6 text-gray-500">{annually} per month if paid annually</p>
+            <a
+                href={href}
+                className="mt-7 mb-3 block rounded-md bg-blue-600 px-3 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            >
+                Purchase Plan
+            </a>
+        </div>
+    )
+}

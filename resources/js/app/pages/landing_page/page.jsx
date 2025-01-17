@@ -5,7 +5,7 @@ import ParasatCoverSection from './sections/parasat-cover-section'
 
 export default function LandingPage() {
     return (
-        <div>
+        <div className=''>
             <TopBarSection />
             <ParasatCoverSection />
             <PlanListSection />

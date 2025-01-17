@@ -17,9 +17,9 @@ export default function TopBarSection() {
     return (
         <div>
             <Disclosure as="nav" className="bg-gray-800">
-                <div className="mx-auto max-w-7xl sm:px-6">
-                    <div className="relative flex h-16 items-center justify-between">
-                        <div>
+                <div className="mx-auto sm:px-10">
+                    <div className="relative flex h-16 items-center justify-between w-full">
+                        <div className='w-full'>
                             <img src="/images/para-fiber.jpg" className='h-10' alt="" />
                         </div>
                         <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
