@@ -46,7 +46,7 @@ export default function TopBarSection() {
                             <button
                                 type="button"
                                 onClick={() => router.visit('/logins')}
-                                className="bg-blue-500 px-5 py-3 rounded-md text-white hover:bg-slate-600 flex items-center justify-center">
+                                className="bg-blue-500 px-6 py-3 rounded-md text-white hover:bg-slate-600 flex items-center justify-center">
                                 {/* <UserIcon className="h-5" /> */}
                                 LOGIN
                             </button>
