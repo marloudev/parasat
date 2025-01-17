@@ -51,7 +51,7 @@ const people = [
                   <td className="px-3 py-4 text-sm text-gray-500">{person.role}</td>
                   <td className="py-4 text-sm font-medium sm:pr-0">
                     <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                      View<span className="sr-only">, {person.name}</span>
+                      View | Restock <span className="sr-only">, {person.name}</span>
                     </a>
                   </td>
                 </tr>
