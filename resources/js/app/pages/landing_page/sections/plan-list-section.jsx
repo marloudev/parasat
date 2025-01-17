@@ -7,13 +7,13 @@ export default function PlanListSection() {
 
     return (
         <div>
-            <div className="bg-white pb-5">
+            <div className="bg-sky-600 pb-5">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className="mt-4 flex flex-col gap-2">
-                        <p className='text-balance text-5xl font-semibold tracking-tight text-blue-500 sm:text-5xl mb-4 '>
+                    <div className="flex flex-col gap-3">
+                        <p className='mt-4 text-balance text-5xl font-semibold tracking-tight text-white sm:text-5xl mb-4 shadow-blue-300 shadow-lg w-full'>
                             PLANS OFFER:
                         </p>
-                        <div className='className="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-16 divide-y divide-gray-100 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none lg:grid-cols-3 lg:divide-x lg:divide-y-0 xl:-mx-4"'>
+                        <div className='className="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-16 gap-x-3 divide-y divide-gray-100 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none lg:grid-cols-3 lg:divide-x lg:divide-y-0 xl:-mx-4"'>
                             <OfferPlanCardComponent
                                 name="Up to 40Mbps"
                                 monthly="₱999"
@@ -34,7 +34,7 @@ export default function PlanListSection() {
                                 href="http://127.0.0.1:8000/logins"
                             />
                         </div>
-                        <div className='className="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-16 divide-y divide-gray-100 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none lg:grid-cols-3 lg:divide-x lg:divide-y-0 xl:-mx-4"'>
+                        <div className='className="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-16 gap-x-2 divide-y divide-gray-100 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none lg:grid-cols-3 lg:divide-x lg:divide-y-0 xl:-mx-4"'>
                             <OfferPlanCardComponent
                                 name="Up to 40Mbps"
                                 monthly="₱999"
