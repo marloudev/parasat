@@ -1,6 +1,6 @@
 import React from 'react'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { router } from '@inertiajs/react'
 
 export default function TopBarSection() {
@@ -42,11 +42,12 @@ export default function TopBarSection() {
                             </div> */}
                         </div>
 
-                        <div className=" flex items-center">
+                        <div className="fixed bottom-10 right-14 flex items-center">
                             <button
-                                type='button'
+                                type="button"
                                 onClick={() => router.visit('/logins')}
-                                className='bg-blue-500 px-4 py-2 rounded-md text-white hover:bg-blue-600'>
+                                className="bg-blue-500 px-5 py-3 rounded-md text-white hover:bg-slate-600 flex items-center justify-center">
+                                {/* <UserIcon className="h-5" /> */}
                                 LOGIN
                             </button>
                         </div>
