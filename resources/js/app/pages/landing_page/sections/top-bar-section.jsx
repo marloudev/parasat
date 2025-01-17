@@ -51,7 +51,7 @@ export default function TopBarSection() {
                                 ref={buttonRef}  // Attach reference to the button
                                 type="button"
                                 onClick={() => setIsTooltipVisible(!isTooltipVisible)}  // Toggle tooltip visibility
-                                className="bg-blue-500 px-2 py-2 rounded-md text-white hover:bg-slate-600 flex items-center justify-center">
+                                className="bg-[rgba(0,0,0,0.4)] px-2 py-2 rounded-md text-white hover:bg-slate-600 flex items-center justify-center">
                                 <Cog6ToothIcon className="h-8" />
                             </button>
 

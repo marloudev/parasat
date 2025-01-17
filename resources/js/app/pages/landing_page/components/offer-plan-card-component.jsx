@@ -3,8 +3,8 @@ import React from 'react'
 export default function OfferPlanCardComponent({ name, monthly, annually, href, popular }) {
 
     return (
-        <div className="pt-16 lg:px-8 lg:pt-0 xl:px-14 shadow-lg">
-            <div className='flex flex-1 items-center justify-between'>
+        <div className="pt-16 lg:px-8 lg:pt-0 xl:px-14 shadow-md shadow-blue-200 bg-white rounded-md">
+            <div className='flex flex-1 items-center justify-between mt-2'>
                 <h3 className="text-base/7 font-semibold text-gray-900">
                     {name}
                 </h3>
