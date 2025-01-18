@@ -22,7 +22,7 @@ export default function ItemDetailSection() {
       <a href='#' onClick={openModal} className='text-indigo-600 hover:text-indigo-900'>View Details</a>
       <Modal open={isModalOpen} setOpen={setIsModalOpen}>
         <h2 className='text-lg text-black'>Full Item Details and History</h2>
-        <div className='max-h-96 overflow-y-auto'>
+        <div className='max-h-[700px] overflow-y-auto'>
             <form>
                 <div className='mb-4'>
                 <InputField
@@ -52,11 +52,6 @@ export default function ItemDetailSection() {
                                         <th scope='col' className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
                                             SN
                                         </th>
-                                    
-                                        <th scope='col' className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
-                                            Status
-                                        </th>
-
                                         <th scope='col' className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
                                             DR Date
                                         </th>
@@ -99,6 +94,18 @@ export default function ItemDetailSection() {
                         </th>
                         <th
                             scope="col"
+                            className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
+                        >
+                            Status
+                        </th>
+                        <th
+                            scope="col"
+                            className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
+                        >
+                            Requested By
+                        </th>
+                        <th
+                            scope="col"
                             className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
                         >
                             Date
@@ -117,6 +124,8 @@ export default function ItemDetailSection() {
                             </dl>
                             </td>
                             <td className="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{person.email}</td>
+                            <td className="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell"></td>
+                            <td className="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell"></td>
                             <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{person.role}</td>
                         </tr>
                         ))}

@@ -9,7 +9,7 @@ export default function RestockSection() {
     const closeModal = () => setIsModalOpen(false);
     const [serialNumbers, setSerialNumbers] = useState(['']);
 
-    const serial_number = 0;
+    const serial_number = 1;
 
     const handleAddSerialNumber = () => {
         setSerialNumbers([...serialNumbers, '']);
@@ -39,8 +39,18 @@ export default function RestockSection() {
             {serial_number === 1 && (
                 <Modal open={isModalOpen} setOpen={setIsModalOpen} width='w-1/4'>
                     <h2 className='text-lg text-black'>Restock Item</h2>
-                    <div>
+                    <div className='max-h-[700px] overflow-y-auto'>
                     <form onSubmit={handleSubmit}>
+                        <div className='mb-4'>
+                            <InputField
+                                label='Quantity'
+                                placeholder='Enter Quantity'
+                                name='quantity'
+                                type='number'
+                                required
+                            />
+                        </div>
+
                         {serialNumbers.map((serialNumber, index) => (
                             <div className='flex mb-4' key={index}>
                                 <InputField
@@ -55,7 +65,7 @@ export default function RestockSection() {
                                 <button
                                     type='button'
                                     onClick={() => handleRemoveSerialNumber(index)}
-                                    className='ml-2 px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600'
+                                    className='ml-2 px-2 mt-7 h-10 bg-red-500 text-white rounded hover:bg-red-600'
                                 >
                                     <XMarkIcon className='h-4 w-4' />
                                 </button>
