@@ -1,3 +1,6 @@
+import ItemDetailSection from "./item-detail-section"
+import RestockSection from "./restock-section"
+
 const people = [
     { name: 'Skyworth ONT', title: 'ONT', email: '200', role: 'Headend' },
     // More people...
@@ -26,9 +29,6 @@ const people = [
                   Stock
                 </th>
                 <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                  Location
-                </th>
-                <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                   Action
                 </th>
                 
@@ -48,11 +48,10 @@ const people = [
                   </td>
                   <td className="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{person.title}</td>
                   <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{person.email}</td>
-                  <td className="px-3 py-4 text-sm text-gray-500">{person.role}</td>
-                  <td className="py-4 text-sm font-medium sm:pr-0">
-                    <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                      View | Restock <span className="sr-only">, {person.name}</span>
-                    </a>
+                  <td className="flex py-4 text-sm font-medium sm:pr-0 ">
+                    <ItemDetailSection />
+                    <span className="hidden sm:inline"> | </span>
+                    <RestockSection />
                   </td>
                 </tr>
               ))}

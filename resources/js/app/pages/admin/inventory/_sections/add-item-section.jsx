@@ -6,13 +6,13 @@ import React, { useState } from 'react'
 
 export default function AddItemSection() {
     const [isModalOpen, setIsModalOpen] = useState(false);
-        const openModal = () => setIsModalOpen(true);
-        const closeModal = () => setIsModalOpen(false);
-    
-        const handleSubmit = (event) => {
-            event.preventDefault();
-            // Handle form submission logic here
-        };
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Handle form submission logic here
+    };
     
   return (
     <div>
@@ -23,7 +23,7 @@ export default function AddItemSection() {
         >
             Add Item
         </Button>
-        <Modal open={isModalOpen} setOpen={setIsModalOpen}>
+        <Modal open={isModalOpen} setOpen={setIsModalOpen} width=' w-1/4'>
         <h2 className="text-xl font-semibold mb-4">Add New Item</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
@@ -45,23 +45,14 @@ export default function AddItemSection() {
                 </div>
 
                 <div className="mb-4">
-                    <InputField 
-                    label="Quantity" 
-                    placeholder="Quantity"    
-                    name="quantity" 
-                    type="number" 
-                    required 
+                    <input 
+                    type='radio'
+                    id='with_sn'
+                    name='with_sn'
+                    value=''
+                    className='appearance-none w-5 h-5 bg-white border-2 border-gray-400 rounded-none checked:bg-black checked:border-black'
                     />
-                </div>
-
-                <div className="mb-4">
-                    <InputField 
-                    label="Location" 
-                    placeholder="Location"    
-                    name="locations" 
-                    type="text" 
-                    required 
-                    />
+                    <label htmlFor='with_sn' className='ml-2'>With Serial Number</label>
                 </div>
 
                 <div className="flex justify-end gap-4-4">
@@ -69,14 +60,7 @@ export default function AddItemSection() {
                         type="submit" 
                         variant="info"
                         className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
-                        Submit
-                    </Button>
-                    <Button 
-                        type="button" 
-                        variant="error"
-                        onClick={closeModal} 
-                        className="ml-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
-                        <XMarkIcon className="h-5 w-5" />
+                        Add
                     </Button>
                 </div>
             </form>
