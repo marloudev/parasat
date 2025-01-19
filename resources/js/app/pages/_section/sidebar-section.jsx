@@ -26,7 +26,7 @@ export default function SidebarSection() {
     const navigation = [
         { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
         { name: "User Management", href: "#", icon: UserGroupIcon, current: false },
-        { name: "Internet Plans", href: "#", icon: SignalIcon, current: false },
+        { name: "Internet Plans", href: "internetplans", icon: SignalIcon, current: false },
         { name: "Applications", href: "application", icon: UsersIcon, current: false },
         { name: "Inventory", href: "inventory", icon: FolderIcon, current: false },
         { name: "Requests", href: "requests", icon: ClipboardDocumentListIcon, current: false },
