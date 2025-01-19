@@ -49,6 +49,11 @@ Route::prefix('administrator')->group(function () {
     //     return Inertia::render('admin/subjects/page');
     // });
 });
+Route::prefix('techteam')->group(function () {
+    Route::get('/request_item', function () {
+        return Inertia::render('tech_team/request_item/page');
+    });
+});
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
