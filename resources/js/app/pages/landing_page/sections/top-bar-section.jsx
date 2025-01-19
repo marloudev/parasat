@@ -68,7 +68,7 @@ export default function TopBarSection() {
                                             setIsTooltipVisible(false)  // Close tooltip after redirection
                                         }}
                                         className="block w-full px-4 py-2 text-md text-blue-500 hover:bg-slate-300 text-center rounded-md">
-                                        <b>Login</b>
+                                        <b>Sign In</b>
                                     </button>
                                 </div>
                             )}

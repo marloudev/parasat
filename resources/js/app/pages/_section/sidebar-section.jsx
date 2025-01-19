@@ -27,7 +27,7 @@ export default function SidebarSection() {
         { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
         { name: "User Management", href: "#", icon: UsersIcon, current: false },
         { name: "Internet Plans", href: "#", icon: UsersIcon, current: false },
-        { name: "Applications", href: "#", icon: UsersIcon, current: false },
+        { name: "Applications", href: "application", icon: UsersIcon, current: false },
         { name: "Inventory", href: "inventory", icon: FolderIcon, current: false },
         { name: "Requests", href: "requests", icon: FolderIcon, current: false },
         { name: "Email notifications", href: "#", icon: CalendarIcon, current: false },

@@ -39,6 +39,9 @@ Route::prefix('administrator')->group(function () {
     Route::get('/requests', function () {
         return Inertia::render('admin/requests/page');
     });
+    Route::get('/application', function () {
+        return Inertia::render('admin/application/page');
+    });
     // Route::get('/students', function () {
     //     return Inertia::render('admin/students/page');
     // });
