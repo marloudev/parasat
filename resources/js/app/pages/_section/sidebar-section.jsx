@@ -25,8 +25,13 @@ function classNames(...classes) {
 export default function SidebarSection() {
     const navigation = [
         { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
+<<<<<<< HEAD
         { name: "User Management", href: "#", icon: UsersIcon, current: false },
         { name: "Internet Plans", href: "internetplans", icon: UsersIcon, current: false },
+=======
+        { name: "User Management", href: "#", icon: UserGroupIcon, current: false },
+        { name: "Internet Plans", href: "#", icon: SignalIcon, current: false },
+>>>>>>> 489cfbc1a478368989003a132961f45324cd14d0
         { name: "Applications", href: "application", icon: UsersIcon, current: false },
         { name: "Inventory", href: "inventory", icon: FolderIcon, current: false },
         { name: "Requests", href: "requests", icon: ClipboardDocumentListIcon, current: false },
