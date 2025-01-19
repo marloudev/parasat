@@ -6,7 +6,7 @@ import {
     TransitionChild,
 } from "@headlessui/react";
 
-import { Cog6ToothIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ClipboardDocumentListIcon, Cog6ToothIcon, EnvelopeOpenIcon, SignalIcon, UserGroupIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
 import { setSidebarOpen } from "@/app/redux/app-slice";
 import {
@@ -25,12 +25,12 @@ function classNames(...classes) {
 export default function SidebarSection() {
     const navigation = [
         { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-        { name: "User Management", href: "#", icon: UsersIcon, current: false },
-        { name: "Internet Plans", href: "#", icon: UsersIcon, current: false },
+        { name: "User Management", href: "#", icon: UserGroupIcon, current: false },
+        { name: "Internet Plans", href: "#", icon: SignalIcon, current: false },
         { name: "Applications", href: "application", icon: UsersIcon, current: false },
         { name: "Inventory", href: "inventory", icon: FolderIcon, current: false },
-        { name: "Requests", href: "requests", icon: FolderIcon, current: false },
-        { name: "Email notifications", href: "#", icon: CalendarIcon, current: false },
+        { name: "Requests", href: "requests", icon: ClipboardDocumentListIcon, current: false },
+        { name: "Email notifications", href: "#", icon: EnvelopeOpenIcon, current: false },
     ];
 
     const teams = [
@@ -90,7 +90,7 @@ export default function SidebarSection() {
                             <div className="flex h-16 shrink-0 items-center">
                                 <img
                                     alt="Your Company"
-                                    src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
+                                    src="/images/para-fiber.jpg"
                                     className="h-8 w-auto"
                                 />
                             </div>
@@ -176,12 +176,12 @@ export default function SidebarSection() {
 
             <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
                 {/* Sidebar component, swap this element with another sidebar if you like */}
-                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-5 pb-4">
+                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-sky-500 px-5 pb-4">
                     <div className="flex h-16 shrink-0 items-center">
                         <img
                             alt="Your Company"
-                            src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
-                            className="h-8 w-auto"
+                            src="/images/para-fiber.jpg"
+                            className="h-12 mt-4 w-auto"
                         />
                     </div>
                     <nav className="flex flex-1 flex-col">
@@ -197,9 +197,9 @@ export default function SidebarSection() {
                                                 href={item.href}
                                                 className={classNames(
                                                     item.current
-                                                        ? "bg-gray-800 text-white"
-                                                        : "text-gray-400 hover:bg-gray-800 hover:text-white",
-                                                    "group flex gap-x-3 rounded-sm p-2 text-sm/6 font-semibold "
+                                                        ? "bg-sky-800 text-white"
+                                                        : "text-white hover:bg-sky-800 hover:text-white",
+                                                    "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold "
                                                 )}
                                             >
                                                 <item.icon
@@ -245,7 +245,7 @@ export default function SidebarSection() {
                             <li className="mt-auto">
                                 <a
                                     href="#"
-                                    className="group -mx-2 flex gap-x-3 rounded-sm p-2 text-sm/6 font-semibold text-gray-400 hover:bg-gray-800 hover:text-white"
+                                    className="group -mx-2 flex gap-x-3 rounded-sm p-2 text-sm/6 font-semibold text-white hover:bg-gray-800 hover:text-white"
                                 >
                                     <Cog6ToothIcon
                                         aria-hidden="true"
