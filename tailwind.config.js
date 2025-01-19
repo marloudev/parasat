@@ -20,14 +20,29 @@ export default {
             },
             animation: {
                 'border-glow': 'border-glow 1s infinite',
+                'pop-up': 'popUp 0.5s ease-out forwards',
             },
             keyframes: {
                 'border-glow': {
-                    '0%, 100%': { 
-                        'box-shadow': '0 0 10px 2px #FFFF00', 
+                    '0%, 100%': {
+                        'box-shadow': '0 0 10px 2px #FFFF00',
                     },
-                    '50%': { 
-                        'box-shadow': '0 0 20px 2px #FF0000', 
+                    '50%': {
+                        'box-shadow': '0 0 20px 2px #FF0000',
+                    },
+                },
+                popUp: {
+                    '0%': {
+                        opacity: '0',
+                        transform: 'scale(0.8)',
+                    },
+                    '50%': {
+                        opacity: '1',
+                        transform: 'scale(1.05)',
+                    },
+                    '100%': {
+                        opacity: '1',
+                        transform: 'scale(1)',
                     },
                 },
             },
