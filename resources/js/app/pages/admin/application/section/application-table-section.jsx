@@ -1,5 +1,6 @@
 import { EyeIcon, ViewfinderCircleIcon } from '@heroicons/react/24/outline'
 import React from 'react'
+import ViewApplicationSection from './view-application-section'
 
 export default function ApplicationTableSection() {
 
@@ -58,7 +59,7 @@ export default function ApplicationTableSection() {
                                 Pending
                             </td>
                             <td className="flex py-4 text-sm font-medium sm:pr-0 ">
-                                <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"><EyeIcon className='h-5' /></button>
+                                <ViewApplicationSection />
                             </td>
                         </tr>
                     ))}

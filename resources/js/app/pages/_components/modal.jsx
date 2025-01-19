@@ -4,8 +4,9 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 export default function Modal({ open, setOpen, children , width = 'w-1/2'}) {
   return (
     <Dialog open={open} onClose={() => setOpen(false)} className="relative z-10">
+      {/* Darken the background */}
       <DialogBackdrop
-        className="fixed inset-0 bg-gray-500/75 transition-opacity"
+        className="fixed inset-0 bg-black/50 transition-opacity"
       />
 
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">

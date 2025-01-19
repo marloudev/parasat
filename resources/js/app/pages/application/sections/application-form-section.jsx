@@ -13,6 +13,7 @@ export default function ApplicationFormSection() {
     const [newProvince, setNewProvince] = useState([])
     const [newCity, setNewCity] = useState([])
     const [newBarangay, setNewBarangay] = useState([])
+    
 
     function data_handler(e) {
         if (e.target.name == 'region') {
