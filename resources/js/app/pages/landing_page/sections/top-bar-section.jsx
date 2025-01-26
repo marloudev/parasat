@@ -41,8 +41,16 @@ export default function TopBarSection() {
                         <div className='w-full'>
                             <img src="/images/para-fiber.jpg" className='h-10' alt="" />
                         </div>
-                        <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                            {/* Navigation items can go here */}
+                        <div className="flex flex-1 gap-5 w-full  text-white items-center justify-center sm:items-stretch sm:justify-start">
+                            <div className='hover:text-slate-400'>
+                                <a href=""> About Us</a>
+                            </div>
+                            <div className='hover:text-slate-400'>
+                                <a href=""> Contact</a>
+                            </div>
+                            <div className='hover:text-slate-400'>
+                                <a href=""> Home</a>
+                            </div>
                         </div>
 
                         <div className="fixed bottom-10 right-14 flex items-center justify-center">
