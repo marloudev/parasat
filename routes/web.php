@@ -21,7 +21,7 @@ Route::get('/application', function () {
 
 
 // Route::middleware('auth:sanctum', 'role:1')->prefix('administrator')->group(function () {
-Route::prefix('administrator')->group(function () {
+Route::middleware('auth:sanctum')->prefix('administrator')->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('admin/dashboard/page');
     })->name('dashboard');
