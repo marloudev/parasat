@@ -5,22 +5,14 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
 
 Route::get('/', function () {
     return Inertia::render('landing_page/page');
 });
 
-Route::get('/logins', function () {
+Route::get('/auth/login', function () {
     return Inertia::render('login/page');
-});
+})->name('login');
 
 Route::get('/application', function () {
     return Inertia::render('application/page');
@@ -32,7 +24,7 @@ Route::get('/application', function () {
 Route::prefix('administrator')->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('admin/dashboard/page');
-    });
+    })->name('dashboard');
     Route::get('/inventory', function () {
         return Inertia::render('admin/inventory/page');
     });

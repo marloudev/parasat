@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from  "@inertiajs/react";
 export default function OfferPlanCardComponent({ name, monthly, annually, href, popular }) {
 
     return (
@@ -19,12 +19,12 @@ export default function OfferPlanCardComponent({ name, monthly, annually, href, 
                 <span className="text-sm/6 font-semibold text-gray-600">/month</span>
             </p>
             <p className="mt-3 text-sm/6 text-gray-500">{annually} per month if paid annually</p>
-            <a
+            <Link
                 href={href}
                 className="mt-7 mb-3 block rounded-md bg-blue-600 px-3 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
                 Purchase Plan
-            </a>
+            </Link>
         </div>
     )
 }

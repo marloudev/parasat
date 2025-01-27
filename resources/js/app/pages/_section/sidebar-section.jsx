@@ -17,20 +17,23 @@ import {
     HomeIcon,
     UsersIcon,
 } from "@heroicons/react/24/outline";
+import { Link } from "@inertiajs/react";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
 }
 
 export default function SidebarSection() {
+
+    const path = window.location.pathname.split('/')[2]
     const navigation = [
-        { name: "Dashboard", href: "dashboard", icon: HomeIcon, current: true },
-        { name: "User Management", href: "#", icon: UserGroupIcon, current: false },
-        { name: "Internet Plans", href: "internetplans", icon: SignalIcon, current: false },
-        { name: "Applications", href: "application", icon: UsersIcon, current: false },
-        { name: "Inventory", href: "inventory", icon: FolderIcon, current: false },
-        { name: "Requests", href: "requests", icon: ClipboardDocumentListIcon, current: false },
-        { name: "Email notifications", href: "#", icon: EnvelopeOpenIcon, current: false },
+        { name: "Dashboard", href: "/administrator/dashboard", icon: HomeIcon, current: path == 'dashboard' },
+        { name: "User Management", href: "/administrator/user_manangement", icon: UserGroupIcon, current: path == 'user_manangement' },
+        { name: "Internet Plans", href: "/administrator/internetplans", icon: SignalIcon, current: path == 'internetplans' },
+        { name: "Applications", href: "/administrator/application", icon: UsersIcon, current: path == 'application' },
+        { name: "Inventory", href: "/administrator/inventory", icon: FolderIcon, current: path == 'inventory' },
+        { name: "Requests", href: "/administrator/requests", icon: ClipboardDocumentListIcon, current: path == 'requests' },
+        { name: "Email notifications", href: "#", icon: EnvelopeOpenIcon, current: path == '' },
     ];
 
     const teams = [
@@ -106,7 +109,7 @@ export default function SidebarSection() {
                                         >
                                             {navigation.map((item) => (
                                                 <li key={item.name}>
-                                                    <a
+                                                    <Link
                                                         href={item.href}
                                                         className={classNames(
                                                             item.current
@@ -120,7 +123,7 @@ export default function SidebarSection() {
                                                             className="size-6 shrink-0"
                                                         />
                                                         {item.name}
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                             ))}
                                         </ul>
@@ -135,7 +138,7 @@ export default function SidebarSection() {
                                         >
                                             {teams.map((team) => (
                                                 <li key={team.name}>
-                                                    <a
+                                                    <Link
                                                         href={team.href}
                                                         className={classNames(
                                                             team.current
@@ -150,7 +153,7 @@ export default function SidebarSection() {
                                                         <span className="truncate">
                                                             {team.name}
                                                         </span>
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                             ))}
                                         </ul>
@@ -192,8 +195,8 @@ export default function SidebarSection() {
                             <li>
                                 <ul role="list" className="-mx-2 space-y-1">
                                     {navigation.map((item) => (
-                                        <li key={item.name}>
-                                            <a
+                                        <div key={item.name}>
+                                            <Link
                                                 href={item.href}
                                                 className={classNames(
                                                     item.current
@@ -207,8 +210,8 @@ export default function SidebarSection() {
                                                     className="size-6 shrink-0"
                                                 />
                                                 {item.name}
-                                            </a>
-                                        </li>
+                                            </Link>
+                                        </div>
                                     ))}
                                 </ul>
                             </li>

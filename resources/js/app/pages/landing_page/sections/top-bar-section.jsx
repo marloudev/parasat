@@ -71,8 +71,8 @@ export default function TopBarSection() {
 
                                     {/* Login button inside the tooltip */}
                                     <button
-                                        onClick={() => {
-                                            router.visit('/logins')
+                                          onClick={() => {
+                                            router.visit('/auth/login')
                                             setIsTooltipVisible(false)  // Close tooltip after redirection
                                         }}
                                         className="block w-full px-4 py-2 text-md text-blue-500 hover:bg-slate-300 text-center rounded-md">
