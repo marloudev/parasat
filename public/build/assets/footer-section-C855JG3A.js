@@ -1,1 +1,0 @@
-import{j as e}from"./app-DSb_PS2x.js";function r(){return e.jsx("div",{children:e.jsx("div",{className:"h-10 flex items-center justify-center bg-blue-900 text-white",children:"© 2025 Parasat Cable TV, Inc. All rights reserved."})})}export{r as default};
