@@ -1,0 +1,1 @@
+import{j as e}from"./app-DSb_PS2x.js";function s(){return e.jsx("div",{className:"fixed inset-0 flex items-center justify-center",children:e.jsx("div",{className:"popup-message animate-pop-up  bg-sky-300 text-center p-5 rounded-xl",children:"Thank you for choosing Parasat :)"})})}export{s as default};
