@@ -9,7 +9,7 @@ export default function RestockSection() {
     const closeModal = () => setIsModalOpen(false);
     const [serialNumbers, setSerialNumbers] = useState(['']);
 
-    const serial_number = 0;
+    const serial_number = 1;
 
     const handleAddSerialNumber = () => {
         setSerialNumbers([...serialNumbers, '']);

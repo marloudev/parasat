@@ -46,7 +46,7 @@ export default function AddItemSection() {
 
                     <div className="mb-4">
                         <input
-                            type='radio'
+                            type='checkbox'
                             id='with_sn'
                             name='with_sn'
                             value=''
