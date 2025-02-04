@@ -1,1 +1,0 @@
-import{j as r}from"./app-BcGWs9Q2.js";import t from"./layout-7sZLBzRz.js";import"./sidebar-section-mIHVZ1zo.js";import"./XMarkIcon-BQMIE0G2.js";import"./portal-DkLW1-Ko.js";import"./Cog6ToothIcon-D0HyUSNF.js";import"./topbar-section-1tZ6krE1.js";import"./MagnifyingGlassIcon-B-H6oW-e.js";function u(){return r.jsx(t,{children:"UserPage"})}export{u as default};

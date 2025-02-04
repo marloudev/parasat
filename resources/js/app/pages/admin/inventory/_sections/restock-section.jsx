@@ -42,13 +42,7 @@ export default function RestockSection() {
                     <div className='max-h-[700px] overflow-y-auto'>
                         <form onSubmit={handleSubmit}>
                             <div className='mb-4'>
-                                <InputField
-                                    label='Quantity'
-                                    placeholder='Enter Quantity'
-                                    name='quantity'
-                                    type='number'
-                                    required
-                                />
+                                
                             </div>
 
                             {serialNumbers.map((serialNumber, index) => (

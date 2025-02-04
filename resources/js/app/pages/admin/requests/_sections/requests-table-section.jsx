@@ -1,5 +1,5 @@
 import Modal from '@/app/pages/_components/modal';
-import { PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
 import React, { useState } from 'react'
 
 const people = [
@@ -91,8 +91,7 @@ export default function RequestsTableSection() {
                 Pending
               </td>
               <td className="flex py-4 text-sm font-medium sm:pr-0 ">
-                <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Approve</button>
-                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2">Reject</button>
+                <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Review</button>
               </td>
             </tr>
           ))}
@@ -154,10 +153,15 @@ export default function RequestsTableSection() {
             </div>
 
           </div>
-          <div className='flex w-full items-center justify-end'>
-            <button type='submit' name='save' className=' bg-green-600 text-white p-2 rounded-md w-20'>Save</button>
-          </div>
+          <div className='flex items-center justify-end gap-4'>
+            <div className=''>
+              <button type='submit' name='save' className=' bg-green-600 text-white p-2 rounded-md w-20'>Release</button>
+            </div>
+            <div className=''>
+              <button type='submit' name='reject' className=' bg-red-600 text-white p-2 rounded-md w-20'>Reject</button>
+            </div>
 
+          </div>
         </div>
       </Modal>
     </div>
