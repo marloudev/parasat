@@ -41,15 +41,15 @@ export default function TopBarSection() {
                         <div className='w-full'>
                             <img src="/images/para-fiber.jpg" className='h-10' alt="" />
                         </div>
-                        <div className="flex flex-1 gap-5 w-full  text-white items-center justify-center sm:items-stretch sm:justify-start">
+                        <div className="flex gap-5 w-full text-white items-center justify-end">
                             <div className='hover:text-slate-400'>
-                                <a href=""> About Us</a>
+                                <a href="http://127.0.0.1:8000/about-us" className='hover:underline'> About Us</a>
                             </div>
                             <div className='hover:text-slate-400'>
-                                <a href=""> Contact</a>
+                                <a href="#contact" className='hover:underline'> Contact</a>
                             </div>
                             <div className='hover:text-slate-400'>
-                                <a href=""> Home</a>
+                                <a href="http://127.0.0.1:8000/" className='hover:underline'> Home</a>
                             </div>
                         </div>
 
@@ -71,7 +71,7 @@ export default function TopBarSection() {
 
                                     {/* Login button inside the tooltip */}
                                     <button
-                                          onClick={() => {
+                                        onClick={() => {
                                             router.visit('/auth/login')
                                             setIsTooltipVisible(false)  // Close tooltip after redirection
                                         }}

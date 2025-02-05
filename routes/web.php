@@ -18,6 +18,14 @@ Route::get('/application', function () {
     return Inertia::render('application/page');
 });
 
+Route::get('/about-us', function () {
+    return Inertia::render('about-us/page');
+});
+
+Route::get('/contact', function () {
+    return Inertia::render('contact/page');
+});
+
 
 
 // Route::middleware('auth:sanctum', 'role:1')->prefix('administrator')->group(function () {

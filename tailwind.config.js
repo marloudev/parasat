@@ -21,6 +21,8 @@ export default {
             animation: {
                 'border-glow': 'border-glow 1s infinite',
                 'pop-up': 'popUp 0.5s ease-out forwards',
+                'flash': 'flash 1.5s ease-in-out 1', // Added custom flash animation
+                'fade-in-up': 'fadeInUp 1s ease-out forwards', // Added fade-in-up animation
             },
             keyframes: {
                 'border-glow': {
@@ -43,6 +45,23 @@ export default {
                     '100%': {
                         opacity: '1',
                         transform: 'scale(1)',
+                    },
+                },
+                // Custom flash animation
+                flash: {
+                    '0%': { opacity: '0.2' },
+                    '50%': { opacity: '1' },
+                    '100%': { opacity: '0.2' },
+                },
+                // Custom fade-in-up animation
+                fadeInUp: {
+                    '0%': {
+                        opacity: '0',
+                        transform: 'translateY(20px)', // Start slightly below
+                    },
+                    '100%': {
+                        opacity: '1',
+                        transform: 'translateY(0)', // End at the normal position
                     },
                 },
             },

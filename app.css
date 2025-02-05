@@ -1,0 +1,17 @@
+@keyframes flash {
+    0% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}
+
+.flashing {
+    animation: flash 1.5s ease-in-out 0s 1;
+}

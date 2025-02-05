@@ -11,7 +11,7 @@ export default function PlanListSection() {
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="flex flex-col gap-3">
                         <p className='mt-4 text-balance text-5xl font-semibold tracking-tight text-white sm:text-5xl mb-4 shadow-blue-300 shadow-lg w-full'>
-                            PLANS OFFER:
+                            INTERNET PLANS OFFER:
                         </p>
                         <div className='className="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-16 gap-x-3 divide-y divide-gray-100 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none lg:grid-cols-3 lg:divide-x lg:divide-y-0 xl:-mx-4"'>
                             <OfferPlanCardComponent

@@ -1,16 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PlanListSection from './sections/plan-list-section'
 import TopBarSection from './sections/top-bar-section'
 import ParasatCoverSection from './sections/parasat-cover-section'
 import FooterSection from './sections/footer-section'
+import ContactUsSection from './sections/contact-us-section'
 
 export default function LandingPage() {
+
+    const [flashing, setFlashing] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setFlashing(false);
+        }, 800);
+
+        return () => clearTimeout(timer);
+    }, []);
     return (
-        <div className=''>
+        <div className={flashing ? 'animate-flash' : ''}>
             <TopBarSection />
             <ParasatCoverSection />
             <PlanListSection />
-            <FooterSection/>
+            <section id='contact'>
+                <ContactUsSection />
+            </section>
+            <FooterSection />
         </div>
     )
 }
