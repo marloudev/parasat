@@ -4,6 +4,8 @@ import TopBarSection from './sections/top-bar-section'
 import ParasatCoverSection from './sections/parasat-cover-section'
 import FooterSection from './sections/footer-section'
 import ContactUsSection from './sections/contact-us-section'
+import store from '../store/store'
+import { get_internet_plan_thunk } from '@/app/redux/internet-plan-thunk'
 
 export default function LandingPage() {
 
@@ -15,6 +17,10 @@ export default function LandingPage() {
         }, 800);
 
         return () => clearTimeout(timer);
+    }, []);
+
+    useEffect(() => {
+        store.dispatch(get_internet_plan_thunk())
     }, []);
     return (
         <div className={flashing ? 'animate-flash' : ''}>

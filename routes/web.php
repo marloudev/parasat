@@ -14,7 +14,7 @@ Route::get('/auth/login', function () {
     return Inertia::render('login/page');
 })->name('login');
 
-Route::get('/application', function () {
+Route::get('/application/{id}', function () {
     return Inertia::render('application/page');
 });
 
