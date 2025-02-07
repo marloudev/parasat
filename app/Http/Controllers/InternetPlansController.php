@@ -39,16 +39,23 @@ class InternetPlansController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, InternetPlan $internetPlan)
+    public function update(Request $request,  $id)
     {
-        //
+
+        $plan = InternetPlan::where('id', $id)->first();
+        if ($plan) {
+            $plan->update($request->all());
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(InternetPlan $internetPlan)
+    public function destroy($id)
     {
-        //
+        InternetPlan::where('id', $id)->delete();
+        return response()->json([
+            'response' => 'success',
+        ], 200);
     }
 }

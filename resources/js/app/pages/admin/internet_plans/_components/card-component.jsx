@@ -1,10 +1,13 @@
 import React from 'react'
+import DeletePlanSection from '../_sections/delete-plan-section'
+import UpdatePlanSection from '../_sections/update-plan-section'
 
-export default function PlanCardComponent({ name, price, speed, href, popular }) {
+export default function PlanCardComponent({ name, price, speed, href, popular,data }) {
 
     return (
-        <div className="pt-16 lg:px-8 lg:pt-0 xl:px-14 shadow-md shadow-blue-200 bg-white rounded-md">
-            <div className='flex flex-1 items-center justify-between mt-2'>
+        <div className=" py-5 shadow-md shadow-blue-200 bg-white rounded-md">
+            <div className='flex gap-5 flex-1 items-center justify-between mx-5'>
+                <div className='flex gap-3'>
                 <h3 className="text-base/7 font-semibold text-gray-900">
                     Up to {speed}
                 </h3>
@@ -13,12 +16,18 @@ export default function PlanCardComponent({ name, price, speed, href, popular })
                         Most popular
                     </p>
                 )}
+
+                </div>
+               <div className='flex gap-2'>
+               <DeletePlanSection data={data}/>
+               <UpdatePlanSection data={data}/>
+               </div>
             </div>
-            <p className="mt-6 flex items-baseline gap-x-1">
+            <p className="mx-5 flex items-baseline gap-x-1">
                 <span className="text-5xl font-semibold tracking-tight text-gray-900">₱{price}</span>
                 <span className="text-sm/6 font-semibold text-gray-600">/month</span>
             </p>
-            <p className="mt-3 text-sm/6 text-gray-500">{name}</p>
+            <p className="mx-5 text-sm/6 text-gray-500">{name}</p>
 
         </div>
     )

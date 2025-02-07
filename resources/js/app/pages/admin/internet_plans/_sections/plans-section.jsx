@@ -24,6 +24,7 @@ export default function PlansSection() {
                                     price={plan.price}
                                     speed={plan.speed}
                                     popular={plan.popular}
+                                    data={plan}
                                     href="http://127.0.0.1:8000/application"
                                 />
                             ))}

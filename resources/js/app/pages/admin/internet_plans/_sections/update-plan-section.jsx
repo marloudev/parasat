@@ -1,24 +1,26 @@
 import Modal from '@/app/pages/_components/modal'
 import store from '@/app/pages/store/store';
-import { create_internet_plan_thunk, get_internet_plan_thunk } from '@/app/redux/internet-plan-thunk';
-import { PlusIcon } from '@heroicons/react/24/outline'
+import { create_internet_plan_thunk, get_internet_plan_thunk, update_internet_plan_thunk } from '@/app/redux/internet-plan-thunk';
+import { PencilIcon, PlusIcon } from '@heroicons/react/24/outline'
 import { message } from 'antd';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-export default function CreateInternetPlanSection() {
+export default function UpdatePlanSection({data}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({});
+
+  useEffect(()=>{
+    setForm(data)
+  },[])
 
   const submitPlan = async (e) => {
     e.preventDefault()
     setLoading(true);
     try {
       await store.dispatch(
-        create_internet_plan_thunk({
-          ...form,
-        })
+        update_internet_plan_thunk(form)
       );
       store.dispatch(get_internet_plan_thunk())
       // message.success("Successfully Added!"); 
@@ -32,7 +34,7 @@ export default function CreateInternetPlanSection() {
 
   return (
     <div className='flex justify-end mt-4'>
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={openModal}><PlusIcon className="h-5 w-5 inline-block" /> Create Internet Plan</button>
+      <button className=" text-blue-500 font-bold " onClick={openModal}><PencilIcon className="h-5 w-5 inline-block" /></button>
 
       <Modal open={isModalOpen} setOpen={setIsModalOpen} width='w-1/4'>
         <h2 className="text-xl font-semibold mb-4">Create Internet Plan</h2>
@@ -46,7 +48,7 @@ export default function CreateInternetPlanSection() {
                   name: e.target.value,
                 })
               }
-              value={form.name}
+              value={form?.name}
               type="text"
               name="name"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" />
@@ -60,7 +62,7 @@ export default function CreateInternetPlanSection() {
                   speed: e.target.value,
                 })
               }
-              value={form.speed}
+              value={form?.speed}
               type="text"
               name="speed"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" />
@@ -74,7 +76,7 @@ export default function CreateInternetPlanSection() {
                   price: e.target.value,
                 })
               }
-              value={form.price}
+              value={form?.price}
               type="text"
               name="price"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" />
@@ -89,7 +91,7 @@ export default function CreateInternetPlanSection() {
                   ),
                 })
               }
-              checked={form.popular == "true"}
+              checked={form?.popular == "true"}
               type="checkbox"
               name="popular"
               class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500   focus:ring-2 " />
