@@ -1,0 +1,1 @@
+import{j as o}from"./app-DlFCaDo0.js";import i from"./application-form-section-DQUDMGqd.js";import r from"./top-bar-section-BYWcFgzM.js";import"./input-B1Jdne8X.js";import"./select-Z-AO3W-V.js";import"./Cog6ToothIcon-D7125Erv.js";function a(){return o.jsxs("div",{children:["\\",o.jsx(r,{}),o.jsx(i,{})]})}export{a as default};

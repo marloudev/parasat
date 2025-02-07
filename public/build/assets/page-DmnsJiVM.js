@@ -1,0 +1,1 @@
+import{j as r}from"./app-DlFCaDo0.js";import o from"./layout-BU9qssjq.js";import"./sidebar-section-jl204TJJ.js";import"./XMarkIcon-0AZlO85u.js";import"./portal-D7PpLYHu.js";import"./Cog6ToothIcon-D7125Erv.js";import"./topbar-section-BQCVHC2D.js";function u(){return r.jsx(o,{children:"AdminCoursesPage"})}export{u as default};
