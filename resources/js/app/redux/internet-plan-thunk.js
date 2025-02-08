@@ -1,4 +1,4 @@
-import { create_internet_plan_service, delete_internet_plan_service, get_internet_plan_service, update_internet_plan_service } from "../pages/services/internet-plan-service";
+import { create_internet_plan_service, delete_internet_plan_service, get_internet_plan_by_id_service, get_internet_plan_service, update_internet_plan_service } from "../pages/services/internet-plan-service";
 import { internetPlanSlice } from "./internet-plan-slice";
 
 export function create_internet_plan_thunk(data) {
@@ -14,6 +14,15 @@ export function get_internet_plan_thunk() {
         dispatch(internetPlanSlice.actions.setInternetPlans(res.data.result));
     };
 }
+
+export function get_internet_plan_by_id_thunk(id) {
+    return async function (dispatch, getState) {
+        const res = await get_internet_plan_by_id_service(id)
+        dispatch(internetPlanSlice.actions.setInternetPlan(res.status));
+        return res.status
+    };
+}
+
 
 export function delete_internet_plan_thunk(id) {
     return async function (dispatch, getState) {

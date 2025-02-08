@@ -2,18 +2,18 @@ import Modal from '@/app/pages/_components/modal'
 import store from '@/app/pages/store/store';
 import { create_internet_plan_thunk, get_internet_plan_thunk, update_internet_plan_thunk } from '@/app/redux/internet-plan-thunk';
 import { PencilIcon, PlusIcon } from '@heroicons/react/24/outline'
-import { message } from 'antd';
+import { message, Tooltip } from 'antd';
 import React, { useEffect, useState } from 'react'
 
-export default function UpdatePlanSection({data}) {
+export default function UpdatePlanSection({ data }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({});
 
-  useEffect(()=>{
+  useEffect(() => {
     setForm(data)
-  },[])
+  }, [])
 
   const submitPlan = async (e) => {
     e.preventDefault()
@@ -34,8 +34,9 @@ export default function UpdatePlanSection({data}) {
 
   return (
     <div className='flex justify-end mt-4'>
-      <button className=" text-blue-500 font-bold " onClick={openModal}><PencilIcon className="h-5 w-5 inline-block" /></button>
-
+      <Tooltip title="Update Plan">
+        <button className=" text-blue-500 font-bold " onClick={openModal}><PencilIcon className="h-5 w-5 inline-block" /></button>
+      </Tooltip>
       <Modal open={isModalOpen} setOpen={setIsModalOpen} width='w-1/4'>
         <h2 className="text-xl font-semibold mb-4">Create Internet Plan</h2>
         <form action="" onSubmit={submitPlan}>

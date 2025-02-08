@@ -2,7 +2,7 @@ import Modal from "@/app/pages/_components/modal";
 import store from "@/app/pages/store/store";
 import { create_internet_plan_thunk, delete_internet_plan_thunk, get_internet_plan_thunk } from "@/app/redux/internet-plan-thunk";
 import { PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
-import { message } from "antd";
+import { message, Tooltip } from "antd";
 import React, { useState } from "react";
 
 export default function DeletePlanSection({ data }) {
@@ -29,13 +29,14 @@ export default function DeletePlanSection({ data }) {
 
     return (
         <div className="flex justify-end mt-4">
+            <Tooltip title="Remove Plan">
             <button
                 className="text-white font-bold py-2 px-4 rounded"
                 onClick={openModal}
             >
                 <TrashIcon className="h-5 w-5 inline-block text-red-600" />
             </button>
-
+            </Tooltip>
             <Modal open={isModalOpen} setOpen={setIsModalOpen} width="w-1/4">
                 <h2 className="text-xl font-semibold mb-4">
                     Are you sure you want to delete your plan?

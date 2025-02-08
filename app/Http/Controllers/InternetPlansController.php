@@ -23,9 +23,12 @@ class InternetPlansController extends Controller
     }
 
 
-    public function show(InternetPlan $internetPlan)
+    public function show($id)
     {
-        //
+        $internet_plan = InternetPlan::where('id', $id)->first();
+        return response()->json([
+            'status' => $internet_plan,
+        ], 200);
     }
 
     /**

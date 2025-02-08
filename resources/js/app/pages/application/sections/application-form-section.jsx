@@ -7,14 +7,17 @@ import city from "@/app/address/city.json"
 import barangay from "@/app/address/barangay.json"
 import Select from '../../_components/select'
 import ConfirmationSection from './confirmation-section'
+import InputPrice from '../../_components/inputprice'
+import { useSelector } from 'react-redux'
 
 export default function ApplicationFormSection() {
+    const { internet_plan } = useSelector((state) => state.internet_plans);
     const [loading, setLoading] = useState(null);
     const [newProvince, setNewProvince] = useState([])
     const [newCity, setNewCity] = useState([])
     const [newBarangay, setNewBarangay] = useState([])
-    
 
+    console.log('internet_plan', internet_plan)
     function data_handler(e) {
         if (e.target.name == 'region') {
             const region = JSON.parse(e.target.value)
@@ -140,25 +143,6 @@ export default function ApplicationFormSection() {
                                             <div className="flex w-full">
                                                 <div className="flex flex-col gap-4 mb-4 w-full">
                                                     <div className="flex flex-col w-full">
-                                                        <select
-                                                            // onChange={(event) => data_handler(event)}
-                                                            // value={applicantForm.gender ?? ""}
-                                                            name="gender"
-                                                            className="border p-2 rounded w-full"
-                                                        >
-                                                            <option className="" disabled selected>&nbsp; Gender</option>
-                                                            <option> Male</option>
-                                                            <option> Female</option>
-                                                        </select>
-                                                        {/* {
-                                                        error?.gender && <span className="text-red-500 text-sm mt-1">
-                                                            This field is required.
-                                                        </span>
-                                                    } */}
-
-                                                    </div>
-
-                                                    <div className="flex flex-col w-full">
                                                         <Input
                                                             // onChange={(event) =>
                                                             //     data_handler(event)
@@ -187,24 +171,6 @@ export default function ApplicationFormSection() {
 
                                             <div className="flex w-full">
                                                 <div className="flex flex-col gap-4 mb-4 w-full">
-                                                    <div className="flex flex-col w-full">
-                                                        <select
-                                                            // onChange={(event) => data_handler(event)}
-                                                            name="marital"
-                                                            className="border p-2 rounded w-full"
-                                                        >
-                                                            <option disabled selected>&nbsp; Marital Status</option>
-                                                            <option> Single</option>
-                                                            <option> Married</option>
-                                                            <option> Widowed</option>
-                                                            <option> Divorced</option>
-                                                        </select>
-                                                        {/* {
-                                                        error?.marital && <span className="text-red-500 text-sm mt-1">
-                                                            This field is required.
-                                                        </span>
-                                                    } */}
-                                                    </div>
                                                     <div className="flex flex-col w-full">
                                                         <Input
                                                             // onChange={(event) =>
@@ -321,40 +287,29 @@ export default function ApplicationFormSection() {
                                         <div className="mb-4 w-full">
                                             <Input
                                                 // onChange={(event) => data_handler(event)}
-                                                // value={applicantForm.ename ?? ""}
-                                                name="ename"
-                                                label="Emergency Contact Fullname"
+                                                value={internet_plan?.name ?? ""}
+                                                name="pname"
+                                                label="Plan Name"
                                                 type="text"
                                             />
                                         </div>
                                         <div className="mb-4 w-full">
                                             <Input
                                                 // onChange={(event) => data_handler(event)}
-                                                // value={applicantForm.eaddress ?? ""}
-                                                name="eaddress"
-                                                label="Address"
+                                                value={internet_plan?.speed ?? ""}
+                                                name="pspeed"
+                                                label="Plan Speed"
                                                 type="text"
                                             />
                                         </div>
-                                        <div className="flex flex-1 gap-4 mb-4">
-                                            <div className="w-full">
-                                                <Input
-                                                    // onChange={(event) => data_handler(event)}
-                                                    // value={applicantForm.relationship ?? ""}
-                                                    name="relationship"
-                                                    label="Relationship"
-                                                    type="text"
-                                                />
-                                            </div>
-                                            <div className="w-full">
-                                                <Input
-                                                    // onChange={(event) => data_handler(event)}
-                                                    // value={applicantForm.ephone ?? ""}
-                                                    name="ephone"
-                                                    label="Contact No."
-                                                    type="number"
-                                                />
-                                            </div>
+                                        <div className="mb-4 w-full">
+                                            <InputPrice
+                                                // onChange={(event) => data_handler(event)}
+                                                value={internet_plan?.price ?? ""}
+                                                name="price"
+                                                label="Plan Price"
+                                                type="text"
+                                            />
                                         </div>
                                         <div className="flex justify-end mt-2.5">
 
