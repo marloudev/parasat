@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('internet_plan', function (Blueprint $table) {
+        Schema::create('serial_number_items', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('speed')->nullable();
-            $table->string('price')->nullable();
-            $table->string('popular')->nullable();
+            $table->string('item_id')->nullable();
+            $table->string('serial_number')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('internet_plan');
+        Schema::dropIfExists('serial_number_items');
     }
 };
