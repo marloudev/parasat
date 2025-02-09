@@ -9,6 +9,8 @@ import Select from '../../_components/select'
 import ConfirmationSection from './confirmation-section'
 import InputPrice from '../../_components/inputprice'
 import { useSelector } from 'react-redux'
+import store from '../../store/store'
+import { create_application_thunk } from '@/app/redux/application-thunk'
 
 export default function ApplicationFormSection() {
     const { internet_plan } = useSelector((state) => state.internet_plans);
@@ -16,6 +18,7 @@ export default function ApplicationFormSection() {
     const [newProvince, setNewProvince] = useState([])
     const [newCity, setNewCity] = useState([])
     const [newBarangay, setNewBarangay] = useState([])
+    const [form, setForm] = useState();
 
     console.log('internet_plan', internet_plan)
     function data_handler(e) {
@@ -60,16 +63,24 @@ export default function ApplicationFormSection() {
     }
 
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setLoading(true);
 
-        // Simulate a form submission (e.g., API call)
-        setTimeout(() => {
+    async function handleSubmit() {
+        try {
+            setLoading(true);
+            await store.dispatch(
+                create_application_thunk({
+                    ...form,
+                })
+            );
+            message.success("Successfully Added!");
+            setOpen(false);
+        } catch (error) {
+            message.error("Failed to save Employee. Please try again.");
+        } finally {
             setLoading(false);
-            setIsSubmitted(true);
-        }, 2000); // 2-second delay to simulate submission
-    };
+        }
+    }
+
     return (
         <div className='bg-sky-500 h-screen'>
             {isSubmitted ? (
@@ -98,37 +109,59 @@ export default function ApplicationFormSection() {
                                             <div className="flex flex-col w-full mb-4">
                                                 <div className="flex flex-1 gap-3">
                                                     <Input
-                                                        // onChange={(event) => data_handler(event)}
-                                                        // value={applicantForm.fname ?? ""}
+                                                        onChange={(e) =>
+                                                            setForm({
+                                                                ...form,
+                                                                fname: e.target.value,
+                                                            })
+                                                        }
+                                                        value={form?.fname ?? ""}
                                                         // required={error?.fname ? true : false}
                                                         name="fname"
                                                         label="First Name"
                                                         type="text"
                                                     />
                                                     <Input
-                                                        // onChange={(event) => data_handler(event)}
-                                                        // value={applicantForm.mname ?? ""}
+                                                        onChange={(e) =>
+                                                            setForm({
+                                                                ...form,
+                                                                mname: e.target.value,
+                                                            })
+                                                        }
+                                                        value={form?.mname ?? ""}
                                                         // required={error?.mname ? true : false}
                                                         name="mname"
                                                         label="Middle Name"
                                                         type="text"
                                                     />
                                                     <Input
-                                                        // onChange={(event) => data_handler(event)}
-                                                        // value={applicantForm.lname ?? ""}
+                                                        onChange={(e) =>
+                                                            setForm({
+                                                                ...form,
+                                                                lname: e.target.value,
+                                                            })
+                                                        }
+                                                        value={form?.lname ?? ""}
                                                         // required={error?.lname ? true : false}
                                                         name="lname"
                                                         label="Last Name"
                                                         type="text"
                                                     />
                                                     <select
-                                                        // onChange={(event) => data_handler(event)}
+                                                        onChange={(e) =>
+                                                            setForm({
+                                                                ...form,
+                                                                suffix: e.target.value,
+                                                            })
+                                                        }
+                                                        value={form?.suffix ?? ""}
                                                         name="suffix"
                                                         className="border p-2 rounded  w-1/5"
                                                     >
                                                         <option disabled selected>
                                                             Suffix
                                                         </option>
+                                                        <option></option>
                                                         <option> Sr.</option>
                                                         <option> Jr.</option>
                                                         <option> II</option>
@@ -144,12 +177,15 @@ export default function ApplicationFormSection() {
                                                 <div className="flex flex-col gap-4 mb-4 w-full">
                                                     <div className="flex flex-col w-full">
                                                         <Input
-                                                            // onChange={(event) =>
-                                                            //     data_handler(event)
-                                                            // }
-                                                            // value={applicantForm.dob ?? ""}
+                                                            onChange={(e) =>
+                                                                setForm({
+                                                                    ...form,
+                                                                    bdate: e.target.value,
+                                                                })
+                                                            }
+                                                            value={form?.bdate ?? ""}
                                                             // required={error?.dob ? true : false}
-                                                            name="dob"
+                                                            name="bdate"
                                                             label="Date of Birth"
                                                             type="date"
                                                         // errorMessage={error?.dob}
@@ -157,8 +193,13 @@ export default function ApplicationFormSection() {
                                                     </div>
                                                     <div className=" w-full">
                                                         <Input
-                                                            // onChange={(event) => data_handler(event)}
-                                                            // value={applicantForm.email ?? ""}
+                                                            onChange={(e) =>
+                                                                setForm({
+                                                                    ...form,
+                                                                    email: e.target.value,
+                                                                })
+                                                            }
+                                                            value={form?.email ?? ""}
                                                             // required={error?.email ? true : false}
                                                             name="email"
                                                             label="Email"
@@ -171,24 +212,17 @@ export default function ApplicationFormSection() {
 
                                             <div className="flex w-full">
                                                 <div className="flex flex-col gap-4 mb-4 w-full">
-                                                    <div className="flex flex-col w-full">
-                                                        <Input
-                                                            // onChange={(event) =>
-                                                            //     data_handler(event)
-                                                            // }
-                                                            // value={applicantForm.nationality ?? ""}
-                                                            // required={error?.nationality ? true : false}
-                                                            name="nationality"
-                                                            label="Nationality"
-                                                            type="text"
-                                                        />
-                                                    </div>
                                                     <div className="w-full">
                                                         <Input
-                                                            // onChange={(event) => data_handler(event)}
-                                                            // value={applicantForm.phone ?? ""}
+                                                            onChange={(e) =>
+                                                                setForm({
+                                                                    ...form,
+                                                                    contact: e.target.value,
+                                                                })
+                                                            }
+                                                            value={form?.contact ?? ""}
                                                             // required={error?.phone ? true : false}
-                                                            name="phone"
+                                                            name="contact"
                                                             label="Phone Number"
                                                             type="number"
                                                         // errorMessage={error?.email}
@@ -197,26 +231,6 @@ export default function ApplicationFormSection() {
                                                 </div>
                                             </div>
                                         </div>
-                                        {/* <div className="flex flex-1 gap-4 mb-4">
-                                        <div className="w-full">
-                                            <select
-                                                name="educ"
-                                                className="border p-2.5 rounded w-full"
-                                            // onChange={(event) => data_handler(event)}
-                                            >
-                                                <option disabled selected>&nbsp; Highest Educational Attainment</option>
-                                                <option> Elementary Undergraduate</option>
-                                                <option> Elementary Graduate</option>
-                                                <option> Highschool/K-12 Undergraduate</option>
-                                                <option> Highschool/K-12 Graduate</option>
-                                                <option> College Level</option>
-                                                <option> College Graduate</option>
-                                                <option> Vocational Graduate</option>
-                                                <option> Masteral Degree</option>
-                                                <option> Doctoral Degree</option>
-                                            </select>
-                                        </div>
-                                    </div> */}
                                         <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-5">
                                             Address Information
                                         </h1>

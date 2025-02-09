@@ -9,6 +9,16 @@ class ApplicationController extends Controller
 {
     public function store(Request $request)
     {
-        Application::create($request->all());
+        $application = Application::create($request->all());
+
+        $address = $request->lot . ' ' . $request->brgy . ' ' . $request->city . ' ' . $request->province;
+
+        $application->address = $address;
+        $application->save();
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $application,
+        ], 200);
     }
 }
