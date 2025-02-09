@@ -31,7 +31,7 @@ class ItemsController extends Controller
 
         $item = Items::create($request->all());
 
-        return response()->json($item, 201);
+        return response()->json($item, 200);
     }
 
     public function update(Request $request, $id)

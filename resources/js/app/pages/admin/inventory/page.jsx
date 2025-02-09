@@ -1,10 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AdminLayout from '../layout'
 import InventoryTable from './_sections/inventory-table-section'
 import AddItemSection from './_sections/add-item-section'
+import store from '../../store/store'
+import { get_item_thunk } from '@/app/redux/item-thunk'
 
 export default function InventoryPage() {
     
+    useEffect(()=>{
+        store.dispatch(get_item_thunk())
+    },[])
     return (
         <div>
             <AdminLayout>
