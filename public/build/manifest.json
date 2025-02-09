@@ -1,57 +1,111 @@
 {
-  "_Cog6ToothIcon-P8wRwsLQ.js": {
-    "file": "assets/Cog6ToothIcon-P8wRwsLQ.js",
+  "_Cog6ToothIcon-BcHIYkJ-.js": {
+    "file": "assets/Cog6ToothIcon-BcHIYkJ-.js",
     "name": "Cog6ToothIcon",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_LoadingOutlined-BnmaSTDI.js": {
-    "file": "assets/LoadingOutlined-BnmaSTDI.js",
+  "_ContextIsolator-8ybUIvUq.js": {
+    "file": "assets/ContextIsolator-8ybUIvUq.js",
+    "name": "ContextIsolator",
+    "imports": [
+      "resources/js/app.jsx",
+      "_UnstableContext-Ca-NSWyA.js",
+      "_LoadingOutlined-B5XGN9jk.js"
+    ]
+  },
+  "_LoadingOutlined-B5XGN9jk.js": {
+    "file": "assets/LoadingOutlined-B5XGN9jk.js",
     "name": "LoadingOutlined",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_MagnifyingGlassIcon-BsAvfbVM.js": {
-    "file": "assets/MagnifyingGlassIcon-BsAvfbVM.js",
+  "_MagnifyingGlassIcon-BzWbAMub.js": {
+    "file": "assets/MagnifyingGlassIcon-BzWbAMub.js",
     "name": "MagnifyingGlassIcon",
     "imports": [
       "resources/js/app.jsx",
-      "_portal-8xwL0aha.js"
+      "_portal-A15CR88M.js"
     ]
   },
-  "_PhoneIcon-DUhySCj0.js": {
-    "file": "assets/PhoneIcon-DUhySCj0.js",
+  "_PhoneIcon-CT7y-ig2.js": {
+    "file": "assets/PhoneIcon-CT7y-ig2.js",
     "name": "PhoneIcon",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_PlusIcon-rAaj1SBE.js": {
-    "file": "assets/PlusIcon-rAaj1SBE.js",
+  "_PlusIcon--5VchUzc.js": {
+    "file": "assets/PlusIcon--5VchUzc.js",
     "name": "PlusIcon",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_XMarkIcon-BZUQQ3Iq.js": {
-    "file": "assets/XMarkIcon-BZUQQ3Iq.js",
+  "_UnstableContext-Ca-NSWyA.js": {
+    "file": "assets/UnstableContext-Ca-NSWyA.js",
+    "name": "UnstableContext",
+    "imports": [
+      "_LoadingOutlined-B5XGN9jk.js",
+      "resources/js/app.jsx"
+    ]
+  },
+  "_XMarkIcon-BGEzsgsD.js": {
+    "file": "assets/XMarkIcon-BGEzsgsD.js",
     "name": "XMarkIcon",
     "imports": [
       "resources/js/app.jsx",
-      "_portal-8xwL0aha.js"
+      "_portal-A15CR88M.js"
     ]
   },
-  "_portal-8xwL0aha.js": {
-    "file": "assets/portal-8xwL0aha.js",
+  "_add-item-section-DAQHKCys.js": {
+    "file": "assets/add-item-section-DAQHKCys.js",
+    "name": "add-item-section",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/app/pages/_components/button.jsx",
+      "resources/js/app/pages/_components/inputfield.jsx",
+      "resources/js/app/pages/_components/modal.jsx"
+    ]
+  },
+  "_index-BT49LyEB.js": {
+    "file": "assets/index-BT49LyEB.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.jsx",
+      "_LoadingOutlined-B5XGN9jk.js",
+      "_ContextIsolator-8ybUIvUq.js",
+      "_UnstableContext-Ca-NSWyA.js"
+    ]
+  },
+  "_index-CbBa8RTq.js": {
+    "file": "assets/index-CbBa8RTq.js",
+    "name": "index",
+    "imports": [
+      "_UnstableContext-Ca-NSWyA.js",
+      "resources/js/app.jsx",
+      "_LoadingOutlined-B5XGN9jk.js"
+    ]
+  },
+  "_internet-plan-thunk-DaH2C9b5.js": {
+    "file": "assets/internet-plan-thunk-DaH2C9b5.js",
+    "name": "internet-plan-thunk",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_portal-A15CR88M.js": {
+    "file": "assets/portal-A15CR88M.js",
     "name": "portal",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-Ch9Pgtjk.js",
+    "file": "assets/app-CS1Aeryw.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
@@ -65,6 +119,7 @@
       "resources/js/app/pages/_components/drawer.jsx",
       "resources/js/app/pages/_components/input.jsx",
       "resources/js/app/pages/_components/inputfield.jsx",
+      "resources/js/app/pages/_components/inputprice.jsx",
       "resources/js/app/pages/_components/modal.jsx",
       "resources/js/app/pages/_components/pagination.jsx",
       "resources/js/app/pages/_components/progress.jsx",
@@ -83,9 +138,11 @@
       "resources/js/app/pages/admin/dashboard/page.jsx",
       "resources/js/app/pages/admin/internet_plans/_components/card-component.jsx",
       "resources/js/app/pages/admin/internet_plans/_sections/create-internet-plan-section.jsx",
+      "resources/js/app/pages/admin/internet_plans/_sections/delete-plan-section.jsx",
       "resources/js/app/pages/admin/internet_plans/_sections/plans-section.jsx",
+      "resources/js/app/pages/admin/internet_plans/_sections/update-plan-section.jsx",
       "resources/js/app/pages/admin/internet_plans/page.jsx",
-      "resources/js/app/pages/admin/inventory/_sections/add-item-section.jsx",
+      "_add-item-section-DAQHKCys.js",
       "resources/js/app/pages/admin/inventory/_sections/inventory-table-section.jsx",
       "resources/js/app/pages/admin/inventory/_sections/item-detail-section.jsx",
       "resources/js/app/pages/admin/inventory/_sections/restock-section.jsx",
@@ -95,7 +152,6 @@
       "resources/js/app/pages/admin/requests/page.jsx",
       "resources/js/app/pages/admin/students/page.jsx",
       "resources/js/app/pages/admin/subjects/page.jsx",
-      "resources/js/app/pages/admin/user_manangement/page.jsx",
       "resources/js/app/pages/application/page.jsx",
       "resources/js/app/pages/application/sections/application-form-section.jsx",
       "resources/js/app/pages/application/sections/confirmation-section.jsx",
@@ -113,11 +169,11 @@
       "resources/js/app/pages/tech_team/request_item/page.jsx"
     ],
     "css": [
-      "assets/app-B7TPCKFX.css"
+      "assets/app-BAULkxLi.css"
     ]
   },
   "resources/js/app/pages/_components/alert.jsx": {
-    "file": "assets/alert-N8ZJg6NK.js",
+    "file": "assets/alert-Bg352Q17.js",
     "name": "alert",
     "src": "resources/js/app/pages/_components/alert.jsx",
     "isDynamicEntry": true,
@@ -126,7 +182,7 @@
     ]
   },
   "resources/js/app/pages/_components/avatar.jsx": {
-    "file": "assets/avatar-B56L2Zb8.js",
+    "file": "assets/avatar-Y1kLeVtw.js",
     "name": "avatar",
     "src": "resources/js/app/pages/_components/avatar.jsx",
     "isDynamicEntry": true,
@@ -135,7 +191,7 @@
     ]
   },
   "resources/js/app/pages/_components/badge.jsx": {
-    "file": "assets/badge-BCLAkJlj.js",
+    "file": "assets/badge-BJJ97QCG.js",
     "name": "badge",
     "src": "resources/js/app/pages/_components/badge.jsx",
     "isDynamicEntry": true,
@@ -144,7 +200,7 @@
     ]
   },
   "resources/js/app/pages/_components/button.jsx": {
-    "file": "assets/button-CRUNehu0.js",
+    "file": "assets/button-B6vwqHYS.js",
     "name": "button",
     "src": "resources/js/app/pages/_components/button.jsx",
     "isDynamicEntry": true,
@@ -153,7 +209,7 @@
     ]
   },
   "resources/js/app/pages/_components/card.jsx": {
-    "file": "assets/card-CE124P2w.js",
+    "file": "assets/card-CGE2-IRp.js",
     "name": "card",
     "src": "resources/js/app/pages/_components/card.jsx",
     "isDynamicEntry": true,
@@ -162,7 +218,7 @@
     ]
   },
   "resources/js/app/pages/_components/collapse.jsx": {
-    "file": "assets/collapse-B7rOoie6.js",
+    "file": "assets/collapse-XIyoSi-m.js",
     "name": "collapse",
     "src": "resources/js/app/pages/_components/collapse.jsx",
     "isDynamicEntry": true,
@@ -172,18 +228,18 @@
     ]
   },
   "resources/js/app/pages/_components/drawer.jsx": {
-    "file": "assets/drawer-D2wkjJQX.js",
+    "file": "assets/drawer-DPdKmGUh.js",
     "name": "drawer",
     "src": "resources/js/app/pages/_components/drawer.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js"
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js"
     ]
   },
   "resources/js/app/pages/_components/input.jsx": {
-    "file": "assets/input-CXiwpcGA.js",
+    "file": "assets/input-DczOuIiY.js",
     "name": "input",
     "src": "resources/js/app/pages/_components/input.jsx",
     "isDynamicEntry": true,
@@ -192,7 +248,7 @@
     ]
   },
   "resources/js/app/pages/_components/inputfield.jsx": {
-    "file": "assets/inputfield-B2vlDUNZ.js",
+    "file": "assets/inputfield-BWbVrkR2.js",
     "name": "inputfield",
     "src": "resources/js/app/pages/_components/inputfield.jsx",
     "isDynamicEntry": true,
@@ -200,19 +256,28 @@
       "resources/js/app.jsx"
     ]
   },
+  "resources/js/app/pages/_components/inputprice.jsx": {
+    "file": "assets/inputprice-DdQkJyMb.js",
+    "name": "inputprice",
+    "src": "resources/js/app/pages/_components/inputprice.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
   "resources/js/app/pages/_components/modal.jsx": {
-    "file": "assets/modal-CYuYYKNF.js",
+    "file": "assets/modal-D2Izo4FL.js",
     "name": "modal",
     "src": "resources/js/app/pages/_components/modal.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js"
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js"
     ]
   },
   "resources/js/app/pages/_components/pagination.jsx": {
-    "file": "assets/pagination-DFjr8LXu.js",
+    "file": "assets/pagination-DWkftLvX.js",
     "name": "pagination",
     "src": "resources/js/app/pages/_components/pagination.jsx",
     "isDynamicEntry": true,
@@ -222,7 +287,7 @@
     ]
   },
   "resources/js/app/pages/_components/progress.jsx": {
-    "file": "assets/progress-BrjcwmS6.js",
+    "file": "assets/progress-CiHC-Vxh.js",
     "name": "progress",
     "src": "resources/js/app/pages/_components/progress.jsx",
     "isDynamicEntry": true,
@@ -231,7 +296,7 @@
     ]
   },
   "resources/js/app/pages/_components/select.jsx": {
-    "file": "assets/select-DphywEd8.js",
+    "file": "assets/select-DU1ZV_bh.js",
     "name": "select",
     "src": "resources/js/app/pages/_components/select.jsx",
     "isDynamicEntry": true,
@@ -240,7 +305,7 @@
     ]
   },
   "resources/js/app/pages/_components/tab.jsx": {
-    "file": "assets/tab-DrNEWonO.js",
+    "file": "assets/tab-5bT5lU0Y.js",
     "name": "tab",
     "src": "resources/js/app/pages/_components/tab.jsx",
     "isDynamicEntry": true,
@@ -250,7 +315,7 @@
     ]
   },
   "resources/js/app/pages/_components/table.jsx": {
-    "file": "assets/table-fb8sQ9OO.js",
+    "file": "assets/table-C1Lzi8Gn.js",
     "name": "table",
     "src": "resources/js/app/pages/_components/table.jsx",
     "isDynamicEntry": true,
@@ -259,30 +324,30 @@
     ]
   },
   "resources/js/app/pages/_section/sidebar-section.jsx": {
-    "file": "assets/sidebar-section-Cb0lWrJ-.js",
+    "file": "assets/sidebar-section-CEdhkHlX.js",
     "name": "sidebar-section",
     "src": "resources/js/app/pages/_section/sidebar-section.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_Cog6ToothIcon-P8wRwsLQ.js",
-      "_portal-8xwL0aha.js"
+      "_XMarkIcon-BGEzsgsD.js",
+      "_Cog6ToothIcon-BcHIYkJ-.js",
+      "_portal-A15CR88M.js"
     ]
   },
   "resources/js/app/pages/_section/topbar-section.jsx": {
-    "file": "assets/topbar-section-kYc4F3fT.js",
+    "file": "assets/topbar-section-BGm7FJES.js",
     "name": "topbar-section",
     "src": "resources/js/app/pages/_section/topbar-section.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_MagnifyingGlassIcon-BsAvfbVM.js",
-      "_portal-8xwL0aha.js"
+      "_MagnifyingGlassIcon-BzWbAMub.js",
+      "_portal-A15CR88M.js"
     ]
   },
   "resources/js/app/pages/about-us/page.jsx": {
-    "file": "assets/page-D-cdBjn3.js",
+    "file": "assets/page-B3zSALeX.js",
     "name": "page",
     "src": "resources/js/app/pages/about-us/page.jsx",
     "isDynamicEntry": true,
@@ -292,22 +357,22 @@
       "resources/js/app/pages/landing_page/sections/footer-section.jsx",
       "resources/js/app/pages/about-us/sections/about-us-section.jsx",
       "resources/js/app/pages/about-us/sections/mission-vision-section.jsx",
-      "_Cog6ToothIcon-P8wRwsLQ.js",
-      "_PhoneIcon-DUhySCj0.js"
+      "_Cog6ToothIcon-BcHIYkJ-.js",
+      "_PhoneIcon-CT7y-ig2.js"
     ]
   },
   "resources/js/app/pages/about-us/sections/about-us-section.jsx": {
-    "file": "assets/about-us-section-BiiGH1aT.js",
+    "file": "assets/about-us-section-Cez-Q3D6.js",
     "name": "about-us-section",
     "src": "resources/js/app/pages/about-us/sections/about-us-section.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PhoneIcon-DUhySCj0.js"
+      "_PhoneIcon-CT7y-ig2.js"
     ]
   },
   "resources/js/app/pages/about-us/sections/mission-vision-section.jsx": {
-    "file": "assets/mission-vision-section-BLrueuP-.js",
+    "file": "assets/mission-vision-section-BMwggEAa.js",
     "name": "mission-vision-section",
     "src": "resources/js/app/pages/about-us/sections/mission-vision-section.jsx",
     "isDynamicEntry": true,
@@ -316,7 +381,7 @@
     ]
   },
   "resources/js/app/pages/admin/application/page.jsx": {
-    "file": "assets/page-CHLZIzEC.js",
+    "file": "assets/page-BwJW7hW1.js",
     "name": "page",
     "src": "resources/js/app/pages/admin/application/page.jsx",
     "isDynamicEntry": true,
@@ -325,18 +390,20 @@
       "resources/js/app/pages/admin/layout.jsx",
       "resources/js/app/pages/admin/application/section/application-table-section.jsx",
       "resources/js/app/pages/_section/sidebar-section.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js",
-      "_Cog6ToothIcon-P8wRwsLQ.js",
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_Cog6ToothIcon-BcHIYkJ-.js",
       "resources/js/app/pages/_section/topbar-section.jsx",
-      "_MagnifyingGlassIcon-BsAvfbVM.js",
+      "_MagnifyingGlassIcon-BzWbAMub.js",
       "resources/js/app/pages/admin/application/section/view-application-section.jsx",
       "resources/js/app/pages/_components/input.jsx",
-      "_LoadingOutlined-BnmaSTDI.js"
+      "_UnstableContext-Ca-NSWyA.js",
+      "_LoadingOutlined-B5XGN9jk.js",
+      "_ContextIsolator-8ybUIvUq.js"
     ]
   },
   "resources/js/app/pages/admin/application/section/application-table-section.jsx": {
-    "file": "assets/application-table-section-zEv7cKfA.js",
+    "file": "assets/application-table-section-DjV5k8Lf.js",
     "name": "application-table-section",
     "src": "resources/js/app/pages/admin/application/section/application-table-section.jsx",
     "isDynamicEntry": true,
@@ -344,22 +411,26 @@
       "resources/js/app.jsx",
       "resources/js/app/pages/admin/application/section/view-application-section.jsx",
       "resources/js/app/pages/_components/input.jsx",
-      "_LoadingOutlined-BnmaSTDI.js"
+      "_UnstableContext-Ca-NSWyA.js",
+      "_LoadingOutlined-B5XGN9jk.js",
+      "_ContextIsolator-8ybUIvUq.js"
     ]
   },
   "resources/js/app/pages/admin/application/section/view-application-section.jsx": {
-    "file": "assets/view-application-section-BSHkjqan.js",
+    "file": "assets/view-application-section-BXpr-HX3.js",
     "name": "view-application-section",
     "src": "resources/js/app/pages/admin/application/section/view-application-section.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
       "resources/js/app/pages/_components/input.jsx",
-      "_LoadingOutlined-BnmaSTDI.js"
+      "_UnstableContext-Ca-NSWyA.js",
+      "_LoadingOutlined-B5XGN9jk.js",
+      "_ContextIsolator-8ybUIvUq.js"
     ]
   },
   "resources/js/app/pages/admin/courses/page.jsx": {
-    "file": "assets/page-cu2QEGrp.js",
+    "file": "assets/page-C9OII3rB.js",
     "name": "page",
     "src": "resources/js/app/pages/admin/courses/page.jsx",
     "isDynamicEntry": true,
@@ -367,15 +438,15 @@
       "resources/js/app.jsx",
       "resources/js/app/pages/admin/layout.jsx",
       "resources/js/app/pages/_section/sidebar-section.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js",
-      "_Cog6ToothIcon-P8wRwsLQ.js",
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_Cog6ToothIcon-BcHIYkJ-.js",
       "resources/js/app/pages/_section/topbar-section.jsx",
-      "_MagnifyingGlassIcon-BsAvfbVM.js"
+      "_MagnifyingGlassIcon-BzWbAMub.js"
     ]
   },
   "resources/js/app/pages/admin/dashboard/page.jsx": {
-    "file": "assets/page-D6QKUCql.js",
+    "file": "assets/page-CevMcSk7.js",
     "name": "page",
     "src": "resources/js/app/pages/admin/dashboard/page.jsx",
     "isDynamicEntry": true,
@@ -397,47 +468,109 @@
       "resources/js/app/pages/_components/tab.jsx",
       "resources/js/app/pages/_components/collapse.jsx",
       "resources/js/app/pages/_section/sidebar-section.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js",
-      "_Cog6ToothIcon-P8wRwsLQ.js",
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_Cog6ToothIcon-BcHIYkJ-.js",
       "resources/js/app/pages/_section/topbar-section.jsx",
-      "_MagnifyingGlassIcon-BsAvfbVM.js"
+      "_MagnifyingGlassIcon-BzWbAMub.js"
     ]
   },
   "resources/js/app/pages/admin/internet_plans/_components/card-component.jsx": {
-    "file": "assets/card-component-C_Cm_nah.js",
+    "file": "assets/card-component-7JeXNOQ2.js",
     "name": "card-component",
     "src": "resources/js/app/pages/admin/internet_plans/_components/card-component.jsx",
     "isDynamicEntry": true,
     "imports": [
-      "resources/js/app.jsx"
+      "resources/js/app.jsx",
+      "resources/js/app/pages/admin/internet_plans/_sections/delete-plan-section.jsx",
+      "resources/js/app/pages/admin/internet_plans/_sections/update-plan-section.jsx",
+      "resources/js/app/pages/_components/modal.jsx",
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_internet-plan-thunk-DaH2C9b5.js",
+      "_index-BT49LyEB.js",
+      "_LoadingOutlined-B5XGN9jk.js",
+      "_ContextIsolator-8ybUIvUq.js",
+      "_UnstableContext-Ca-NSWyA.js",
+      "_index-CbBa8RTq.js"
     ]
   },
   "resources/js/app/pages/admin/internet_plans/_sections/create-internet-plan-section.jsx": {
-    "file": "assets/create-internet-plan-section-C0SJfTtx.js",
+    "file": "assets/create-internet-plan-section-DeN8a8Ol.js",
     "name": "create-internet-plan-section",
     "src": "resources/js/app/pages/admin/internet_plans/_sections/create-internet-plan-section.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
       "resources/js/app/pages/_components/modal.jsx",
-      "_PlusIcon-rAaj1SBE.js",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js"
+      "_internet-plan-thunk-DaH2C9b5.js",
+      "_PlusIcon--5VchUzc.js",
+      "_index-CbBa8RTq.js",
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_UnstableContext-Ca-NSWyA.js",
+      "_LoadingOutlined-B5XGN9jk.js"
+    ]
+  },
+  "resources/js/app/pages/admin/internet_plans/_sections/delete-plan-section.jsx": {
+    "file": "assets/delete-plan-section-Byq5zNV1.js",
+    "name": "delete-plan-section",
+    "src": "resources/js/app/pages/admin/internet_plans/_sections/delete-plan-section.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/app/pages/_components/modal.jsx",
+      "_internet-plan-thunk-DaH2C9b5.js",
+      "_index-BT49LyEB.js",
+      "_index-CbBa8RTq.js",
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_LoadingOutlined-B5XGN9jk.js",
+      "_ContextIsolator-8ybUIvUq.js",
+      "_UnstableContext-Ca-NSWyA.js"
     ]
   },
   "resources/js/app/pages/admin/internet_plans/_sections/plans-section.jsx": {
-    "file": "assets/plans-section-cEn6DhQt.js",
+    "file": "assets/plans-section-4-l7i98R.js",
     "name": "plans-section",
     "src": "resources/js/app/pages/admin/internet_plans/_sections/plans-section.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "resources/js/app/pages/admin/internet_plans/_components/card-component.jsx"
+      "resources/js/app/pages/admin/internet_plans/_components/card-component.jsx",
+      "resources/js/app/pages/admin/internet_plans/_sections/delete-plan-section.jsx",
+      "resources/js/app/pages/_components/modal.jsx",
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_internet-plan-thunk-DaH2C9b5.js",
+      "_index-BT49LyEB.js",
+      "_LoadingOutlined-B5XGN9jk.js",
+      "_ContextIsolator-8ybUIvUq.js",
+      "_UnstableContext-Ca-NSWyA.js",
+      "_index-CbBa8RTq.js",
+      "resources/js/app/pages/admin/internet_plans/_sections/update-plan-section.jsx"
+    ]
+  },
+  "resources/js/app/pages/admin/internet_plans/_sections/update-plan-section.jsx": {
+    "file": "assets/update-plan-section-DpNfN5hm.js",
+    "name": "update-plan-section",
+    "src": "resources/js/app/pages/admin/internet_plans/_sections/update-plan-section.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/app/pages/_components/modal.jsx",
+      "_internet-plan-thunk-DaH2C9b5.js",
+      "_index-BT49LyEB.js",
+      "_index-CbBa8RTq.js",
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_LoadingOutlined-B5XGN9jk.js",
+      "_ContextIsolator-8ybUIvUq.js",
+      "_UnstableContext-Ca-NSWyA.js"
     ]
   },
   "resources/js/app/pages/admin/internet_plans/page.jsx": {
-    "file": "assets/page-BZqhbsF3.js",
+    "file": "assets/page-DWDyMfeA.js",
     "name": "page",
     "src": "resources/js/app/pages/admin/internet_plans/page.jsx",
     "isDynamicEntry": true,
@@ -446,33 +579,27 @@
       "resources/js/app/pages/admin/layout.jsx",
       "resources/js/app/pages/admin/internet_plans/_sections/plans-section.jsx",
       "resources/js/app/pages/admin/internet_plans/_sections/create-internet-plan-section.jsx",
+      "_internet-plan-thunk-DaH2C9b5.js",
       "resources/js/app/pages/_section/sidebar-section.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js",
-      "_Cog6ToothIcon-P8wRwsLQ.js",
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_Cog6ToothIcon-BcHIYkJ-.js",
       "resources/js/app/pages/_section/topbar-section.jsx",
-      "_MagnifyingGlassIcon-BsAvfbVM.js",
+      "_MagnifyingGlassIcon-BzWbAMub.js",
       "resources/js/app/pages/admin/internet_plans/_components/card-component.jsx",
+      "resources/js/app/pages/admin/internet_plans/_sections/delete-plan-section.jsx",
       "resources/js/app/pages/_components/modal.jsx",
-      "_PlusIcon-rAaj1SBE.js"
-    ]
-  },
-  "resources/js/app/pages/admin/inventory/_sections/add-item-section.jsx": {
-    "file": "assets/add-item-section-9ioPk6Jv.js",
-    "name": "add-item-section",
-    "src": "resources/js/app/pages/admin/inventory/_sections/add-item-section.jsx",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.jsx",
-      "resources/js/app/pages/_components/button.jsx",
-      "resources/js/app/pages/_components/inputfield.jsx",
-      "resources/js/app/pages/_components/modal.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js"
+      "_index-BT49LyEB.js",
+      "_LoadingOutlined-B5XGN9jk.js",
+      "_ContextIsolator-8ybUIvUq.js",
+      "_UnstableContext-Ca-NSWyA.js",
+      "_index-CbBa8RTq.js",
+      "resources/js/app/pages/admin/internet_plans/_sections/update-plan-section.jsx",
+      "_PlusIcon--5VchUzc.js"
     ]
   },
   "resources/js/app/pages/admin/inventory/_sections/inventory-table-section.jsx": {
-    "file": "assets/inventory-table-section-BL4r9NbL.js",
+    "file": "assets/inventory-table-section-vN4cF4q8.js",
     "name": "inventory-table-section",
     "src": "resources/js/app/pages/admin/inventory/_sections/inventory-table-section.jsx",
     "isDynamicEntry": true,
@@ -482,13 +609,13 @@
       "resources/js/app/pages/admin/inventory/_sections/restock-section.jsx",
       "resources/js/app/pages/_components/inputfield.jsx",
       "resources/js/app/pages/_components/modal.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js",
-      "_PlusIcon-rAaj1SBE.js"
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_PlusIcon--5VchUzc.js"
     ]
   },
   "resources/js/app/pages/admin/inventory/_sections/item-detail-section.jsx": {
-    "file": "assets/item-detail-section-lb5ogp49.js",
+    "file": "assets/item-detail-section-DpCmbio-.js",
     "name": "item-detail-section",
     "src": "resources/js/app/pages/admin/inventory/_sections/item-detail-section.jsx",
     "isDynamicEntry": true,
@@ -496,12 +623,12 @@
       "resources/js/app.jsx",
       "resources/js/app/pages/_components/inputfield.jsx",
       "resources/js/app/pages/_components/modal.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js"
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js"
     ]
   },
   "resources/js/app/pages/admin/inventory/_sections/restock-section.jsx": {
-    "file": "assets/restock-section-DDYV5UVx.js",
+    "file": "assets/restock-section-BAsllLJm.js",
     "name": "restock-section",
     "src": "resources/js/app/pages/admin/inventory/_sections/restock-section.jsx",
     "isDynamicEntry": true,
@@ -509,13 +636,13 @@
       "resources/js/app.jsx",
       "resources/js/app/pages/_components/inputfield.jsx",
       "resources/js/app/pages/_components/modal.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_PlusIcon-rAaj1SBE.js",
-      "_portal-8xwL0aha.js"
+      "_XMarkIcon-BGEzsgsD.js",
+      "_PlusIcon--5VchUzc.js",
+      "_portal-A15CR88M.js"
     ]
   },
   "resources/js/app/pages/admin/inventory/page.jsx": {
-    "file": "assets/page-DNXcGUpZ.js",
+    "file": "assets/page-DZg1paaN.js",
     "name": "page",
     "src": "resources/js/app/pages/admin/inventory/page.jsx",
     "isDynamicEntry": true,
@@ -523,23 +650,23 @@
       "resources/js/app.jsx",
       "resources/js/app/pages/admin/layout.jsx",
       "resources/js/app/pages/admin/inventory/_sections/inventory-table-section.jsx",
-      "resources/js/app/pages/admin/inventory/_sections/add-item-section.jsx",
+      "_add-item-section-DAQHKCys.js",
       "resources/js/app/pages/_section/sidebar-section.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js",
-      "_Cog6ToothIcon-P8wRwsLQ.js",
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_Cog6ToothIcon-BcHIYkJ-.js",
       "resources/js/app/pages/_section/topbar-section.jsx",
-      "_MagnifyingGlassIcon-BsAvfbVM.js",
+      "_MagnifyingGlassIcon-BzWbAMub.js",
       "resources/js/app/pages/admin/inventory/_sections/item-detail-section.jsx",
       "resources/js/app/pages/_components/inputfield.jsx",
       "resources/js/app/pages/_components/modal.jsx",
       "resources/js/app/pages/admin/inventory/_sections/restock-section.jsx",
-      "_PlusIcon-rAaj1SBE.js",
+      "_PlusIcon--5VchUzc.js",
       "resources/js/app/pages/_components/button.jsx"
     ]
   },
   "resources/js/app/pages/admin/layout.jsx": {
-    "file": "assets/layout-Ca6D6e3S.js",
+    "file": "assets/layout-DtFdZEvM.js",
     "name": "layout",
     "src": "resources/js/app/pages/admin/layout.jsx",
     "isDynamicEntry": true,
@@ -547,27 +674,27 @@
       "resources/js/app.jsx",
       "resources/js/app/pages/_section/sidebar-section.jsx",
       "resources/js/app/pages/_section/topbar-section.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js",
-      "_Cog6ToothIcon-P8wRwsLQ.js",
-      "_MagnifyingGlassIcon-BsAvfbVM.js"
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_Cog6ToothIcon-BcHIYkJ-.js",
+      "_MagnifyingGlassIcon-BzWbAMub.js"
     ]
   },
   "resources/js/app/pages/admin/requests/_sections/requests-table-section.jsx": {
-    "file": "assets/requests-table-section-MuM5Q7vu.js",
+    "file": "assets/requests-table-section-CgVXOikC.js",
     "name": "requests-table-section",
     "src": "resources/js/app/pages/admin/requests/_sections/requests-table-section.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
       "resources/js/app/pages/_components/modal.jsx",
-      "_PlusIcon-rAaj1SBE.js",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js"
+      "_PlusIcon--5VchUzc.js",
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js"
     ]
   },
   "resources/js/app/pages/admin/requests/page.jsx": {
-    "file": "assets/page-BKveYusS.js",
+    "file": "assets/page-Cz58c6JF.js",
     "name": "page",
     "src": "resources/js/app/pages/admin/requests/page.jsx",
     "isDynamicEntry": true,
@@ -576,17 +703,17 @@
       "resources/js/app/pages/admin/layout.jsx",
       "resources/js/app/pages/admin/requests/_sections/requests-table-section.jsx",
       "resources/js/app/pages/_section/sidebar-section.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js",
-      "_Cog6ToothIcon-P8wRwsLQ.js",
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_Cog6ToothIcon-BcHIYkJ-.js",
       "resources/js/app/pages/_section/topbar-section.jsx",
-      "_MagnifyingGlassIcon-BsAvfbVM.js",
+      "_MagnifyingGlassIcon-BzWbAMub.js",
       "resources/js/app/pages/_components/modal.jsx",
-      "_PlusIcon-rAaj1SBE.js"
+      "_PlusIcon--5VchUzc.js"
     ]
   },
   "resources/js/app/pages/admin/students/page.jsx": {
-    "file": "assets/page-CCBKFPaq.js",
+    "file": "assets/page-DyK7PQ0n.js",
     "name": "page",
     "src": "resources/js/app/pages/admin/students/page.jsx",
     "isDynamicEntry": true,
@@ -594,15 +721,15 @@
       "resources/js/app.jsx",
       "resources/js/app/pages/admin/layout.jsx",
       "resources/js/app/pages/_section/sidebar-section.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js",
-      "_Cog6ToothIcon-P8wRwsLQ.js",
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_Cog6ToothIcon-BcHIYkJ-.js",
       "resources/js/app/pages/_section/topbar-section.jsx",
-      "_MagnifyingGlassIcon-BsAvfbVM.js"
+      "_MagnifyingGlassIcon-BzWbAMub.js"
     ]
   },
   "resources/js/app/pages/admin/subjects/page.jsx": {
-    "file": "assets/page-DGojerRY.js",
+    "file": "assets/page-C_iDbC0G.js",
     "name": "page",
     "src": "resources/js/app/pages/admin/subjects/page.jsx",
     "isDynamicEntry": true,
@@ -610,31 +737,15 @@
       "resources/js/app.jsx",
       "resources/js/app/pages/admin/layout.jsx",
       "resources/js/app/pages/_section/sidebar-section.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js",
-      "_Cog6ToothIcon-P8wRwsLQ.js",
+      "_XMarkIcon-BGEzsgsD.js",
+      "_portal-A15CR88M.js",
+      "_Cog6ToothIcon-BcHIYkJ-.js",
       "resources/js/app/pages/_section/topbar-section.jsx",
-      "_MagnifyingGlassIcon-BsAvfbVM.js"
-    ]
-  },
-  "resources/js/app/pages/admin/user_manangement/page.jsx": {
-    "file": "assets/page-CG1qEweu.js",
-    "name": "page",
-    "src": "resources/js/app/pages/admin/user_manangement/page.jsx",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.jsx",
-      "resources/js/app/pages/admin/layout.jsx",
-      "resources/js/app/pages/_section/sidebar-section.jsx",
-      "_XMarkIcon-BZUQQ3Iq.js",
-      "_portal-8xwL0aha.js",
-      "_Cog6ToothIcon-P8wRwsLQ.js",
-      "resources/js/app/pages/_section/topbar-section.jsx",
-      "_MagnifyingGlassIcon-BsAvfbVM.js"
+      "_MagnifyingGlassIcon-BzWbAMub.js"
     ]
   },
   "resources/js/app/pages/application/page.jsx": {
-    "file": "assets/page-DwIjD8U4.js",
+    "file": "assets/page-BOPkPyZd.js",
     "name": "page",
     "src": "resources/js/app/pages/application/page.jsx",
     "isDynamicEntry": true,
@@ -642,15 +753,17 @@
       "resources/js/app.jsx",
       "resources/js/app/pages/application/sections/application-form-section.jsx",
       "resources/js/app/pages/landing_page/sections/top-bar-section.jsx",
+      "_internet-plan-thunk-DaH2C9b5.js",
       "resources/js/app/pages/_components/input.jsx",
       "resources/js/app/pages/_components/select.jsx",
       "resources/js/app/pages/application/sections/confirmation-section.jsx",
-      "_LoadingOutlined-BnmaSTDI.js",
-      "_Cog6ToothIcon-P8wRwsLQ.js"
+      "resources/js/app/pages/_components/inputprice.jsx",
+      "_LoadingOutlined-B5XGN9jk.js",
+      "_Cog6ToothIcon-BcHIYkJ-.js"
     ]
   },
   "resources/js/app/pages/application/sections/application-form-section.jsx": {
-    "file": "assets/application-form-section-CIIHmJdi.js",
+    "file": "assets/application-form-section-CLrrqlST.js",
     "name": "application-form-section",
     "src": "resources/js/app/pages/application/sections/application-form-section.jsx",
     "isDynamicEntry": true,
@@ -659,11 +772,12 @@
       "resources/js/app/pages/_components/input.jsx",
       "resources/js/app/pages/_components/select.jsx",
       "resources/js/app/pages/application/sections/confirmation-section.jsx",
-      "_LoadingOutlined-BnmaSTDI.js"
+      "resources/js/app/pages/_components/inputprice.jsx",
+      "_LoadingOutlined-B5XGN9jk.js"
     ]
   },
   "resources/js/app/pages/application/sections/confirmation-section.jsx": {
-    "file": "assets/confirmation-section-ERSJrNsC.js",
+    "file": "assets/confirmation-section-i6gE24dV.js",
     "name": "confirmation-section",
     "src": "resources/js/app/pages/application/sections/confirmation-section.jsx",
     "isDynamicEntry": true,
@@ -672,7 +786,7 @@
     ]
   },
   "resources/js/app/pages/contact/page.jsx": {
-    "file": "assets/page-BDTHxSm9.js",
+    "file": "assets/page-CTL6Ct48.js",
     "name": "page",
     "src": "resources/js/app/pages/contact/page.jsx",
     "isDynamicEntry": true,
@@ -681,11 +795,11 @@
       "resources/js/app/pages/landing_page/sections/top-bar-section.jsx",
       "resources/js/app/pages/landing_page/sections/footer-section.jsx",
       "resources/js/app/pages/contact/sections/contact-section.jsx",
-      "_Cog6ToothIcon-P8wRwsLQ.js"
+      "_Cog6ToothIcon-BcHIYkJ-.js"
     ]
   },
   "resources/js/app/pages/contact/sections/contact-section.jsx": {
-    "file": "assets/contact-section-CtIvwuN8.js",
+    "file": "assets/contact-section-DsyvdcsI.js",
     "name": "contact-section",
     "src": "resources/js/app/pages/contact/sections/contact-section.jsx",
     "isDynamicEntry": true,
@@ -694,7 +808,7 @@
     ]
   },
   "resources/js/app/pages/landing_page/components/offer-plan-card-component.jsx": {
-    "file": "assets/offer-plan-card-component-D4nNBHKS.js",
+    "file": "assets/offer-plan-card-component-DK08aNDR.js",
     "name": "offer-plan-card-component",
     "src": "resources/js/app/pages/landing_page/components/offer-plan-card-component.jsx",
     "isDynamicEntry": true,
@@ -703,7 +817,7 @@
     ]
   },
   "resources/js/app/pages/landing_page/page.jsx": {
-    "file": "assets/page-Dc8mwA96.js",
+    "file": "assets/page-_PNed2kH.js",
     "name": "page",
     "src": "resources/js/app/pages/landing_page/page.jsx",
     "isDynamicEntry": true,
@@ -714,23 +828,24 @@
       "resources/js/app/pages/landing_page/sections/parasat-cover-section.jsx",
       "resources/js/app/pages/landing_page/sections/footer-section.jsx",
       "resources/js/app/pages/landing_page/sections/contact-us-section.jsx",
+      "_internet-plan-thunk-DaH2C9b5.js",
       "resources/js/app/pages/landing_page/components/offer-plan-card-component.jsx",
-      "_Cog6ToothIcon-P8wRwsLQ.js",
-      "_PhoneIcon-DUhySCj0.js"
+      "_Cog6ToothIcon-BcHIYkJ-.js",
+      "_PhoneIcon-CT7y-ig2.js"
     ]
   },
   "resources/js/app/pages/landing_page/sections/contact-us-section.jsx": {
-    "file": "assets/contact-us-section-UyCDRTGA.js",
+    "file": "assets/contact-us-section-BLW19UPh.js",
     "name": "contact-us-section",
     "src": "resources/js/app/pages/landing_page/sections/contact-us-section.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PhoneIcon-DUhySCj0.js"
+      "_PhoneIcon-CT7y-ig2.js"
     ]
   },
   "resources/js/app/pages/landing_page/sections/footer-section.jsx": {
-    "file": "assets/footer-section-DSJOLokk.js",
+    "file": "assets/footer-section-DOgU-lDX.js",
     "name": "footer-section",
     "src": "resources/js/app/pages/landing_page/sections/footer-section.jsx",
     "isDynamicEntry": true,
@@ -739,7 +854,7 @@
     ]
   },
   "resources/js/app/pages/landing_page/sections/parasat-cover-section.jsx": {
-    "file": "assets/parasat-cover-section--QJ972pT.js",
+    "file": "assets/parasat-cover-section-CxbWS-Me.js",
     "name": "parasat-cover-section",
     "src": "resources/js/app/pages/landing_page/sections/parasat-cover-section.jsx",
     "isDynamicEntry": true,
@@ -748,7 +863,7 @@
     ]
   },
   "resources/js/app/pages/landing_page/sections/plan-list-section.jsx": {
-    "file": "assets/plan-list-section-CN1UUcNC.js",
+    "file": "assets/plan-list-section-CZjb34NK.js",
     "name": "plan-list-section",
     "src": "resources/js/app/pages/landing_page/sections/plan-list-section.jsx",
     "isDynamicEntry": true,
@@ -758,17 +873,17 @@
     ]
   },
   "resources/js/app/pages/landing_page/sections/top-bar-section.jsx": {
-    "file": "assets/top-bar-section-PhKNPG_I.js",
+    "file": "assets/top-bar-section-C0JvLbw3.js",
     "name": "top-bar-section",
     "src": "resources/js/app/pages/landing_page/sections/top-bar-section.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Cog6ToothIcon-P8wRwsLQ.js"
+      "_Cog6ToothIcon-BcHIYkJ-.js"
     ]
   },
   "resources/js/app/pages/login/page.jsx": {
-    "file": "assets/page-NwPg9gHQ.js",
+    "file": "assets/page-DFRIhhUI.js",
     "name": "page",
     "src": "resources/js/app/pages/login/page.jsx",
     "isDynamicEntry": true,
@@ -779,26 +894,26 @@
     ]
   },
   "resources/js/app/pages/tech_team/request_item/_sections/top-nav-section.jsx": {
-    "file": "assets/top-nav-section-DJaf6rrT.js",
+    "file": "assets/top-nav-section-CjAmU2QC.js",
     "name": "top-nav-section",
     "src": "resources/js/app/pages/tech_team/request_item/_sections/top-nav-section.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_MagnifyingGlassIcon-BsAvfbVM.js",
-      "_portal-8xwL0aha.js"
+      "_MagnifyingGlassIcon-BzWbAMub.js",
+      "_portal-A15CR88M.js"
     ]
   },
   "resources/js/app/pages/tech_team/request_item/page.jsx": {
-    "file": "assets/page-ZVqFZlwB.js",
+    "file": "assets/page-BKsTCct7.js",
     "name": "page",
     "src": "resources/js/app/pages/tech_team/request_item/page.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
       "resources/js/app/pages/tech_team/request_item/_sections/top-nav-section.jsx",
-      "_MagnifyingGlassIcon-BsAvfbVM.js",
-      "_portal-8xwL0aha.js"
+      "_MagnifyingGlassIcon-BzWbAMub.js",
+      "_portal-A15CR88M.js"
     ]
   }
 }

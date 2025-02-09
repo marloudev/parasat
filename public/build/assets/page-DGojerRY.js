@@ -1,1 +1,0 @@
-import{j as t}from"./app-Ch9Pgtjk.js";import r from"./layout-Ca6D6e3S.js";import"./sidebar-section-Cb0lWrJ-.js";import"./XMarkIcon-BZUQQ3Iq.js";import"./portal-8xwL0aha.js";import"./Cog6ToothIcon-P8wRwsLQ.js";import"./topbar-section-kYc4F3fT.js";import"./MagnifyingGlassIcon-BsAvfbVM.js";function a(){return t.jsx(r,{children:"AdminSubjectsPage"})}export{a as default};

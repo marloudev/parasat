@@ -1,1 +1,0 @@
-import{j as t}from"./app-DlFCaDo0.js";import r from"./layout-BU9qssjq.js";import"./sidebar-section-jl204TJJ.js";import"./XMarkIcon-0AZlO85u.js";import"./portal-D7PpLYHu.js";import"./Cog6ToothIcon-D7125Erv.js";import"./topbar-section-BQCVHC2D.js";function u(){return t.jsx(r,{children:"AdminStudentPage"})}export{u as default};
