@@ -24,7 +24,7 @@ export default function PlanListSection() {
                                     price={plan.price}
                                     speed={plan.speed}
                                     popular={plan.popular}
-                                    href={`http://127.0.0.1:8000/application/${plan.id}`}
+                                    href={`/application/${plan.id}`}
                                 />
                             ))}
                         </div>
