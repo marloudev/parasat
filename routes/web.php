@@ -58,7 +58,13 @@ Route::middleware('auth:sanctum')->prefix('administrator')->group(function () {
 Route::prefix('techteam')->group(function () {
     Route::get('/request_item', function () {
         return Inertia::render('tech_team/request_item/page');
-    });
+    })->name('tech_team');
+});
+
+Route::prefix('csr')->group(function () {
+    Route::get('/request_item', function () {
+        return Inertia::render('tech_team/request_item/page');
+    })->name('csr');
 });
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

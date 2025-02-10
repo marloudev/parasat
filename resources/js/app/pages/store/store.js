@@ -6,6 +6,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import  itemSlice from '@/app/redux/item-slice';
 import serialNumberItemSlice  from '@/app/redux/serial-number-item-slice';
 import stockItemSlice from '@/app/redux/stock-item-slice';
+import requestItemSlice  from '@/app/redux/request-item-slice';
 
 const store = configureStore({
     reducer: {
@@ -14,7 +15,8 @@ const store = configureStore({
         applications: applicationSlice,
         items: itemSlice,
         serial_number_items: serialNumberItemSlice,
-        stock_items:stockItemSlice
+        stock_items:stockItemSlice,
+        request_items:requestItemSlice
     },
 });
 

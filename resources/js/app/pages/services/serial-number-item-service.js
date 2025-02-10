@@ -1,5 +1,15 @@
 import axios from "axios"
 
+
+export function search_item_service(data) {
+    try {
+        const result = axios.post('/api/search_item', data)
+        return result
+    } catch (error) {
+
+    }
+}
+
 export function create_serial_number_item_service(data) {
     try {
         const result = axios.post('/api/serial_number_item', data)

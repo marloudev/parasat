@@ -10,9 +10,9 @@ export default function Modal({ open, setOpen, children , width = 'w-1/2'}) {
       />
 
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <div className="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
           <DialogPanel
-            className={`relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all ${width} max-h-5/6 min-w-fit`}
+            className={`relative w-1/3 transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all max-h-5/6  ${width}`}
           >
             <div>
               <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">

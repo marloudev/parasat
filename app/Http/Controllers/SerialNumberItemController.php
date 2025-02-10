@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 
 class SerialNumberItemController extends Controller
 {
+    public function search_item(Request $request)
+    {
+
+        $items = SerialNumberItem::where([
+            ['serial_number', '=',  $request->search],
+            ['item_id', '=', $request->item_id],
+            ['status', '=', 'available'],
+        ])->first();
+        return response()->json($items);
+    }
     public function index()
     {
         $items = SerialNumberItem::paginate();

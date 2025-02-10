@@ -13,13 +13,14 @@ import {
     MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "@inertiajs/react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSidebarOpen } from "@/app/redux/app-slice";
 
 export default function TopNaveSection() {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const { user } = useSelector((store) => store.app);
     return (
-        <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-blue-700 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
+        <div className="sticky top-0  flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-blue-700 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
             <button
                 type="button"
                 onClick={() => dispatch(setSidebarOpen(true))}
@@ -80,9 +81,9 @@ export default function TopNaveSection() {
                             <span className="hidden lg:flex lg:items-center">
                                 <span
                                     aria-hidden="true"
-                                    className="ml-4 text-sm/6 font-semibold text-gray-900"
+                                    className="ml-4 text-sm/6 font-semibold text-white"
                                 >
-                                    Tom Cook
+                                    {user.name}
                                 </span>
                                 <ChevronDownIcon
                                     aria-hidden="true"

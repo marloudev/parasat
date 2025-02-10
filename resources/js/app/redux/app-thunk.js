@@ -1,8 +1,9 @@
+import { get_user_service } from '../pages/services/user-service';
 import { appSlice } from './app-slice';
 
-export function addCartProducts(product_id) {
+export function get_user_thunk() {
   return async function (dispatch, getState) {
-    dispatch(appSlice.actions.incrementByAmount(10));
-  
+   const res = await get_user_service()
+          dispatch(appSlice.actions.setUser(res.data));
   };
 }
