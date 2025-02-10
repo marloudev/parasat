@@ -9,7 +9,7 @@ class ItemsController extends Controller
 {
     public function index()
     {
-        $items = Items::paginate();
+        $items = Items::with(['serial_numbers','available','stock_items'])->paginate();
         return response()->json([
             'result' => $items
         ], 200);

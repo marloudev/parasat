@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Items;
 use App\Models\SerialNumberItem;
+use App\Models\StockItem;
 use Illuminate\Http\Request;
 
 class SerialNumberItemController extends Controller
@@ -18,31 +20,54 @@ class SerialNumberItemController extends Controller
     public function show($id)
     {
         $item = SerialNumberItem::find($id);
-        
+
         if (!$item) {
             return response()->json(['message' => 'Item not found'], 404);
         }
-        
+
         return response()->json($item, 200);
     }
 
     public function store(Request $request)
     {
-      
-        $item = SerialNumberItem::create($request->all());
 
-        return response()->json($item, 201);
+        if ($request->isSerial) {
+            foreach ($request->serials as $key => $value) {
+                SerialNumberItem::create([
+                    'item_id' => $request->id,
+                    'serial_number' => $value,
+                    'status' => $request->status,
+                ]);
+            }
+        }
+
+        if (!$request->isSerial) {
+            StockItem::create([
+                'item_id' => $request->id,
+                'amount' => $request->amount,
+            ]);
+        }
+
+        $item =  Items::where('id', $request->id)->first();
+        if ($item) {
+            $item->update([
+                'total' => intval($request->amount) + intval($item->total),
+            ]);
+        }
+        return response()->json([
+            'status' => 'success',
+        ], 200);
     }
 
     public function update(Request $request, $id)
     {
         $item = SerialNumberItem::find($id);
-        
+
         if (!$item) {
             return response()->json(['message' => 'Item not found'], 404);
         }
 
-      
+
 
         $item->update($request->all());
 
@@ -52,7 +77,7 @@ class SerialNumberItemController extends Controller
     public function destroy($id)
     {
         $item = SerialNumberItem::find($id);
-        
+
         if (!$item) {
             return response()->json(['message' => 'Item not found'], 404);
         }

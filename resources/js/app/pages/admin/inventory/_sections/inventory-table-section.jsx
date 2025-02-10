@@ -43,26 +43,31 @@ export default function InventoryTable() {
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
-                    {items?.data?.map((person) => (
-                        <tr key={person.email}>
+                    {items?.data?.map((res, i) => (
+                        <tr key={i}>
                             <td className="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-0">
                                 <div className="flex gap-3">
-                                    {person.isSerial == "true" && (
+                                    {res.isSerial == "true" && (
                                         <CheckBadgeIcon className="h-6 text-green-500" />
                                     )}{" "}
-                                    {person.name}
+                                    {res.name}
                                 </div>
                             </td>
                             <td className="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
-                                {person.classification}
+                                {res.classification}
                             </td>
                             <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">
-                                {person.total ?? 0}
+                                {res.isSerial == "true" && (
+                                    <>{res.available.length ?? 0}</>
+                                )}
+                                 {res.isSerial == "false" && (
+                                    <>{res.total?? 0}</>
+                                )}
                             </td>
                             <td className="flex py-4 text-sm font-medium sm:pr-0 ">
-                                <ItemDetailSection />
+                                <ItemDetailSection data={res} />
                                 <span className="hidden sm:inline"> | </span>
-                                <RestockSection />
+                                <RestockSection data={res} />
                             </td>
                         </tr>
                     ))}
