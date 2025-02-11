@@ -4,13 +4,11 @@ import RestockSection from "./restock-section";
 import Badge from "@/app/pages/_components/badge";
 import { CheckBadgeIcon } from "@heroicons/react/16/solid";
 
-const people = [
-    { name: "Skyworth ONT", title: "ONT", email: "200", role: "Headend" },
-    // More people...
-];
+
 
 export default function InventoryTable() {
     const { items } = useSelector((store) => store.items);
+    console.log('Items', items)
     return (
         <div className="-mx-4 mt-8 p-8 sm:-mx-0 bg-white rounded-md shadow-md">
             <table className="min-w-full divide-y divide-gray-300">
@@ -43,7 +41,7 @@ export default function InventoryTable() {
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
-                    {items?.data?.map((res, i) => (
+                    {items?.map((res, i) => (
                         <tr key={i}>
                             <td className="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-0">
                                 <div className="flex gap-3">

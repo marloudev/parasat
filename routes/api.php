@@ -14,7 +14,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::middleware('auth:sanctum')->prefix('/')->group(function () {
-    Route::resource('internet_plan', InternetPlansController::class);
+    
     Route::resource('application', ApplicationController::class);
     Route::resource('item', ItemsController::class);
     Route::resource('stock_item', StockItemController::class);
@@ -25,3 +25,4 @@ Route::middleware('auth:sanctum')->prefix('/')->group(function () {
     Route::post('/change_status', [RequestItemController::class, 'change_status']);
 
 });
+Route::resource('internet_plan', InternetPlansController::class);
