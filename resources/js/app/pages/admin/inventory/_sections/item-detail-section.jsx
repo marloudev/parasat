@@ -83,14 +83,14 @@ export default function ItemDetailSection({ data }) {
 
                         {serial_number === 1 && (
                             <div>
-                                <h2 className="text-lg text-black -mb-8 mt-10">
+                                <h2 className="text-lg text-black mt-10 mb-4">
                                     {data.isSerial == "true" &&
                                         "Serial Numbers"}
                                     {data.isSerial != "true" &&
                                         "Delivery History"}
                                 </h2>
                                 {data.isSerial == "true" && (
-                                    <div className="mt-8">
+                                    <div className="">
                                         <table className="min-w-full divide-y divide-gray-200">
                                             <thead className="bg-gray-50">
                                                 <tr>
@@ -148,7 +148,7 @@ export default function ItemDetailSection({ data }) {
                                     </div>
                                 )}
                                  {data.isSerial != "true" &&
-                                        <div className="mt-8">
+                                        <div className="">
                                         <table className="min-w-full divide-y divide-gray-200">
                                             <thead className="bg-gray-50">
                                                 <tr>
@@ -156,7 +156,7 @@ export default function ItemDetailSection({ data }) {
                                                         scope="col"
                                                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                                     >
-                                                        SN
+                                                        Quantity
                                                     </th>
                                                     <th
                                                         scope="col"
@@ -265,7 +265,7 @@ export default function ItemDetailSection({ data }) {
                             </table>
                         </div> */}
 
-                        <div className="flex justify-end gap-4">
+                        <div className="flex justify-end gap-4 mt-4">
                             <button
                                 disabled={loading}
                                 type="submit"

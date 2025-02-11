@@ -21,17 +21,17 @@ export default function RequestItemSection({ data }) {
     const [items, setItems] = useState([]);
     console.log("data", data);
 
-    useEffect(()=>{
+    useEffect(() => {
         setAmount(data.amount)
-    },[])
+    }, [])
 
     async function submit_handler(e) {
         e.preventDefault();
         setLoading(true);
         try {
-             await store.dispatch(create_request_item_thunk(form));
-             await store.dispatch(get_request_item_thunk());
-          
+            await store.dispatch(create_request_item_thunk(form));
+            await store.dispatch(get_request_item_thunk());
+
             setLoading(false);
             setForm({});
             setOpen(false);
@@ -47,7 +47,7 @@ export default function RequestItemSection({ data }) {
                 update_request_item_thunk({
                     ...data,
                     items,
-                    amount:amount,
+                    amount: amount,
                     status: "released",
                     type: "no_serial",
                 })
@@ -65,11 +65,10 @@ export default function RequestItemSection({ data }) {
             <button
                 disabled={data.status == "cancelled"}
                 onClick={() => setOpen(!open)}
-                className={`capitalize w-36 ${
-                    data.status == "cancelled"
-                        ? "bg-gray-600 hover:bg-gray-500 focus-visible:outline-gray-600"
-                        : "bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600"
-                }  text-white font-bold py-2 px-4 rounded ml-2`}
+                className={`capitalize w-36 ${data.status == "cancelled"
+                    ? "bg-gray-600 hover:bg-gray-500 focus-visible:outline-gray-600"
+                    : "bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600"
+                    }  text-white font-bold py-2 px-4 rounded ml-2`}
             >
                 {data.status == "cancelled" ? data.status : "Review"}
             </button>
@@ -107,7 +106,7 @@ export default function RequestItemSection({ data }) {
                             </tr>
                         </tbody>
                     </table>
-{/* 
+                    {/* 
                     <table className="min-w-full divide-y divide-gray-300">
                         <tbody className="divide-y divide-gray-200">
                             {items.map((res, i) => {
@@ -126,6 +125,7 @@ export default function RequestItemSection({ data }) {
                     </table> */}
                     {data.status != "released" && (
                         <>
+
                             <Input
                                 onChange={(e) => setAmount(e.target.value)}
                                 value={amount ?? ""}
@@ -133,14 +133,26 @@ export default function RequestItemSection({ data }) {
                                 label="Amount"
                                 type="text"
                             />
-                            <Button
-                                onClick={submit_items}
-                                variant="info"
-                                disabled={loading}
-                                type="button"
-                            >
-                                {loading ? "Loading..." : "SUBMIT"}
-                            </Button>
+
+                            <div className="flex gap-4 justify-end">
+                                <Button
+                                    onClick=""
+                                    variant="error"
+                                    disabled={loading}
+                                    type="button"
+                                >
+                                    {loading ? "Loading..." : "Disapprove"}
+                                </Button>
+                                <Button
+                                    onClick={submit_items}
+                                    variant="info"
+                                    disabled={loading}
+                                    type="button"
+                                >
+                                    {loading ? "Loading..." : "Approve"}
+                                </Button>
+                            </div>
+
                         </>
                     )}
                 </div>

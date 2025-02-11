@@ -16,7 +16,7 @@ export default function AddItemSection() {
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
     const [form, setForm] = useState({
-        isSerial: "false",
+        isSerial: "false", 
     });
     const [loading, setLoading] = useState(false);
     const handleSubmit = async (e) => {
@@ -81,7 +81,7 @@ export default function AddItemSection() {
                             type="checkbox"
                             id="isSerial"
                             name="isSerial"
-                            value={form.isSerial ?? ""}
+                            value={form.isSerial ?? "false"}
                             onChange={(e) =>
                                 setForm({
                                     ...form,

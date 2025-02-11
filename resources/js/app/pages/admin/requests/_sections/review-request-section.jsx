@@ -86,11 +86,10 @@ export default function ReviewRequestSection({ data }) {
             <button
                 disabled={data.status == "cancelled"}
                 onClick={() => setOpen(!open)}
-                className={`capitalize w-36 ${
-                    data.status == "cancelled"
+                className={`capitalize w-36 ${data.status == "cancelled"
                         ? "bg-gray-600 hover:bg-gray-500 focus-visible:outline-gray-600"
                         : "bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600"
-                }  text-white font-bold py-2 px-4 rounded ml-2`}
+                    }  text-white font-bold py-2 px-4 rounded ml-2`}
             >
                 {data.status == "cancelled" ? data.status : "Review"}
             </button>
@@ -161,20 +160,31 @@ export default function ReviewRequestSection({ data }) {
                                     Count: {items.length}
                                 </div>
                             </div>
-                            <Button
-                                onClick={submit_items}
-                                variant={
-                                    data.amount != items.length
-                                        ? "default"
-                                        : "info"
-                                }
-                                disabled={
-                                    data.amount != items.length || loading
-                                }
-                                type="button"
-                            >
-                                {loading ? "Loading..." : "SUBMIT"}
-                            </Button>
+
+                            <div className="flex gap-4 justify-end">
+                                <Button
+                                    onClick=""
+                                    variant="error"
+                                    disabled={loading}
+                                    type="button"
+                                >
+                                    {loading ? "Loading..." : "Disapprove"}
+                                </Button>
+                                <Button
+                                    onClick={submit_items}
+                                    variant={
+                                        data.amount != items.length
+                                            ? "default"
+                                            : "info"
+                                    }
+                                    disabled={
+                                        data.amount != items.length || loading
+                                    }
+                                    type="button"
+                                >
+                                    {loading ? "Loading..." : "Approve"}
+                                </Button>
+                            </div>
                         </>
                     )}
                 </div>
