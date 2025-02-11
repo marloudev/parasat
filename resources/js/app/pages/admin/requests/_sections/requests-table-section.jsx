@@ -103,7 +103,7 @@ export default function RequestsTableSection() {
                 </tbody>
             </table>
 
-            <Modal open={isModalOpen} setOpen={setIsModalOpen} width=" w-1/4">
+            <Modal open={isModalOpen} setOpen={setIsModalOpen} className=" w-1/4">
                 <h2 className="text-xl font-semibold mb-4">Review Request</h2>
                 <div className="">
                     <div className="flex flex-col mb-4">

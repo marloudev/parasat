@@ -78,7 +78,7 @@ export default function ReviewRequestSection({ data }) {
             >
                {data.status == "cancelled"?data.status:"Review"} 
             </button>
-            <Modal width="w-full" open={open} setOpen={setOpen}>
+            <Modal width="w-1/4" open={open} setOpen={setOpen}>
                 <div
                     // onSubmit={submit_handler}
                     className="flex flex-col gap-3"
