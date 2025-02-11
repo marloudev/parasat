@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Items;
 use App\Models\RequestItem;
+use App\Models\SerialNumberItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,17 +58,41 @@ class RequestItemController extends Controller
 
     public function update(Request $request, $id)
     {
-        $item = RequestItem::find($id);
-
-        if (!$item) {
-            return response()->json(['message' => 'Item not found'], 404);
+        if ($request->type == 'serial') {
+            $item = RequestItem::find($id);
+            if (!$item) {
+                return response()->json(['message' => 'Item not found'], 404);
+            }
+            $item->update([
+                'status' => $request->status
+            ]);
+            foreach ($request->items as $key => $value) {
+                $i = SerialNumberItem::where('id', $value['id'])->first();
+                if ($i) {
+                    $i->update([
+                        'status' => $request->status
+                    ]);
+                }
+            }
+            return response()->json($item, 200);
         }
 
-
-
-        $item->update($request->all());
-
-        return response()->json($item, 200);
+        if ($request->type == "no_serial") {
+            $item = Items::where('id', $request->item_id)->first();
+            if ($item) {
+                $item->update([
+                    'total' => intval($item->total) - intval($request->amount)
+                ]);
+            }
+            $item_request = RequestItem::where('id', $id)->first();
+            if ($item_request) {
+                $item_request->update([
+                    'status' => $request->status,
+                    'amount' => $request->amount,
+                ]);
+            }
+            return response()->json('success', 200);
+        }
     }
 
     public function destroy($id)

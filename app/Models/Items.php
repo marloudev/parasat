@@ -29,4 +29,5 @@ class Items extends Model
     {
         return $this->hasMany(StockItem::class,'item_id','id');
     }
+
 }

@@ -9,56 +9,34 @@ import {
     get_request_item_thunk,
     update_request_item_thunk,
 } from "@/app/redux/request-item-thunk";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-export default function ReviewRequestSection({ data }) {
+export default function RequestItemSection({ data }) {
     const [open, setOpen] = useState(false);
     // const { items } = useSelector((store) => store.items);
     const [form, setForm] = useState({});
     const [loading, setLoading] = useState(false);
-    const [search, setSearch] = useState("");
+    const [amount, setAmount] = useState("");
     const [items, setItems] = useState([]);
     console.log("data", data);
+
+    useEffect(()=>{
+        setAmount(data.amount)
+    },[])
 
     async function submit_handler(e) {
         e.preventDefault();
         setLoading(true);
         try {
-            await store.dispatch(create_request_item_thunk(form));
-            await store.dispatch(get_request_item_thunk());
+             await store.dispatch(create_request_item_thunk(form));
+             await store.dispatch(get_request_item_thunk());
+          
             setLoading(false);
             setForm({});
             setOpen(false);
         } catch (error) {
             setLoading(false);
-        }
-    }
-
-    async function search_item(e) {
-        e.preventDefault();
-        try {
-            const result = await search_item_service({
-                ...data,
-                search: search,
-            });
-            if (result?.data?.id) {
-                const newData = Array.isArray(result.data)
-                    ? result.data
-                    : [result.data];
-
-                setItems((prevItems) => {
-                    const existingSerials = new Set(
-                        prevItems.map((item) => item.serial_number)
-                    );
-                    const newItems = newData.filter(
-                        (item) => !existingSerials.has(item.serial_number)
-                    );
-                    return [...prevItems, ...newItems];
-                });
-            }
-        } catch (error) {
-            console.error("Error searching item:", error);
         }
     }
 
@@ -69,8 +47,9 @@ export default function ReviewRequestSection({ data }) {
                 update_request_item_thunk({
                     ...data,
                     items,
+                    amount:amount,
                     status: "released",
-                    type: "serial",
+                    type: "no_serial",
                 })
             );
             await store.dispatch(get_request_item_thunk());
@@ -128,7 +107,7 @@ export default function ReviewRequestSection({ data }) {
                             </tr>
                         </tbody>
                     </table>
-
+{/* 
                     <table className="min-w-full divide-y divide-gray-300">
                         <tbody className="divide-y divide-gray-200">
                             {items.map((res, i) => {
@@ -144,33 +123,20 @@ export default function ReviewRequestSection({ data }) {
                                 );
                             })}
                         </tbody>
-                    </table>
+                    </table> */}
                     {data.status != "released" && (
                         <>
-                            <form onSubmit={search_item}>
-                                <Input
-                                    onChange={(e) => setSearch(e.target.value)}
-                                    value={search ?? ""}
-                                    name="search"
-                                    label="Search Serial #"
-                                    type="text"
-                                />
-                            </form>
-                            <div className="flex items-center justify-end">
-                                <div className="text-black font-black">
-                                    Count: {items.length}
-                                </div>
-                            </div>
+                            <Input
+                                onChange={(e) => setAmount(e.target.value)}
+                                value={amount ?? ""}
+                                name="amount"
+                                label="Amount"
+                                type="text"
+                            />
                             <Button
                                 onClick={submit_items}
-                                variant={
-                                    data.amount != items.length
-                                        ? "default"
-                                        : "info"
-                                }
-                                disabled={
-                                    data.amount != items.length || loading
-                                }
+                                variant="info"
+                                disabled={loading}
                                 type="button"
                             >
                                 {loading ? "Loading..." : "SUBMIT"}

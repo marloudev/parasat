@@ -77,69 +77,115 @@ export default function ItemDetailSection({ data }) {
                                 htmlFor="Stock"
                                 className="text-sm font-semibold text-gray-700 mb-2"
                             >
-                                Stock : {data?.available?.length}
+                                Stock : {data?.total}
                             </label>
                         </div>
 
                         {serial_number === 1 && (
                             <div>
                                 <h2 className="text-lg text-black -mb-8 mt-10">
-                                    Serial Numbers
+                                    {data.isSerial == "true" &&
+                                        "Serial Numbers"}
+                                    {data.isSerial != "true" &&
+                                        "Delivery History"}
                                 </h2>
-                                <div className="mt-8">
-                                    <table className="min-w-full divide-y divide-gray-200">
-                                        <thead className="bg-gray-50">
-                                            <tr>
-                                                <th
-                                                    scope="col"
-                                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                                >
-                                                    SN
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                                >
-                                                    Status
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                                                >
-                                                    DR Date
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody className="bg-white divide-y divide-gray-200">
-                                            {data?.serial_numbers?.map(
-                                                (sn, index) => (
-                                                    <tr key={index}>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-700">
-                                                            {sn.serial_number}
-                                                        </td>
-                                                        <td className="capitalize px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-700">
-                                                            <div
-                                                                className={` rounded-xl text-center text-white p-1 ${
-                                                                    sn.status ==
-                                                                    "available"
-                                                                        ? "bg-blue-700"
-                                                                        : "bg-red-700"
-                                                                } `}
-                                                            >
-                                                                {sn.status}
-                                                            </div>
-                                                        </td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-700">
-                                                            {moment(
-                                                                sn.created_at
-                                                            ).format("LLL")}
-                                                        </td>
-                                                    </tr>
-                                                )
-                                            )}
-                                        </tbody>
-                                    </table>
-                                </div>
+                                {data.isSerial == "true" && (
+                                    <div className="mt-8">
+                                        <table className="min-w-full divide-y divide-gray-200">
+                                            <thead className="bg-gray-50">
+                                                <tr>
+                                                    <th
+                                                        scope="col"
+                                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                    >
+                                                        SN
+                                                    </th>
+                                                    <th
+                                                        scope="col"
+                                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                    >
+                                                        Status
+                                                    </th>
+                                                    <th
+                                                        scope="col"
+                                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                    >
+                                                        DR Date
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className="bg-white divide-y divide-gray-200">
+                                                {data?.serial_numbers?.map(
+                                                    (sn, index) => (
+                                                        <tr key={index}>
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-700">
+                                                                {
+                                                                    sn.serial_number
+                                                                }
+                                                            </td>
+                                                            <td className="capitalize px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-700">
+                                                                <div
+                                                                    className={` rounded-xl text-center text-white p-1 ${
+                                                                        sn.status ==
+                                                                        "available"
+                                                                            ? "bg-blue-700"
+                                                                            : "bg-red-700"
+                                                                    } `}
+                                                                >
+                                                                    {sn.status}
+                                                                </div>
+                                                            </td>
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-700">
+                                                                {moment(
+                                                                    sn.created_at
+                                                                ).format("LLL")}
+                                                            </td>
+                                                        </tr>
+                                                    )
+                                                )}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                )}
+                                 {data.isSerial != "true" &&
+                                        <div className="mt-8">
+                                        <table className="min-w-full divide-y divide-gray-200">
+                                            <thead className="bg-gray-50">
+                                                <tr>
+                                                    <th
+                                                        scope="col"
+                                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                    >
+                                                        SN
+                                                    </th>
+                                                    <th
+                                                        scope="col"
+                                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                    >
+                                                        Delivery Date
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className="bg-white divide-y divide-gray-200">
+                                                {data?.stock_items?.map(
+                                                    (sn, index) => (
+                                                        <tr key={index}>
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-700">
+                                                                {
+                                                                    sn.amount
+                                                                }
+                                                            </td>
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-700">
+                                                                {moment(
+                                                                    sn.created_at
+                                                                ).format("LLL")}
+                                                            </td>
+                                                        </tr>
+                                                    )
+                                                )}
+                                            </tbody>
+                                        </table>
+                                    </div>}
                             </div>
                         )}
 
