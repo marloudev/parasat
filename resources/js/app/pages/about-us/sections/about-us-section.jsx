@@ -1,4 +1,4 @@
-import { PhoneIcon } from '@heroicons/react/16/solid'
+import { BuildingOfficeIcon, DevicePhoneMobileIcon, PhoneIcon } from '@heroicons/react/16/solid'
 import React from 'react'
 
 export default function AboutUsSection() {
@@ -15,17 +15,23 @@ export default function AboutUsSection() {
                     <h1 className='mb-5 text-3xl'>
                         <b>Office</b>
                     </h1>
-                    <p className='text-lg'>
-                        Rizal St.,
+                    <p className='flex items-center text-lg'>
+                        <BuildingOfficeIcon className='h-4' />
+                        &nbsp;Unit 5 Plaza Bldg. Rizal St.,
                         San Carlos City, Negros Occidental
                         Philippines 6127
                     </p>
-                    <p>
-                        (088)555-9200
+                    <p className='flex items-center'>
+                        <DevicePhoneMobileIcon className='h-4' />
+                        &nbsp;0915-870-1972
                     </p>
-                    <p>
+                    <p className='flex items-center'>
+                        <PhoneIcon className='h-4' />
+                        &nbsp;(034)312-6184
+                    </p>
+                    {/* <p>
                         parasat.web@websprinter.net
-                    </p>
+                    </p> */}
                 </div>
                 <div className='mb-6'>
                     <h1 className='mb-5 text-3xl'>

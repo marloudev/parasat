@@ -1,13 +1,17 @@
 import { Link } from '@inertiajs/react'
-import React from 'react'
+import { Modal } from 'antd';
+import React, { useState } from 'react'
 
-export default function OfferPlanCardComponent({ name, price, speed, href, popular }) {
+export default function OfferPlanCardComponent({ name, price, speed, href, popular, onClick }) {
+
 
     return (
         <div className="pt-16 lg:px-8 lg:pt-0 xl:px-14 shadow-md shadow-blue-200 bg-white rounded-md">
             <div className='flex flex-1 items-center justify-between mt-2'>
                 <h3 className="text-base/7 font-semibold text-gray-900">
-                    Up to {speed}
+                    <button type='button' onClick={onClick}>
+                        <u>Up to {speed}</u>
+                    </button>
                 </h3>
                 {popular && (
                     <p className="rounded-full bg-indigo-600/10 px-2.5 py-1 text-xs/5 font-semibold text-indigo-600">
@@ -26,6 +30,7 @@ export default function OfferPlanCardComponent({ name, price, speed, href, popul
             >
                 Purchase Plan
             </Link>
+
         </div>
     )
 }
