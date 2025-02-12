@@ -8,10 +8,11 @@ import barangay from "@/app/address/barangay.json"
 import Select from '../../_components/select'
 import ConfirmationSection from './confirmation-section'
 import InputPrice from '../../_components/inputprice'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import store from '../../store/store'
 import { create_application_thunk } from '@/app/redux/application-thunk'
 import FileUploadSection from './file-upload-section'
+import { message } from 'antd'
 
 export default function ApplicationFormSection() {
     const { internet_plan } = useSelector((state) => state.internet_plans);
@@ -20,6 +21,7 @@ export default function ApplicationFormSection() {
     const [newCity, setNewCity] = useState([])
     const [newBarangay, setNewBarangay] = useState([])
     const [form, setForm] = useState();
+    const dispatch=useDispatch()
 
     console.log('internet_plan', internet_plan)
     function data_handler(e) {
@@ -65,7 +67,8 @@ export default function ApplicationFormSection() {
 
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    async function handleSubmit() {
+    async function handleSubmit(e) {
+        e.preventDefault()
         try {
             setLoading(true);
             await store.dispatch(

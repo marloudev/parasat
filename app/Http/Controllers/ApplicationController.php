@@ -11,10 +11,6 @@ class ApplicationController extends Controller
     {
         $application = Application::create($request->all());
 
-        $address = $request->lot . ' ' . $request->brgy . ' ' . $request->city . ' ' . $request->province;
-
-        $application->address = $address;
-        $application->save();
 
         return response()->json([
             'status' => 'success',
