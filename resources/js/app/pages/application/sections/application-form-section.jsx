@@ -11,6 +11,7 @@ import InputPrice from '../../_components/inputprice'
 import { useSelector } from 'react-redux'
 import store from '../../store/store'
 import { create_application_thunk } from '@/app/redux/application-thunk'
+import FileUploadSection from './file-upload-section'
 
 export default function ApplicationFormSection() {
     const { internet_plan } = useSelector((state) => state.internet_plans);
@@ -231,6 +232,7 @@ export default function ApplicationFormSection() {
                                                 </div>
                                             </div>
                                         </div>
+
                                         <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-5">
                                             Address Information
                                         </h1>
@@ -295,6 +297,119 @@ export default function ApplicationFormSection() {
                                                 />
                                             </div>
                                         </div>
+                                        <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-6">
+                                            Second Contact Person
+                                        </h1>
+                                        <div className="flex flex-1 gap-4">
+                                            <div className="flex flex-col w-full mb-4">
+                                                <div className="flex flex-1 gap-3">
+                                                    <Input
+                                                        onChange={(e) =>
+                                                            setForm({
+                                                                ...form,
+                                                                fname: e.target.value,
+                                                            })
+                                                        }
+                                                        value={form?.fname ?? ""}
+                                                        // required={error?.fname ? true : false}
+                                                        name="fname"
+                                                        label="First Name"
+                                                        type="text"
+                                                    />
+                                                    <Input
+                                                        onChange={(e) =>
+                                                            setForm({
+                                                                ...form,
+                                                                mname: e.target.value,
+                                                            })
+                                                        }
+                                                        value={form?.mname ?? ""}
+                                                        // required={error?.mname ? true : false}
+                                                        name="mname"
+                                                        label="Middle Name"
+                                                        type="text"
+                                                    />
+                                                    <Input
+                                                        onChange={(e) =>
+                                                            setForm({
+                                                                ...form,
+                                                                lname: e.target.value,
+                                                            })
+                                                        }
+                                                        value={form?.lname ?? ""}
+                                                        // required={error?.lname ? true : false}
+                                                        name="lname"
+                                                        label="Last Name"
+                                                        type="text"
+                                                    />
+                                                    <select
+                                                        onChange={(e) =>
+                                                            setForm({
+                                                                ...form,
+                                                                suffix: e.target.value,
+                                                            })
+                                                        }
+                                                        value={form?.suffix ?? ""}
+                                                        name="suffix"
+                                                        className="border p-2 rounded  w-1/5"
+                                                    >
+                                                        <option disabled selected>
+                                                            Suffix
+                                                        </option>
+                                                        <option></option>
+                                                        <option> Sr.</option>
+                                                        <option> Jr.</option>
+                                                        <option> II</option>
+                                                        <option> III</option>
+                                                        <option> IV</option>
+                                                        <option> V</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-1 gap-4">
+                                            <div className="flex w-full">
+                                                <div className="flex flex-col gap-4 mb-4 w-full">
+                                                    <div className=" w-full">
+                                                        <Input
+                                                            onChange={(e) =>
+                                                                setForm({
+                                                                    ...form,
+                                                                    email: e.target.value,
+                                                                })
+                                                            }
+                                                            value={form?.email ?? ""}
+                                                            // required={error?.email ? true : false}
+                                                            name="email"
+                                                            label="Email"
+                                                            type="email"
+                                                        // errorMessage={error?.email}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex w-full">
+                                                <div className="flex flex-col gap-4 mb-4 w-full">
+                                                    <div className="w-full">
+                                                        <Input
+                                                            onChange={(e) =>
+                                                                setForm({
+                                                                    ...form,
+                                                                    contact: e.target.value,
+                                                                })
+                                                            }
+                                                            value={form?.contact ?? ""}
+                                                            // required={error?.phone ? true : false}
+                                                            name="contact"
+                                                            label="Phone Number"
+                                                            type="number"
+                                                        // errorMessage={error?.email}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-7">
                                             Plan Details
                                         </h1>
@@ -324,6 +439,12 @@ export default function ApplicationFormSection() {
                                                 label="Plan Price"
                                                 type="text"
                                             />
+                                        </div>
+                                        <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-7">
+                                            File Upload
+                                        </h1>
+                                        <div>
+                                            <FileUploadSection />
                                         </div>
                                         <div className="flex justify-end mt-2.5">
 
