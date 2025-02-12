@@ -28,7 +28,7 @@ export default function SidebarSection() {
     const path = window.location.pathname.split('/')[2]
     const navigation = [
         { name: "Dashboard", href: "/administrator/dashboard", icon: HomeIcon, current: path == 'dashboard' },
-        { name: "User Management", href: "/administrator/user_manangement", icon: UserGroupIcon, current: path == 'user_manangement' },
+        { name: "User Management", href: "/administrator/user_management", icon: UserGroupIcon, current: path == 'user_manangement' },
         { name: "Internet Plans", href: "/administrator/internetplans", icon: SignalIcon, current: path == 'internetplans' },
         { name: "Applications", href: "/administrator/application", icon: UsersIcon, current: path == 'application' },
         { name: "Inventory", href: "/administrator/inventory", icon: FolderIcon, current: path == 'inventory' },

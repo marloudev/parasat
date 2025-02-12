@@ -36,6 +36,9 @@ Route::middleware('auth:sanctum')->prefix('administrator')->group(function () {
     Route::get('/inventory', function () {
         return Inertia::render('admin/inventory/page');
     });
+    Route::get('/user_management', function () {
+        return Inertia::render('admin/user_management/page');
+    });
     Route::get('/requests', function () {
         return Inertia::render('admin/requests/page');
     });
