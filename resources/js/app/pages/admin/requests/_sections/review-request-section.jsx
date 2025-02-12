@@ -7,6 +7,7 @@ import store from "@/app/pages/store/store";
 import {
     create_request_item_thunk,
     get_request_item_thunk,
+    update_change_status_thunk,
     update_request_item_thunk,
 } from "@/app/redux/request-item-thunk";
 import React, { useState } from "react";
@@ -81,15 +82,34 @@ export default function ReviewRequestSection({ data }) {
             setLoading(false);
         }
     }
+
+    async function change_status_handler(params) {
+        setLoading(true);
+       
+       try {
+        await store.dispatch(
+            update_change_status_thunk({
+                id: data.id,
+                status: "declined",
+            })
+        );
+        await store.dispatch(get_request_item_thunk());
+        setOpen(false);
+        setLoading(false);
+       } catch (error) {
+        setLoading(false);
+       }
+    }
     return (
         <div>
             <button
                 disabled={data.status == "cancelled"}
                 onClick={() => setOpen(!open)}
-                className={`capitalize w-36 ${data.status == "cancelled"
+                className={`capitalize w-36 ${
+                    data.status == "cancelled"
                         ? "bg-gray-600 hover:bg-gray-500 focus-visible:outline-gray-600"
                         : "bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600"
-                    }  text-white font-bold py-2 px-4 rounded ml-2`}
+                }  text-white font-bold py-2 px-4 rounded ml-2`}
             >
                 {data.status == "cancelled" ? data.status : "Review"}
             </button>
@@ -163,7 +183,7 @@ export default function ReviewRequestSection({ data }) {
 
                             <div className="flex gap-4 justify-end">
                                 <Button
-                                    onClick=""
+                                    onClick={change_status_handler}
                                     variant="error"
                                     disabled={loading}
                                     type="button"

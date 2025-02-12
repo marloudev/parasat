@@ -27,7 +27,9 @@ export default function AddItemSection() {
             await store.dispatch(get_item_thunk());
             setLoading(false);
             closeModal(false);
-            setForm({})
+            setForm({
+                isSerial:'false'
+            })
         } catch (error) {
             setLoading(false);
         }

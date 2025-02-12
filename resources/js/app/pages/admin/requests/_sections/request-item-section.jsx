@@ -7,6 +7,7 @@ import store from "@/app/pages/store/store";
 import {
     create_request_item_thunk,
     get_request_item_thunk,
+    update_change_status_thunk,
     update_request_item_thunk,
 } from "@/app/redux/request-item-thunk";
 import React, { useEffect, useState } from "react";
@@ -59,6 +60,23 @@ export default function RequestItemSection({ data }) {
         } catch (error) {
             setLoading(false);
         }
+    }
+    async function change_status_handler(params) {
+        setLoading(true);
+       
+       try {
+        await store.dispatch(
+            update_change_status_thunk({
+                id: data.id,
+                status: "declined",
+            })
+        );
+        await store.dispatch(get_request_item_thunk());
+        setOpen(false);
+        setLoading(false);
+       } catch (error) {
+        setLoading(false);
+       }
     }
     return (
         <div>
@@ -136,7 +154,7 @@ export default function RequestItemSection({ data }) {
 
                             <div className="flex gap-4 justify-end">
                                 <Button
-                                    onClick=""
+                                    onClick={change_status_handler}
                                     variant="error"
                                     disabled={loading}
                                     type="button"
