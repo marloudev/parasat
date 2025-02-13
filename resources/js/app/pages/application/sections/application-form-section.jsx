@@ -87,9 +87,9 @@ export default function ApplicationFormSection() {
             await store.dispatch(
                 create_application_thunk({
                     ...application,
-                    pname: internet_plan?.name,
-                    pspeed: internet_plan?.speed,
-                    price: internet_plan?.price,
+                    plan_name: internet_plan?.name,
+                    plan_speed: internet_plan?.speed,
+                    plan_price: internet_plan?.price,
                 })
             );
             message.success("Successfully Added!");
