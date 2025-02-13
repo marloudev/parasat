@@ -40,7 +40,7 @@ export default function ApplicationFormSection() {
                 setNewProvince(prov);
                 dispatch(setApplication({
                     ...application,
-                    [e.target.name]: e.target.value,
+                    [e.target.name]: region.name,
                 }));
 
             }
