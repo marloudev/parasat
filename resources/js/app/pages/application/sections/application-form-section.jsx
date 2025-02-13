@@ -13,6 +13,7 @@ import store from '../../store/store'
 import { create_application_thunk } from '@/app/redux/application-thunk'
 import FileUploadSection from './file-upload-section'
 import { message } from 'antd'
+import { setApplication } from '@/app/redux/application-slice'
 
 export default function ApplicationFormSection() {
     const { internet_plan } = useSelector((state) => state.internet_plans);
@@ -20,50 +21,62 @@ export default function ApplicationFormSection() {
     const [newProvince, setNewProvince] = useState([])
     const [newCity, setNewCity] = useState([])
     const [newBarangay, setNewBarangay] = useState([])
-    const [form, setForm] = useState();
-    const dispatch=useDispatch()
+    const { application } = useSelector((state) => state.applications);
+    // const [form, setForm] = useState({
+    //     region: region.name,
+    //     province: province.name,
+    //     city: city.name,
+    //     barangay: barangay.name,
+    // });
+
+    const dispatch = useDispatch()
 
     console.log('internet_plan', internet_plan)
     function data_handler(e) {
-        if (e.target.name == 'region') {
-            const region = JSON.parse(e.target.value)
-            const prov = province.filter(obj => obj.region_code === region.region_code);
-            setNewProvince(prov)
-            dispatch(
-                setApplicantForm({
-                    ...applicantForm,
-                    [e.target.name]: region.name,
-                })
-            );
-        } else if (e.target.name == 'province') {
-            const province = JSON.parse(e.target.value)
-            const ct = city.filter(obj => obj.province_code === province.province_code);
-            setNewCity(ct)
-            dispatch(
-                setApplicantForm({
-                    ...applicantForm,
-                    [e.target.name]: province.name,
-                })
-            );
-        } else if (e.target.name == 'city') {
-            const city = JSON.parse(e.target.value)
-            const brgy = barangay.filter(obj => obj.city_code === city.city_code);
-            setNewBarangay(brgy)
-            dispatch(
-                setApplicantForm({
-                    ...applicantForm,
-                    [e.target.name]: city.name,
-                })
-            );
-        } else {
-            dispatch(
-                setApplicantForm({
-                    ...applicantForm,
+        if (e.target.name === 'region') {
+            const region = JSON.parse(e.target.value);
+            if (region && region.region_code) {
+                const prov = province.filter(obj => obj.region_code === region.region_code);
+                setNewProvince(prov);
+                dispatch(setApplication({
+                    ...application,
                     [e.target.name]: e.target.value,
-                })
-            );
+                }));
+
+            }
+        } else if (e.target.name === 'province') {
+            const province = JSON.parse(e.target.value);
+            if (province && province.province_code) {
+                const ct = city.filter(obj => obj.province_code === province.province_code);
+                setNewCity(ct);
+                dispatch(setApplication({
+                    ...application,
+                    [e.target.name]: e.target.value,
+                }));
+
+            }
+        } else if (e.target.name === 'city') {
+            const city = JSON.parse(e.target.value);
+            if (city && city.city_code) {
+                const brgy = barangay.filter(obj => obj.city_code === city.city_code);
+                setNewBarangay(brgy);
+                dispatch(setApplication({
+                    ...application,
+                    [e.target.name]: e.target.value,
+                }));
+
+            }
+        } else {
+            dispatch(setApplication({
+                ...application,
+                [e.target.name]: e.target.value,
+            }));
+
         }
     }
+
+
+    console.log('applicationss', application)
 
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -73,13 +86,16 @@ export default function ApplicationFormSection() {
             setLoading(true);
             await store.dispatch(
                 create_application_thunk({
-                    ...form,
+                    ...application,
+                    pname: internet_plan?.name,
+                    pspeed: internet_plan?.speed,
+                    price: internet_plan?.price,
                 })
             );
             message.success("Successfully Added!");
             setOpen(false);
         } catch (error) {
-            message.error("Failed to save Employee. Please try again.");
+            message.error("Failed to submit Application. Please try again.");
         } finally {
             setLoading(false);
         }
@@ -113,52 +129,32 @@ export default function ApplicationFormSection() {
                                             <div className="flex flex-col w-full mb-4">
                                                 <div className="flex flex-1 gap-3">
                                                     <Input
-                                                        onChange={(e) =>
-                                                            setForm({
-                                                                ...form,
-                                                                fname: e.target.value,
-                                                            })
-                                                        }
-                                                        value={form?.fname ?? ""}
+                                                        onChange={(event) => data_handler(event)}
+                                                        value={application?.fname ?? ""}
                                                         // required={error?.fname ? true : false}
                                                         name="fname"
                                                         label="First Name"
                                                         type="text"
                                                     />
                                                     <Input
-                                                        onChange={(e) =>
-                                                            setForm({
-                                                                ...form,
-                                                                mname: e.target.value,
-                                                            })
-                                                        }
-                                                        value={form?.mname ?? ""}
+                                                        onChange={(event) => data_handler(event)}
+                                                        value={application?.mname ?? ""}
                                                         // required={error?.mname ? true : false}
                                                         name="mname"
                                                         label="Middle Name"
                                                         type="text"
                                                     />
                                                     <Input
-                                                        onChange={(e) =>
-                                                            setForm({
-                                                                ...form,
-                                                                lname: e.target.value,
-                                                            })
-                                                        }
-                                                        value={form?.lname ?? ""}
+                                                        onChange={(event) => data_handler(event)}
+                                                        value={application?.lname ?? ""}
                                                         // required={error?.lname ? true : false}
                                                         name="lname"
                                                         label="Last Name"
                                                         type="text"
                                                     />
                                                     <select
-                                                        onChange={(e) =>
-                                                            setForm({
-                                                                ...form,
-                                                                suffix: e.target.value,
-                                                            })
-                                                        }
-                                                        value={form?.suffix ?? ""}
+                                                        onChange={(event) => data_handler(event)}
+                                                        value={application?.suffix ?? ""}
                                                         name="suffix"
                                                         className="border p-2 rounded  w-1/5"
                                                     >
@@ -181,13 +177,8 @@ export default function ApplicationFormSection() {
                                                 <div className="flex flex-col gap-4 mb-4 w-full">
                                                     <div className="flex flex-col w-full">
                                                         <Input
-                                                            onChange={(e) =>
-                                                                setForm({
-                                                                    ...form,
-                                                                    bdate: e.target.value,
-                                                                })
-                                                            }
-                                                            value={form?.bdate ?? ""}
+                                                            onChange={(event) => data_handler(event)}
+                                                            value={application?.bdate ?? ""}
                                                             // required={error?.dob ? true : false}
                                                             name="bdate"
                                                             label="Date of Birth"
@@ -197,13 +188,8 @@ export default function ApplicationFormSection() {
                                                     </div>
                                                     <div className=" w-full">
                                                         <Input
-                                                            onChange={(e) =>
-                                                                setForm({
-                                                                    ...form,
-                                                                    email: e.target.value,
-                                                                })
-                                                            }
-                                                            value={form?.email ?? ""}
+                                                            onChange={(event) => data_handler(event)}
+                                                            value={application?.email ?? ""}
                                                             // required={error?.email ? true : false}
                                                             name="email"
                                                             label="Email"
@@ -218,13 +204,8 @@ export default function ApplicationFormSection() {
                                                 <div className="flex flex-col gap-4 mb-4 w-full">
                                                     <div className="w-full">
                                                         <Input
-                                                            onChange={(e) =>
-                                                                setForm({
-                                                                    ...form,
-                                                                    contact: e.target.value,
-                                                                })
-                                                            }
-                                                            value={form?.contact ?? ""}
+                                                            onChange={(event) => data_handler(event)}
+                                                            value={application?.contact ?? ""}
                                                             // required={error?.phone ? true : false}
                                                             name="contact"
                                                             label="Phone Number"
@@ -236,70 +217,75 @@ export default function ApplicationFormSection() {
                                             </div>
                                         </div>
 
-                                        <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-5">
+                                        <h1 className="text-xl font-semibold mb-3 text-gray-900 mt-5">
                                             Address Information
                                         </h1>
                                         <div className="flex flex-1 gap-4 mb-4 w-full">
                                             <div className="flex flex-col w-full">
                                                 <Select
                                                     onChange={(event) => data_handler(event)}
-                                                    // value={applicantForm.region ?? ""}
+                                                    value={application.region ?? ""}
                                                     options={region.map(res => ({
                                                         label: res.region_name,
                                                         value: JSON.stringify({ name: res.region_name, region_code: res.region_code }),
                                                     }))}
                                                     name="region"
                                                     label="Region"
+                                                    placeholder="Select Region"
                                                 />
                                             </div>
                                             <div className="flex flex-col w-full">
                                                 <Select
                                                     onChange={(event) => data_handler(event)}
-                                                    // value={applicantForm.province ?? ""}
+                                                    value={application.province ?? ""}
                                                     options={newProvince.map(res => ({
                                                         label: res.province_name,
                                                         value: JSON.stringify({ name: res.province_name, province_code: res.province_code }),
                                                     }))}
                                                     name="province"
                                                     label="Province"
+                                                    placeholder="Select Province"
                                                 />
                                             </div>
                                             <div className="flex flex-col w-full">
                                                 <Select
                                                     onChange={(event) => data_handler(event)}
-                                                    // value={applicantForm.city ?? ""}
+                                                    value={application.city ?? ""}
                                                     options={newCity.map(res => ({
                                                         label: res.city_name,
                                                         value: JSON.stringify({ name: res.city_name, city_code: res.city_code }),
                                                     }))}
                                                     name="city"
                                                     label="City/Municipality"
+                                                    placeholder="Select City"
                                                 />
                                             </div>
                                         </div>
                                         <div className="flex flex-1 gap-4 mb-4">
-                                            <div className="flex flex-col  w-1/2">
+                                            <div className="flex flex-col w-1/2">
                                                 <Select
                                                     onChange={(event) => data_handler(event)}
-                                                    // value={applicantForm.barangay ?? ""}
+                                                    value={application.barangay ?? ""}
                                                     options={newBarangay.map(res => ({
                                                         label: res.brgy_name,
                                                         value: res.brgy_name,
                                                     }))}
-                                                    name="brgy"
+                                                    name="barangay"
                                                     label="Barangay"
+                                                    placeholder="Select Barangay"
                                                 />
                                             </div>
                                             <div className="flex flex-col w-full">
                                                 <Input
                                                     onChange={(event) => data_handler(event)}
-                                                    // value={applicantForm.lot ?? ""}
+                                                    value={application.lot ?? ""}
                                                     name="lot"
                                                     label="House/Lot No., Street, Purok/Sitio"
                                                     type="text"
                                                 />
                                             </div>
                                         </div>
+
                                         <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-6">
                                             Second Contact Person
                                         </h1>
@@ -307,53 +293,33 @@ export default function ApplicationFormSection() {
                                             <div className="flex flex-col w-full mb-4">
                                                 <div className="flex flex-1 gap-3">
                                                     <Input
-                                                        onChange={(e) =>
-                                                            setForm({
-                                                                ...form,
-                                                                fname: e.target.value,
-                                                            })
-                                                        }
-                                                        value={form?.fname ?? ""}
+                                                        onChange={(event) => data_handler(event)}
+                                                        value={application?.sfname ?? ""}
                                                         // required={error?.fname ? true : false}
-                                                        name="fname"
+                                                        name="sfname"
                                                         label="First Name"
                                                         type="text"
                                                     />
                                                     <Input
-                                                        onChange={(e) =>
-                                                            setForm({
-                                                                ...form,
-                                                                mname: e.target.value,
-                                                            })
-                                                        }
-                                                        value={form?.mname ?? ""}
+                                                        onChange={(event) => data_handler(event)}
+                                                        value={application?.smname ?? ""}
                                                         // required={error?.mname ? true : false}
-                                                        name="mname"
+                                                        name="smname"
                                                         label="Middle Name"
                                                         type="text"
                                                     />
                                                     <Input
-                                                        onChange={(e) =>
-                                                            setForm({
-                                                                ...form,
-                                                                lname: e.target.value,
-                                                            })
-                                                        }
-                                                        value={form?.lname ?? ""}
+                                                        onChange={(event) => data_handler(event)}
+                                                        value={application?.slname ?? ""}
                                                         // required={error?.lname ? true : false}
-                                                        name="lname"
+                                                        name="slname"
                                                         label="Last Name"
                                                         type="text"
                                                     />
                                                     <select
-                                                        onChange={(e) =>
-                                                            setForm({
-                                                                ...form,
-                                                                suffix: e.target.value,
-                                                            })
-                                                        }
-                                                        value={form?.suffix ?? ""}
-                                                        name="suffix"
+                                                        onChange={(event) => data_handler(event)}
+                                                        value={application?.ssuffix ?? ""}
+                                                        name="ssuffix"
                                                         className="border p-2 rounded  w-1/5"
                                                     >
                                                         <option disabled selected>
@@ -375,15 +341,10 @@ export default function ApplicationFormSection() {
                                                 <div className="flex flex-col gap-4 mb-4 w-full">
                                                     <div className=" w-full">
                                                         <Input
-                                                            onChange={(e) =>
-                                                                setForm({
-                                                                    ...form,
-                                                                    email: e.target.value,
-                                                                })
-                                                            }
-                                                            value={form?.email ?? ""}
+                                                            onChange={(event) => data_handler(event)}
+                                                            value={application?.semail ?? ""}
                                                             // required={error?.email ? true : false}
-                                                            name="email"
+                                                            name="semail"
                                                             label="Email"
                                                             type="email"
                                                         // errorMessage={error?.email}
@@ -396,15 +357,10 @@ export default function ApplicationFormSection() {
                                                 <div className="flex flex-col gap-4 mb-4 w-full">
                                                     <div className="w-full">
                                                         <Input
-                                                            onChange={(e) =>
-                                                                setForm({
-                                                                    ...form,
-                                                                    contact: e.target.value,
-                                                                })
-                                                            }
-                                                            value={form?.contact ?? ""}
+                                                            onChange={(event) => data_handler(event)}
+                                                            value={application?.scontact ?? ""}
                                                             // required={error?.phone ? true : false}
-                                                            name="contact"
+                                                            name="scontact"
                                                             label="Phone Number"
                                                             type="number"
                                                         // errorMessage={error?.email}
@@ -418,27 +374,27 @@ export default function ApplicationFormSection() {
                                         </h1>
                                         <div className="mb-4 w-full">
                                             <Input
-                                                // onChange={(event) => data_handler(event)}
+                                                onChange={(event) => data_handler(event)}
                                                 value={internet_plan?.name ?? ""}
-                                                name="pname"
+                                                name="plan_name"
                                                 label="Plan Name"
                                                 type="text"
                                             />
                                         </div>
                                         <div className="mb-4 w-full">
                                             <Input
-                                                // onChange={(event) => data_handler(event)}
+                                                onChange={(event) => data_handler(event)}
                                                 value={internet_plan?.speed ?? ""}
-                                                name="pspeed"
+                                                name="plan_speed"
                                                 label="Plan Speed"
                                                 type="text"
                                             />
                                         </div>
                                         <div className="mb-4 w-full">
                                             <InputPrice
-                                                // onChange={(event) => data_handler(event)}
+                                                onChange={(event) => data_handler(event)}
                                                 value={internet_plan?.price ?? ""}
-                                                name="price"
+                                                name="plan_price"
                                                 label="Plan Price"
                                                 type="text"
                                             />

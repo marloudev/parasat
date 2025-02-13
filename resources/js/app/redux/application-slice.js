@@ -4,14 +4,16 @@ export const applicationSlice = createSlice({
     name: "applications",
     initialState: {
         applications: [],
-        application: {},
+        application: {
+            internet_plan: []
+        },
     },
     reducers: {
         setApplications: (state, action) => {
             state.applications = action.payload;
         },
         setApplication: (state, action) => {
-            state.applications = action.payload;
+            state.application = action.payload;
         },
     },
 });
