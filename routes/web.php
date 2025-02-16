@@ -58,15 +58,15 @@ Route::middleware('auth:sanctum')->prefix('administrator')->group(function () {
     //     return Inertia::render('admin/subjects/page');
     // });
 });
-Route::prefix('techteam')->group(function () {
+Route::middleware('auth:sanctum')->prefix('techteam')->group(function () {
     Route::get('/request_item', function () {
         return Inertia::render('tech_team/request_item/page');
     })->name('tech_team');
 });
 
-Route::prefix('csr')->group(function () {
-    Route::get('/request_item', function () {
-        return Inertia::render('tech_team/request_item/page');
+Route::middleware('auth:sanctum')->prefix('csr')->group(function () {
+    Route::get('/applications', function () {
+        return Inertia::render('csr/applications/page');
     })->name('csr');
 });
 // Route::get('/dashboard', function () {
