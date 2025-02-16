@@ -40,7 +40,7 @@ export default function CancelRequestSection({ data }) {
             >
                 Cancel Request
             </button>
-            <Modal open={open} width="w-20" setOpen={setOpen}>
+            <Modal open={open} width="w-1/2" setOpen={setOpen}>
                 <div>
                     <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-green-100">
                         <TrashIcon
