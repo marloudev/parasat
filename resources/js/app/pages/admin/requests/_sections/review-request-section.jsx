@@ -103,15 +103,15 @@ export default function ReviewRequestSection({ data }) {
     return (
         <div>
             <button
-                disabled={data.status == "cancelled"}
+                disabled={data.status == "declined" || data.status == "cancelled"}
                 onClick={() => setOpen(!open)}
                 className={`capitalize w-36 ${
-                    data.status == "cancelled"
+                    data.status == "declined" || data.status == "cancelled"
                         ? "bg-gray-600 hover:bg-gray-500 focus-visible:outline-gray-600"
                         : "bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600"
                 }  text-white font-bold py-2 px-4 rounded ml-2`}
             >
-                {data.status == "cancelled" ? data.status : "Review"}
+                {data.status === "cancelled" ? "Cancelled" : data.status === "declined" ? "Declined" : "Review"}
             </button>
             <Modal width="w-1/4" open={open} setOpen={setOpen}>
                 <div

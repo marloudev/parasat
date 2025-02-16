@@ -30,10 +30,10 @@ export default function CancelRequestSection({ data }) {
     return (
         <div>
             <button
-                disabled={data.status == "cancelled"}
+                disabled={data.status == "cancelled" || data.status == "declined"}
                 onClick={() => setOpen(!open)}
                 className={` ${
-                    data.status == "cancelled"
+                    data.status == "cancelled" || data.status == "declined"
                         ? "bg-gray-600 hover:bg-gray-500 focus-visible:outline-gray-600"
                         : "bg-red-600 hover:bg-red-500 focus-visible:outline-red-600"
                 }  text-white font-bold py-2 px-4 rounded ml-2`}
