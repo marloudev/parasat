@@ -33,7 +33,7 @@ export default function SidebarSection() {
         { name: "Applications", href: "/administrator/application", icon: UsersIcon, current: path == 'application' },
         { name: "Inventory", href: "/administrator/inventory", icon: FolderIcon, current: path == 'inventory' },
         { name: "Requests", href: "/administrator/requests", icon: ClipboardDocumentListIcon, current: path == 'requests' },
-        { name: "Email notifications", href: "#", icon: EnvelopeOpenIcon, current: path == '' },
+        { name: "Email notifications", href: "/administrator/email_notification", icon: EnvelopeOpenIcon, current: path == '' },
     ];
 
     const teams = [

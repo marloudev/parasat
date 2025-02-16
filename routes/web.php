@@ -48,6 +48,9 @@ Route::middleware('auth:sanctum')->prefix('administrator')->group(function () {
     Route::get('/application', function () {
         return Inertia::render('admin/application/page');
     });
+    Route::get('/email_notification', function () {
+        return Inertia::render('admin/email_notification/page');
+    });
     // Route::get('/students', function () {
     //     return Inertia::render('admin/students/page');
     // });
