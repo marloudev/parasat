@@ -51,7 +51,7 @@ export default function ApplicationFormSection() {
                 setNewCity(ct);
                 dispatch(setApplication({
                     ...application,
-                    [e.target.name]: e.target.value,
+                    [e.target.name]: province.name,
                 }));
 
             }
@@ -62,7 +62,7 @@ export default function ApplicationFormSection() {
                 setNewBarangay(brgy);
                 dispatch(setApplication({
                     ...application,
-                    [e.target.name]: e.target.value,
+                    [e.target.name]: city.name,
                 }));
 
             }
