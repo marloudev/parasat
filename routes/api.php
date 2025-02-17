@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\InternetPlansController;
 use App\Http\Controllers\ItemsController;
@@ -15,6 +16,7 @@ Route::get('/user', function (Request $request) {
 
 
 Route::resource('application', ApplicationController::class);
+Route::resource('account', AccountController::class);
 Route::resource('internet_plan', InternetPlansController::class);
 
 Route::middleware('auth:sanctum')->prefix('/')->group(function () {

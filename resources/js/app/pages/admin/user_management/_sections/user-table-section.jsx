@@ -1,5 +1,6 @@
 import React from 'react'
 import EditUserSection from './edit-user-section'
+import { useSelector } from 'react-redux'
 
 const people = [
     { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
@@ -7,7 +8,8 @@ const people = [
 ]
 
 export default function UserTableSection() {
-    
+    const { users } = useSelector((store) => store.app)
+    console.log('users', users)
     return (
         <div>
             <table className="min-w-full divide-y divide-gray-300">
@@ -28,13 +30,13 @@ export default function UserTableSection() {
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
-                    {people.map((person) => (
+                    {users.map((person) => (
                         <tr key={person.email}>
                             <td className="py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6">
                                 {person.name}
                             </td>
                             <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">{person.email}</td>
-                            <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">{person.role}</td>
+                            <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">{person.user_type == '1' ? 'Administrator' : person.user_type == 2 ? "Tech Team" : "CSR"}</td>
                             <td className="relative py-4 pr-4 pl-3 text-right text-sm font-medium whitespace-nowrap sm:pr-6">
                                 <EditUserSection />
                             </td>

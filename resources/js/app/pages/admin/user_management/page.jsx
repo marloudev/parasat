@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import AdminLayout from '../layout'
 import UserTableSection from './_sections/user-table-section'
 import AddUserSection from './_sections/add-user-section'
+import store from '../../store/store'
+import { get_users_thunk } from '@/app/redux/app-thunk'
 
 export default function UserManagementPage() {
+
+    useEffect(()=>{
+        store.dispatch(get_users_thunk())
+    },[])
     return (
         <AdminLayout>
             <div className="px-4 sm:px-6 lg:px-8">
