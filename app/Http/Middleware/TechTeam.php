@@ -4,9 +4,11 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 use Symfony\Component\HttpFoundation\Response;
 
-class RedirectBasedOnRole
+class TechTeam
 {
     /**
      * Handle an incoming request.
@@ -16,14 +18,10 @@ class RedirectBasedOnRole
     public function handle(Request $request, Closure $next): Response
     {
         $account = $request->user();
-        if ($account) {
-            if ($account->user_type == 1) {
-                return redirect('/administrator/dashboard');
-            } else if ($account->user_type == 2) {
-                return redirect('/techteam/request_item');
-            } else if ($account->user_type == 3) {
-                return redirect('/csr/application');
-            }
+        if ($account->user_type =='1') {
+            return Inertia::location(route('dashboard'));
+        }else if ($account->user_type =='3') {
+            return Inertia::location(route('csr'));
         }
         return $next($request);
     }
