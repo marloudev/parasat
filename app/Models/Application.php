@@ -12,6 +12,7 @@ class Application extends Model
     public $timestamps = false;
     protected $fillable = [
         'fname',
+        'mname',
         'lname',
         'suffix',
         'bdate',
@@ -27,6 +28,7 @@ class Application extends Model
         'ssuffix',
         'semail',
         'scontact',
+        'status',
         'plan_name',
         'plan_speed',
         'plan_price',

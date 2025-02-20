@@ -8,10 +8,21 @@ use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
 {
+
+    public function index()
+    {
+        $applications = Application::get();
+        return response()->json([
+            'result' => $applications
+        ], 200);
+    }
+
+
     public function store(Request $request)
     {
         $application = Application::create([
             'fname' => $request->fname,
+            'mname' => $request->mname,
             'lname' => $request->lname,
             'suffix' => $request->suffix,
             'bdate' => $request->bdate,
@@ -27,6 +38,7 @@ class ApplicationController extends Controller
             'ssuffix' => $request->ssuffix,
             'semail' => $request->semail,
             'scontact' => $request->scontact,
+            'status' => $request->status,
             'plan_name' => $request->plan_name,
             'plan_speed' => $request->plan_speed,
             'plan_price' => $request->plan_price,

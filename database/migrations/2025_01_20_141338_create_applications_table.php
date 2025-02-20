@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
             $table->string('fname')->nullable();
+            $table->string('mname')->nullable();
             $table->string('lname')->nullable();
             $table->string('suffix')->nullable();
             $table->string('bdate')->nullable();
@@ -32,6 +33,7 @@ return new class extends Migration
             $table->string('plan_name')->nullable();
             $table->string('plan_speed')->nullable();
             $table->string('plan_price')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

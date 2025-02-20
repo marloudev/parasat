@@ -8,3 +8,13 @@ export function create_application_service(data) {
 
     }
 }
+
+
+export function get_application_service() {
+    try {
+        const result = axios.get('/api/application')
+        return result
+    } catch (error) {
+
+    }
+}

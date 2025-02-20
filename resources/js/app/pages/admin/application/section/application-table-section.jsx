@@ -1,13 +1,18 @@
 import { EyeIcon, ViewfinderCircleIcon } from '@heroicons/react/24/outline'
 import React from 'react'
 import ViewApplicationSection from './view-application-section'
+import { useSelector } from 'react-redux';
 
 export default function ApplicationTableSection() {
+
+    const { applications } = useSelector((state) => state.applications);
 
     const people = [
         { name: 'Skyworth ONT', title: 'ONT', email: '200', role: 'Headend' },
         // More people...
     ]
+
+    console.log('aappppp', applications)
 
     return (
         <div className="-mx-4 mt-8 p-8 sm:-mx-0 bg-white rounded-md shadow-md">
@@ -22,6 +27,12 @@ export default function ApplicationTableSection() {
                             className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
                         >
                             Internet Plan
+                        </th>
+                        <th
+                            scope="col"
+                            className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
+                        >
+                            Email
                         </th>
                         <th
                             scope="col"
@@ -42,21 +53,20 @@ export default function ApplicationTableSection() {
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
-                    {people.map((person) => (
-                        <tr key={person.email}>
-                            <td className="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-0">
-                                {person.name}
-                                <dl className="font-normal lg:hidden">
-                                    <dt className="sr-only">Title</dt>
-                                    <dd className="mt-1 truncate text-gray-700">{person.title}</dd>
-                                    <dt className="sr-only sm:hidden">Email</dt>
-                                    <dd className="mt-1 truncate text-gray-500 sm:hidden">{person.email}</dd>
-                                </dl>
+                    {applications && applications.map((application, index) => (
+                        <tr key={application.email}>
+                            <td className="w-full max-w-0 py-4 pl-4 pr-3 text-sm text-gray-900 sm:w-auto sm:max-w-none sm:pl-0">
+                                {application.fname} {application.mname} {application.lname} {application.suffix}
                             </td>
-                            <td className="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{person.title}</td>
-                            <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{person.email}</td>
+                            <td className="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{application.plan_name}</td>
+                            <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{application.email}</td>
+                            <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{application.lot} {application.barangay}, {application.city}, {application.province}</td>
                             <td className="py-4 text-sm font-medium sm:pr-0 ">
-                                Pending
+                                <p className={`py-2 items-center justify-center flex rounded-md w-24 text- text-sm font-medium sm:pr-0 
+                                    ${application?.status === 'Pending' ? 'bg-orange-400' :
+                                        application?.status === 'Approved' ? 'bg-green-500' :
+                                            application?.status === 'Declined' ? 'bg-red-500' : ''
+                                    }`}>{application?.status}</p>
                             </td>
                             <td className="flex py-4 text-sm font-medium sm:pr-0 ">
                                 <ViewApplicationSection />

@@ -1,0 +1,1 @@
+import{c,d as n}from"./app-BphE_aRI.js";function e(t){try{return c.post("/api/application",t)}catch{}}function r(){try{return c.get("/api/application")}catch{}}function s(t){return async function(a,i){await e(t)}}function p(){return async function(t,a){const i=await r();t(n.actions.setApplications(i.data.result))}}export{s as c,p as g};
