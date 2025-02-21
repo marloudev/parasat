@@ -24,6 +24,7 @@ class Application extends Model
         'email',
         'contact',
         'sfname',
+        'smname',
         'slname',
         'ssuffix',
         'semail',

@@ -18,3 +18,12 @@ export function get_application_service() {
 
     }
 }
+
+export function update_application_service(data) {
+    try {
+        const result = axios.put(`/api/application/${data.id}`, data)
+        return result
+    } catch (error) {
+
+    }
+}

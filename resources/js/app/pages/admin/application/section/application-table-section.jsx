@@ -69,7 +69,7 @@ export default function ApplicationTableSection() {
                                     }`}>{application?.status}</p>
                             </td>
                             <td className="flex py-4 text-sm font-medium sm:pr-0 ">
-                                <ViewApplicationSection />
+                                <ViewApplicationSection data={application} />
                             </td>
                         </tr>
                     ))}

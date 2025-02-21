@@ -5,8 +5,14 @@ import { LoadingOutlined, SendOutlined } from "@ant-design/icons";
 import Input from "@/app/pages/_components/input";
 import Select from "@/app/pages/_components/select";
 import { XMarkIcon } from "@heroicons/react/16/solid";
+import { useSelector } from "react-redux";
+import InputPrice from "@/app/pages/_components/inputprice";
+import store from "@/app/pages/store/store";
+import { get_application_thunk, update_application_thunk } from "@/app/redux/application-thunk";
+import ApprovedApplicationSection from "./approved-application-section";
+import DeclineApplicationSection from "./decline-application-section";
 
-const ViewApplicationSection = () => {
+export default function ViewApplicationSection({ data, item }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -19,16 +25,27 @@ const ViewApplicationSection = () => {
     };
 
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const handleSubmit = (e) => {
+    async function send_approved_application(e) {
         e.preventDefault();
         setLoading(true);
-
-        // Simulate a form submission (e.g., API call)
-        setTimeout(() => {
+        try {
+            await store.dispatch(
+                update_application_thunk({
+                    // ...form,
+                    ...data,
+                    status: 'Approved',
+                })
+            );
+            await store.dispatch(get_application_thunk());
+            message.success("Email has been sent!");
+            setOpen(false);
             setLoading(false);
-            setIsSubmitted(true);
-        }, 2000); // 2-second delay to simulate submission
-    };
+        } catch (error) {
+            setLoading(false);
+        }
+    }
+
+    console.log('daraaa', data)
 
     return (
         <>
@@ -51,46 +68,128 @@ const ViewApplicationSection = () => {
                 <>
                     <form
                         className="border rounded-lg p-3.5"
-                        onSubmit={handleSubmit}
+                        onSubmit={send_approved_application}
                     >
-                        <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-6">
+                        <h1 className="text-xl font-semibold mb-3 text-gray-900">
                             Personal Information
                         </h1>
                         <div className="flex flex-1 gap-4">
                             <div className="flex flex-col w-full mb-4">
                                 <div className="flex flex-1 gap-3">
                                     <Input
-                                        // onChange={(event) => data_handler(event)}
-                                        // value={applicantForm.fname ?? ""}
-                                        // required={error?.fname ? true : false}
+                                        value={data?.fname ?? ""}
                                         name="fname"
                                         label="First Name"
                                         type="text"
                                     />
                                     <Input
-                                        // onChange={(event) => data_handler(event)}
-                                        // value={applicantForm.mname ?? ""}
-                                        // required={error?.mname ? true : false}
+                                        value={data?.mname ?? ""}
                                         name="mname"
                                         label="Middle Name"
                                         type="text"
                                     />
                                     <Input
-                                        // onChange={(event) => data_handler(event)}
-                                        // value={applicantForm.lname ?? ""}
-                                        // required={error?.lname ? true : false}
+                                        value={data?.lname ?? ""}
                                         name="lname"
                                         label="Last Name"
                                         type="text"
                                     />
-                                    <select
-                                        // onChange={(event) => data_handler(event)}
+                                    <input
                                         name="suffix"
+                                        className="border p-2 rounded  w-1/5"
+                                        value={data?.suffix ?? ""}
+                                        placeholder="----"
+                                    >
+                                    </input>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex flex-1 gap-4">
+                            <div className="flex w-full">
+                                <div className="flex flex-col gap-4 mb-4 w-full">
+                                    <div className="flex flex-col w-full">
+                                        <Input
+                                            value={data?.bdate ?? ""}
+                                            name="dob"
+                                            label="Date of Birth"
+                                            type="date"
+                                        // errorMessage={error?.dob}
+                                        />
+                                    </div>
+                                    <div className=" w-full">
+                                        <Input
+                                            value={data?.email ?? ""}
+                                            name="email"
+                                            label="Email"
+                                            type="email"
+                                        // errorMessage={error?.email}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="flex w-full">
+                                <div className="flex flex-col gap-4 mb-4 w-full">
+                                    <div className="w-full">
+                                        <Input
+                                            value={data?.contact ?? ""}
+                                            name="phone"
+                                            label="Phone Number"
+                                            type="number"
+                                        // errorMessage={error?.email}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-5" >
+                            Address Information
+                        </h1>
+                        <div className="flex flex-1 gap-4 mb-4 w-full">
+                            <div className="flex flex-col w-full">
+                                <Input
+                                    value={`${data?.lot ?? ""}, ${data?.barangay ?? ""}, ${data?.city ?? ""}, ${data?.province ?? ""}`}
+                                    name="address"
+                                    label="Address"
+                                />
+                            </div>
+                        </div>
+                        <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-6">
+                            Second Contact Person
+                        </h1>
+                        <div className="flex flex-1 gap-4">
+                            <div className="flex flex-col w-full mb-4">
+                                <div className="flex flex-1 gap-3">
+                                    <Input
+                                        value={data?.sfname ?? ""}
+                                        // required={error?.fname ? true : false}
+                                        name="sfname"
+                                        label="First Name"
+                                        type="text"
+                                    />
+                                    <Input
+                                        value={data?.smname ?? ""}
+                                        // required={error?.mname ? true : false}
+                                        name="smname"
+                                        label="Middle Name"
+                                        type="text"
+                                    />
+                                    <Input
+                                        value={data?.slname ?? ""}
+                                        // required={error?.lname ? true : false}
+                                        name="slname"
+                                        label="Last Name"
+                                        type="text"
+                                    />
+                                    <select
+                                        value={data?.ssuffix ?? ""}
+                                        name="ssuffix"
                                         className="border p-2 rounded  w-1/5"
                                     >
                                         <option disabled selected>
                                             Suffix
                                         </option>
+                                        <option></option>
                                         <option> Sr.</option>
                                         <option> Jr.</option>
                                         <option> II</option>
@@ -104,44 +203,11 @@ const ViewApplicationSection = () => {
                         <div className="flex flex-1 gap-4">
                             <div className="flex w-full">
                                 <div className="flex flex-col gap-4 mb-4 w-full">
-                                    <div className="flex flex-col w-full">
-                                        <select
-                                            // onChange={(event) => data_handler(event)}
-                                            // value={applicantForm.gender ?? ""}
-                                            name="gender"
-                                            className="border p-2 rounded w-full"
-                                        >
-                                            <option className="" disabled selected>&nbsp; Gender</option>
-                                            <option> Male</option>
-                                            <option> Female</option>
-                                        </select>
-                                        {/* {
-                                                        error?.gender && <span className="text-red-500 text-sm mt-1">
-                                                            This field is required.
-                                                        </span>
-                                                    } */}
-
-                                    </div>
-
-                                    <div className="flex flex-col w-full">
-                                        <Input
-                                            // onChange={(event) =>
-                                            //     data_handler(event)
-                                            // }
-                                            // value={applicantForm.dob ?? ""}
-                                            // required={error?.dob ? true : false}
-                                            name="dob"
-                                            label="Date of Birth"
-                                            type="date"
-                                        // errorMessage={error?.dob}
-                                        />
-                                    </div>
                                     <div className=" w-full">
                                         <Input
-                                            // onChange={(event) => data_handler(event)}
-                                            // value={applicantForm.email ?? ""}
+                                            value={data?.semail ?? ""}
                                             // required={error?.email ? true : false}
-                                            name="email"
+                                            name="semail"
                                             label="Email"
                                             type="email"
                                         // errorMessage={error?.email}
@@ -152,42 +218,11 @@ const ViewApplicationSection = () => {
 
                             <div className="flex w-full">
                                 <div className="flex flex-col gap-4 mb-4 w-full">
-                                    <div className="flex flex-col w-full">
-                                        <select
-                                            // onChange={(event) => data_handler(event)}
-                                            name="marital"
-                                            className="border p-2 rounded w-full"
-                                        >
-                                            <option disabled selected>&nbsp; Marital Status</option>
-                                            <option> Single</option>
-                                            <option> Married</option>
-                                            <option> Widowed</option>
-                                            <option> Divorced</option>
-                                        </select>
-                                        {/* {
-                                                        error?.marital && <span className="text-red-500 text-sm mt-1">
-                                                            This field is required.
-                                                        </span>
-                                                    } */}
-                                    </div>
-                                    <div className="flex flex-col w-full">
-                                        <Input
-                                            // onChange={(event) =>
-                                            //     data_handler(event)
-                                            // }
-                                            // value={applicantForm.nationality ?? ""}
-                                            // required={error?.nationality ? true : false}
-                                            name="nationality"
-                                            label="Nationality"
-                                            type="text"
-                                        />
-                                    </div>
                                     <div className="w-full">
                                         <Input
-                                            // onChange={(event) => data_handler(event)}
-                                            // value={applicantForm.phone ?? ""}
+                                            value={data?.scontact ?? ""}
                                             // required={error?.phone ? true : false}
-                                            name="phone"
+                                            name="scontact"
                                             label="Phone Number"
                                             type="number"
                                         // errorMessage={error?.email}
@@ -196,167 +231,48 @@ const ViewApplicationSection = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="flex flex-1 gap-4 mb-4">
-                                        <div className="w-full">
-                                            <select
-                                                name="educ"
-                                                className="border p-2.5 rounded w-full"
-                                            // onChange={(event) => data_handler(event)}
-                                            >
-                                                <option disabled selected>&nbsp; Highest Educational Attainment</option>
-                                                <option> Elementary Undergraduate</option>
-                                                <option> Elementary Graduate</option>
-                                                <option> Highschool/K-12 Undergraduate</option>
-                                                <option> Highschool/K-12 Graduate</option>
-                                                <option> College Level</option>
-                                                <option> College Graduate</option>
-                                                <option> Vocational Graduate</option>
-                                                <option> Masteral Degree</option>
-                                                <option> Doctoral Degree</option>
-                                            </select>
-                                        </div>
-                                    </div> */}
-                        <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-5">
-                            Address Information
-                        </h1>
-                        {/* <div className="flex flex-1 gap-4 mb-4 w-full">
-                            <div className="flex flex-col w-full">
-                                <Select
-                                    onChange={(event) => data_handler(event)}
-                                    // value={applicantForm.region ?? ""}
-                                    options={region.map(res => ({
-                                        label: res.region_name,
-                                        value: JSON.stringify({ name: res.region_name, region_code: res.region_code }),
-                                    }))}
-                                    name="region"
-                                    label="Region"
-                                />
-                            </div>
-                            <div className="flex flex-col w-full">
-                                <Select
-                                    onChange={(event) => data_handler(event)}
-                                    // value={applicantForm.province ?? ""}
-                                    options={newProvince.map(res => ({
-                                        label: res.province_name,
-                                        value: JSON.stringify({ name: res.province_name, province_code: res.province_code }),
-                                    }))}
-                                    name="province"
-                                    label="Province"
-                                />
-                            </div>
-                            <div className="flex flex-col w-full">
-                                <Select
-                                    onChange={(event) => data_handler(event)}
-                                    // value={applicantForm.city ?? ""}
-                                    options={newCity.map(res => ({
-                                        label: res.city_name,
-                                        value: JSON.stringify({ name: res.city_name, city_code: res.city_code }),
-                                    }))}
-                                    name="city"
-                                    label="City/Municipality"
-                                />
-                            </div>
-                        </div>
-                        <div className="flex flex-1 gap-4 mb-4">
-                            <div className="flex flex-col  w-1/2">
-                                <Select
-                                    onChange={(event) => data_handler(event)}
-                                    // value={applicantForm.barangay ?? ""}
-                                    options={newBarangay.map(res => ({
-                                        label: res.brgy_name,
-                                        value: res.brgy_name,
-                                    }))}
-                                    name="brgy"
-                                    label="Barangay"
-                                />
-                            </div>
-                            <div className="flex flex-col w-full">
-                                <Input
-                                    onChange={(event) => data_handler(event)}
-                                    // value={applicantForm.lot ?? ""}
-                                    name="lot"
-                                    label="House/Lot No., Street, Purok/Sitio"
-                                    type="text"
-                                />
-                            </div>
-                        </div> */}
                         <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-7">
                             Plan Details
                         </h1>
                         <div className="mb-4 w-full">
                             <Input
-                                // onChange={(event) => data_handler(event)}
-                                // value={applicantForm.ename ?? ""}
-                                name="ename"
-                                label="Emergency Contact Fullname"
+                                value={data?.plan_name ?? ""}
+                                name="plan_name"
+                                label="Plan Name"
                                 type="text"
                             />
                         </div>
                         <div className="mb-4 w-full">
                             <Input
-                                // onChange={(event) => data_handler(event)}
-                                // value={applicantForm.eaddress ?? ""}
-                                name="eaddress"
-                                label="Address"
+                                value={data?.plan_speed ?? ""}
+                                name="plan_speed"
+                                label="Plan Speed"
                                 type="text"
                             />
                         </div>
-                        <div className="flex flex-1 gap-4 mb-4">
-                            <div className="w-full">
-                                <Input
-                                    // onChange={(event) => data_handler(event)}
-                                    // value={applicantForm.relationship ?? ""}
-                                    name="relationship"
-                                    label="Relationship"
-                                    type="text"
-                                />
-                            </div>
-                            <div className="w-full">
-                                <Input
-                                    // onChange={(event) => data_handler(event)}
-                                    // value={applicantForm.ephone ?? ""}
-                                    name="ephone"
-                                    label="Contact No."
-                                    type="number"
-                                />
-                            </div>
+                        <div className="mb-4 w-full">
+                            <InputPrice
+                                value={data?.plan_price ?? ""}
+                                name="plan_price"
+                                label="Plan Price"
+                                type="text"
+                            />
+                        </div>
+                        <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-7">
+                            File Uploaded
+                        </h1>
+                        <div>
+                            {/* <FileUploadSection /> */}
                         </div>
                         <div className="flex flex-1 items-center justify-end gap-2 mt-8">
-
-                            <button
-                                type="submit"
-                                className={`flex bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg ${loading ? "cursor-not-allowed opacity-75" : ""
-                                    }`}
-                                // onClick={submitApplicant}
-                                disabled={loading}
-                            >
-                                {loading ? (
-                                    <LoadingOutlined spin />
-                                ) : (
-                                    <CheckIcon className="h-6" />
-                                )}
-                                {loading ? " SUBMITTING..." : " ACCEPT"}
-                            </button>
-                            <button
-                                type="submit"
-                                className={` flex bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg ${loading ? "cursor-not-allowed opacity-75" : ""
-                                    }`}
-                                // onClick={submitApplicant}
-                                disabled={loading}
-                            >
-                                {loading ? (
-                                    <LoadingOutlined spin />
-                                ) : (
-                                    <XMarkIcon className="h-6" />
-                                )}
-                                {loading ? " SUBMITTING..." : "DECLINE"}
-                            </button>
+                            <ApprovedApplicationSection data={data} />
+                            <DeclineApplicationSection data={data} />
                         </div>
+
                     </form>
                 </>
-            </Modal>
+            </Modal >
         </>
     );
 };
 
-export default ViewApplicationSection;

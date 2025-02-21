@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ApprovedApplication;
+use App\Mail\DeclinedApplication;
 use App\Models\Application;
 use App\Models\FileUpload;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
 
 class ApplicationController extends Controller
 {
@@ -34,6 +38,7 @@ class ApplicationController extends Controller
             'email' => $request->email,
             'contact' => $request->contact,
             'sfname' => $request->sfname,
+            'smname' => $request->sfname,
             'slname' => $request->slname,
             'ssuffix' => $request->ssuffix,
             'semail' => $request->semail,
@@ -50,6 +55,37 @@ class ApplicationController extends Controller
             'status' => 'success',
             'data' => $application,
             // 'file' => $file
+        ], 200);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $application = Application::where('id', '=',  $request->id)->first();
+        $application->update([
+            'status' => $request->status,
+        ]);
+        if ($request->status == 'Approved') {
+            // Applicant::where('app_id', $id)->update([
+            //     'status' => 'Contract Signing'
+            // ]);
+            Mail::to($request->email)->send(new ApprovedApplication(array_merge(
+                $request->all(),
+                ['id' => $application->id],
+            )));
+        }
+
+        if ($request->status == 'Declined') {
+            // Applicant::where('app_id', $id)->update([
+            //     'status' => 'Contract Signing'
+            // ]);
+            Mail::to($request->email)->send(new DeclinedApplication(array_merge(
+                $request->all(),
+                ['id' => $application->id],
+            )));
+        }
+
+        return response()->json([
+            'data' => 'success'
         ], 200);
     }
 }

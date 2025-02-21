@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('contact')->nullable();
             $table->string('sfname')->nullable();
+            $table->string('smname')->nullable();
             $table->string('slname')->nullable();
             $table->string('ssuffix')->nullable();
             $table->string('semail')->nullable();
