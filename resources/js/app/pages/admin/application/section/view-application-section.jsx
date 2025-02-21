@@ -52,7 +52,7 @@ export default function ViewApplicationSection({ data, item }) {
             <button
                 type="button"
                 onClick={showModal}
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md"
             >
                 <EyeIcon className='h-5' />
             </button>

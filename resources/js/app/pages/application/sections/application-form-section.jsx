@@ -11,9 +11,12 @@ import InputPrice from '../../_components/inputprice'
 import { useDispatch, useSelector } from 'react-redux'
 import store from '../../store/store'
 import { create_application_thunk } from '@/app/redux/application-thunk'
-import FileUploadSection from './file-upload-section'
 import { message } from 'antd'
 import { setApplication } from '@/app/redux/application-slice'
+import moment from 'moment';
+import UploadElectricBillSection from './upload-electric-bill-section'
+import UploadLocationSection from './upload-location-section'
+import UploadValidIDSection from './upload-valid-id-section'
 
 export default function ApplicationFormSection() {
     const { internet_plan } = useSelector((state) => state.internet_plans);
@@ -22,16 +25,15 @@ export default function ApplicationFormSection() {
     const [newCity, setNewCity] = useState([])
     const [newBarangay, setNewBarangay] = useState([])
     const { application } = useSelector((state) => state.applications);
-    // const [form, setForm] = useState({
-    //     region: region.name,
-    //     province: province.name,
-    //     city: city.name,
-    //     barangay: barangay.name,
-    // });
+    const [uploadedFile1, setUploadedFile1] = useState(null);
+    const [uploadedFile2, setUploadedFile2] = useState(null);
+    const [uploadedFile3, setUploadedFile3] = useState(null);
 
     const dispatch = useDispatch()
 
-    console.log('internet_plan', internet_plan)
+    console.log('uploadedFile1', uploadedFile1)
+    console.log('uploadedFile2', uploadedFile2)
+    console.log('uploadedFile3', uploadedFile3)
     function data_handler(e) {
         if (e.target.name === 'region') {
             const region = JSON.parse(e.target.value);
@@ -80,19 +82,56 @@ export default function ApplicationFormSection() {
 
     const [isSubmitted, setIsSubmitted] = useState(false);
 
+
     async function handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
+        setLoading(true);
+
+        const fd = new FormData();
+        fd.append('app_id', application.id ?? '');
+        fd.append('file_name', application.file_name ?? '');
+        fd.append('fname', application.fname ?? '');
+        fd.append('mname', application.mname ?? '');
+        fd.append('lname', application.lname ?? '');
+        fd.append('suffix', application.suffix ?? '');
+        fd.append('bdate', application.dob ?? moment().format('YYYY-MM-DD'));
+        fd.append('email', application.email ?? '');
+        fd.append('contact', application.contact ?? '');
+        fd.append('lot', application.lot ?? '');
+        fd.append('region', application.region ?? '');
+        fd.append('city', application.city ?? '');
+        fd.append('barangay', application.barangay ?? '');
+        fd.append('province', application.province ?? '');
+        fd.append('sfname', application.sfname ?? '');
+        fd.append('smname', application.smname ?? '');
+        fd.append('slname', application.slname ?? '');
+        fd.append('ssuffix', application.ssuffix ?? '');
+        fd.append('semail', application.semail ?? '');
+        fd.append('scontact', application.scontact ?? '');
+        fd.append('status', "Pending" ?? '');
+        fd.append('plan_name', internet_plan.name ?? '');
+        fd.append('plan_speed', internet_plan.speed ?? '');
+        fd.append('plan_price', internet_plan.price ?? '');
+
+        if (uploadedFile1 && uploadedFile1.length > 0) {
+            Array.from(uploadedFile1).forEach((file) => {
+                fd.append('electric_bills[]', file); // Append each file as part of an array
+            });
+        }
+
+        if (uploadedFile2 && uploadedFile2.length > 0) {
+            Array.from(uploadedFile2).forEach((file) => {
+                fd.append('valid_id[]', file); // Append each file as part of an array
+            });
+        }
+        if (uploadedFile3 && uploadedFile3.length > 0) {
+            Array.from(uploadedFile3).forEach((file) => {
+                fd.append('locations[]', file); // Append each file as part of an array
+            });
+        }
         try {
             setLoading(true);
-            await store.dispatch(
-                create_application_thunk({
-                    ...application,
-                    status: "Pending",
-                    plan_name: internet_plan?.name,
-                    plan_speed: internet_plan?.speed,
-                    plan_price: internet_plan?.price,
-                })
-            );
+            await store.dispatch(create_application_thunk(fd));
             message.success("Successfully Added!");
             setOpen(false);
         } catch (error) {
@@ -101,6 +140,7 @@ export default function ApplicationFormSection() {
             setLoading(false);
         }
     }
+
 
     return (
         <div className='bg-sky-500 h-screen'>
@@ -112,10 +152,6 @@ export default function ApplicationFormSection() {
                         <div className="bg-cover bg-[url('/images/SCemp.jpg')] transition-colors duration-300 h-full overflow-y-scroll">
                             <div className="container mx-auto px-10 flex justify-center">
                                 <div className="bg-white shadow-2xl shadow-black rounded-lg p-6 mt-12 w-full">
-                                    {/* <div className="flex items-center justify-center p-3">
-                                    <img className="w-60" src="images/newlogo.png" alt="logo" />
-                                </div> */}
-
                                     <div className='flex text-2xl items-center justify-center'>
                                         <h1><b>APPLICATION FORM</b></h1>
                                     </div>
@@ -400,11 +436,19 @@ export default function ApplicationFormSection() {
                                                 type="text"
                                             />
                                         </div>
-                                        <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-7">
-                                            File Upload
-                                        </h1>
                                         <div>
-                                            <FileUploadSection />
+                                            <UploadElectricBillSection
+                                                files={uploadedFile1}
+                                                setFiles={setUploadedFile1}
+                                            />
+                                            <UploadValidIDSection
+                                                files={uploadedFile2}
+                                                setFiles={setUploadedFile2}
+                                            />
+                                            <UploadLocationSection
+                                                files={uploadedFile3}
+                                                setFiles={setUploadedFile3}
+                                            />
                                         </div>
                                         <div className="flex justify-end mt-2.5">
 

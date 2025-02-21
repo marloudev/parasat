@@ -14,6 +14,7 @@ class FileUpload extends Model
         'app_id',
         'file_name',
         'image',
+        'type'
     ];
 
     public function application(): BelongsTo

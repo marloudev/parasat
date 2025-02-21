@@ -68,7 +68,7 @@ export default function ApplicationTableSection() {
                                             application?.status === 'Declined' ? 'bg-red-500' : ''
                                     }`}>{application?.status}</p>
                             </td>
-                            <td className="flex py-4 text-sm font-medium sm:pr-0 ">
+                            <td className="flex py-5 text-sm font-medium sm:pr-0 ">
                                 <ViewApplicationSection data={application} />
                             </td>
                         </tr>
