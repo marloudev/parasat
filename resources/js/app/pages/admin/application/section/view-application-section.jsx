@@ -274,9 +274,14 @@ export default function ViewApplicationSection({ data, item }) {
                             {/* <FileUploadSection /> */}
                         </div>
                         <div className="flex flex-1 items-center justify-end gap-2 mt-8">
-                            <ApprovedApplicationSection data={data} />
-                            <DeclineApplicationSection data={data} />
+                            {data?.status === 'Pending' && (
+                                <>
+                                    <ApprovedApplicationSection data={data} />
+                                    <DeclineApplicationSection data={data} />
+                                </>
+                            )}
                         </div>
+
 
                     </form>
                 </>
