@@ -41,7 +41,7 @@ export default function DeclineApplicationSection({ data }) {
                 ) : (
                     <XMarkIcon className="h-6" />
                 )}
-                {loading ? "DECLINING..." : "DECLINE"}
+                &nbsp;{loading ? " DECLINING..." : "DECLINE"}
             </button>
         </div>
     );

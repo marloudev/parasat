@@ -470,7 +470,7 @@ export default function ApplicationFormSection() {
                                                 ) : (
                                                     <SendOutlined />
                                                 )}
-                                                {loading ? " PROCESSING APPLICATION..." : " SUBMIT APPLICATION"}
+                                                {loading ? " PROCESSING APPLICATION... this will take few seconds" : " SUBMIT APPLICATION"}
                                             </button>
                                         </div>
                                     </form>

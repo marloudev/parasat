@@ -30,9 +30,16 @@ export default function UploadElectricSection({ files, setFiles }) {
 
     const handleRemoveFile = (e, fileToRemove) => {
         e.preventDefault(); // Prevent form submission or other default behaviors
-        setUploadedFiles(uploadedFiles.filter((file) => file.file !== fileToRemove));
-        // Optionally, you can update the parent `setFiles` state to reflect the removal
+        const updatedFiles = uploadedFiles.filter((fileData) => fileData.file !== fileToRemove);
+        setUploadedFiles(updatedFiles); // Update the local state
+
+        // Update the parent state as well to reflect the removal of the file
+        setFiles((prevFiles) => {
+            const updatedParentFiles = Array.from(prevFiles).filter((file) => file !== fileToRemove);
+            return updatedParentFiles;
+        });
     };
+
 
     const renderFileIcon = (file) => {
         const fileType = file.type.split('/')[0];

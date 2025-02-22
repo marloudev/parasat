@@ -63,9 +63,9 @@ export default function ApplicationTableSection() {
                             <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{application.lot} {application.barangay}, {application.city}, {application.province}</td>
                             <td className="py-4 text-sm font-medium sm:pr-0 ">
                                 <p className={`py-2 items-center justify-center flex rounded-md w-24 text- text-sm font-medium sm:pr-0 
-                                    ${application?.status === 'Pending' ? 'bg-orange-400' :
-                                        application?.status === 'Approved' ? 'bg-green-500' :
-                                            application?.status === 'Declined' ? 'bg-red-500' : ''
+                                    ${application?.status === 'Pending' ? 'bg-orange-400 ' :
+                                        application?.status === 'Approved' ? 'bg-green-500 text-white' :
+                                            application?.status === 'Declined' ? 'bg-red-500 text-white' : ''
                                     }`}>{application?.status}</p>
                             </td>
                             <td className="flex py-5 text-sm font-medium sm:pr-0 ">

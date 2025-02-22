@@ -117,7 +117,10 @@
 
             <p>Thank you for choosing <strong>PARASAT Parafiber</strong>. We are committed to providing you with the best service and support.</p>
 
-            <a href="https://apply-parasat.site" class="button">Visit Our Website</a>
+            <p>Warm regards,</p>
+            <p><strong>PARASAT Fiber</strong></p>
+
+            <a href="https://apply-parasat.site" class="button">Visit Us</a>
         </div>
 
         <div class="footer">

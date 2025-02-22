@@ -25,25 +25,25 @@ export default function ViewApplicationSection({ data, item }) {
     };
 
     const [isSubmitted, setIsSubmitted] = useState(false);
-    async function send_approved_application(e) {
-        e.preventDefault();
-        setLoading(true);
-        try {
-            await store.dispatch(
-                update_application_thunk({
-                    // ...form,
-                    ...data,
-                    status: 'Approved',
-                })
-            );
-            await store.dispatch(get_application_thunk());
-            message.success("Email has been sent!");
-            setOpen(false);
-            setLoading(false);
-        } catch (error) {
-            setLoading(false);
-        }
-    }
+    // async function send_approved_application(e) {
+    //     e.preventDefault();
+    //     setLoading(true);
+    //     try {
+    //         await store.dispatch(
+    //             update_application_thunk({
+    //                 // ...form,
+    //                 ...data,
+    //                 status: 'Approved',
+    //             })
+    //         );
+    //         await store.dispatch(get_application_thunk());
+    //         message.success("Email has been sent!");
+    //         setOpen(false);
+    //         setLoading(false);
+    //     } catch (error) {
+    //         setLoading(false);
+    //     }
+    // }
 
     console.log('daraaa', data)
 
@@ -68,7 +68,7 @@ export default function ViewApplicationSection({ data, item }) {
                 <>
                     <form
                         className="border rounded-lg p-3.5"
-                        onSubmit={send_approved_application}
+                        // onSubmit={send_approved_application}
                     >
                         <h1 className="text-xl font-semibold mb-3 text-gray-900">
                             Personal Information

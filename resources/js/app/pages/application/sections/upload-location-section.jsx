@@ -28,10 +28,18 @@ export default function UploadLocationSection({ files, setFiles }) {
         displayUploadedFiles(e.dataTransfer.files);
     };
 
-    const handleRemoveFile = (fileToRemove) => {
-        setUploadedFiles(uploadedFiles.filter((file) => file.file !== fileToRemove));
-        // Optionally, you can update the parent `setFiles` state to reflect the removal
+    const handleRemoveFile = (e, fileToRemove) => {
+        e.preventDefault(); // Prevent form submission or other default behaviors
+        const updatedFiles = uploadedFiles.filter((fileData) => fileData.file !== fileToRemove);
+        setUploadedFiles(updatedFiles); // Update the local state
+
+        // Update the parent state as well to reflect the removal of the file
+        setFiles((prevFiles) => {
+            const updatedParentFiles = Array.from(prevFiles).filter((file) => file !== fileToRemove);
+            return updatedParentFiles;
+        });
     };
+
 
     const renderFileIcon = (file) => {
         const fileType = file.type.split('/')[0];
@@ -68,7 +76,7 @@ export default function UploadLocationSection({ files, setFiles }) {
                             {renderFileIcon(fileData.file)}
                             <div className="text-white text-sm ml-2">{fileData.file.name}</div>
                         </div>
-                        <button className="text-white" onClick={() => handleRemoveFile(fileData.file)}>
+                        <button className="text-white" onClick={(e) => handleRemoveFile(e, fileData.file)}>
                             <XMarkIcon className="h-6" />
                         </button>
                     </div>
