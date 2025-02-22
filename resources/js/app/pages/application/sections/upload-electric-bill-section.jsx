@@ -28,7 +28,8 @@ export default function UploadElectricSection({ files, setFiles }) {
         displayUploadedFiles(e.dataTransfer.files);
     };
 
-    const handleRemoveFile = (fileToRemove) => {
+    const handleRemoveFile = (e, fileToRemove) => {
+        e.preventDefault(); // Prevent form submission or other default behaviors
         setUploadedFiles(uploadedFiles.filter((file) => file.file !== fileToRemove));
         // Optionally, you can update the parent `setFiles` state to reflect the removal
     };
@@ -68,7 +69,7 @@ export default function UploadElectricSection({ files, setFiles }) {
                             {renderFileIcon(fileData.file)}
                             <div className="text-white text-sm ml-2">{fileData.file.name}</div>
                         </div>
-                        <button className="text-white" onClick={() => handleRemoveFile(fileData.file)}>
+                        <button className="text-white" onClick={(e) => handleRemoveFile(e, fileData.file)}>
                             <XMarkIcon className="h-6" />
                         </button>
                     </div>
