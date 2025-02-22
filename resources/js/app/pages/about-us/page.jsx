@@ -19,7 +19,7 @@ export default function AboutUsPage() {
         <div className={flashing ? 'animate-flash' : ''}>
             <TopBarSection />
             <MissionVisionSection />
-            <section id='contact'>
+            <section id='contactsss'>
                 <AboutUsSection />
             </section>
             <FooterSection />

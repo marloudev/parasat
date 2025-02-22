@@ -27,7 +27,7 @@ export default function LandingPage() {
             <TopBarSection />
             <ParasatCoverSection />
             <PlanListSection />
-            <section id='contact'>
+            <section id='contactsss'>
                 <ContactUsSection />
             </section>
             <FooterSection />

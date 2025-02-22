@@ -1,20 +1,129 @@
-<x-mail::message>
+<!DOCTYPE html>
+<html lang="en">
 
-    Dear {{$data['fname']}} {{$data['lname']}},
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approved Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-    We are pleased to inform you that your application for the {{$data['plan_name']}} has been successfully approved. We are excited to welcome you as a customer and look forward to providing you with a reliable and high-speed internet experience.
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-    Here are the details of your approved internet plan:
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    Plan Name: {{$data['plan_name']}}
-    Speed: {{$data['plan_speed']}}
-    Monthly Fee: {{$data['plan_price']}}
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 10px;
+        }
 
-    Our team will reach out to you shortly to confirm the installation or setup process. If you have any questions or need further assistance, feel free to contact us at 0915-870-1972 / (034)312-6184.
+        .content {
+            font-size: 16px;
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
 
-    Thank you for choosing PARASAT Parafiber. We are committed to providing you with the best service and support.
+        .content strong {
+            font-weight: bold;
+        }
 
-    Warm regards,
-    PARASAT Fiber
+        .details-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
 
-</x-mail::message>
+        .details-table td {
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .details-table th {
+            text-align: left;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border: 1px solid #e0e0e0;
+        }
+
+        .footer {
+            font-size: 14px;
+            text-align: center;
+            color: #888888;
+            margin-top: 30px;
+        }
+
+        .contact-info {
+            font-size: 16px;
+            color: #333333;
+            margin-top: 10px;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <p>Dear {{$data['fname']}} {{$data['lname']}},</p>
+
+            <p>We are pleased to inform you that your application for the <strong>{{$data['plan_name']}}</strong> has been successfully approved. We are excited to welcome you as a customer and look forward to providing you with a reliable and high-speed internet experience.</p>
+
+            <p>Here are the details of your approved internet plan:</p>
+
+            <table class="details-table">
+                <tr>
+                    <th>Plan Name</th>
+                    <td>{{$data['plan_name']}}</td>
+                </tr>
+                <tr>
+                    <th>Speed</th>
+                    <td>{{$data['plan_speed']}}</td>
+                </tr>
+                <tr>
+                    <th>Monthly Fee</th>
+                    <td>{{$data['plan_price']}}</td>
+                </tr>
+            </table>
+
+            <p>Our team will reach out to you shortly to confirm the installation or setup process. If you have any questions or need further assistance, feel free to contact us at <strong>0915-870-1972</strong> / <strong>(034)312-6184</strong>.</p>
+
+            <p>Thank you for choosing <strong>PARASAT Parafiber</strong>. We are committed to providing you with the best service and support.</p>
+
+            <a href="https://apply-parasat.site" class="button">Visit Our Website</a>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 PARASAT Fiber | All rights reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>

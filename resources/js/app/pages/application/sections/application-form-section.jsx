@@ -6,7 +6,6 @@ import province from "@/app/address/province.json"
 import city from "@/app/address/city.json"
 import barangay from "@/app/address/barangay.json"
 import Select from '../../_components/select'
-import ConfirmationSection from './confirmation-section'
 import InputPrice from '../../_components/inputprice'
 import { useDispatch, useSelector } from 'react-redux'
 import store from '../../store/store'
@@ -17,6 +16,7 @@ import moment from 'moment';
 import UploadElectricBillSection from './upload-electric-bill-section'
 import UploadLocationSection from './upload-location-section'
 import UploadValidIDSection from './upload-valid-id-section'
+import ContactUsSection from '../../landing_page/sections/contact-us-section'
 
 export default function ApplicationFormSection() {
     const { internet_plan } = useSelector((state) => state.internet_plans);
@@ -132,12 +132,13 @@ export default function ApplicationFormSection() {
         try {
             setLoading(true);
             await store.dispatch(create_application_thunk(fd));
-            message.success("Successfully Added!");
+            message.success("Application Successfully Submitted!");
             setOpen(false);
         } catch (error) {
-            message.error("Failed to submit Application. Please try again.");
+            // message.error("Failed to submit Application. Please try again.");
         } finally {
             setLoading(false);
+            setIsSubmitted(true)
         }
     }
 
@@ -145,7 +146,11 @@ export default function ApplicationFormSection() {
     return (
         <div className='bg-sky-500 h-screen'>
             {isSubmitted ? (
-                <ConfirmationSection />
+                <div className="fixed inset-40 flex items-center justify-center z-50">
+                    <div className="popup-message animate-pop-up  bg-sky-300 text-center p-5 rounded-xl">
+                        Thank you for choosing Parasat :)
+                    </div>
+                </div>
             ) : (
                 <div className=''>
                     <div className="h-screen overflow-hidden ">
@@ -457,27 +462,26 @@ export default function ApplicationFormSection() {
                                                 className={` bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-full ${loading ? "cursor-not-allowed opacity-75" : ""
                                                     }`}
                                                 // onClick={submitApplicant}
-                                                disabled={loading}
+                                                disabled={isSubmitted || loading}
                                             >
                                                 {loading ? (
                                                     <LoadingOutlined spin />
                                                 ) : (
                                                     <SendOutlined />
                                                 )}
-                                                {loading ? " SUBMITTING..." : " SUBMIT APPLICATION"}
+                                                {loading ? " PROCESSING APPLICATION..." : " SUBMIT APPLICATION"}
                                             </button>
                                         </div>
                                     </form>
-
-
-
-
                                 </div>
+                            </div>
+                            <div className='mt-10'>
                             </div>
                         </div>
                     </div>
                 </div>
             )}
+
         </div>
     )
 }

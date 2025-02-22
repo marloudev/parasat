@@ -35,7 +35,7 @@ export default function TopBarSection() {
 
     return (
         <div>
-            <div className="bg-gray-800">
+            <div className="bg-gray-800 top-bar fixed top-0 left-0 w-full z-50 shadow-md">
                 <div className="mx-auto sm:px-10">
                     <div className="relative flex h-16 items-center justify-between w-full">
                         <div className='w-full'>
@@ -46,7 +46,7 @@ export default function TopBarSection() {
                                 <a href="http://127.0.0.1:8000/about-us" className='hover:underline'> About Us</a>
                             </div>
                             <div className='hover:text-slate-400'>
-                                <a href="#contact" className='hover:underline'> Contact</a>
+                                <a href="#contactsss" className='hover:underline'> Contact</a>
                             </div>
                             <div className='hover:text-slate-400'>
                                 <a href="http://127.0.0.1:8000/" className='hover:underline'> Home</a>

@@ -53,7 +53,7 @@ class ApprovedApplication extends Mailable
     public function build()
     {
         return $this->from('parasatfiber@gmail.com', 'No Reply')
-            ->subject('Approved Application - Parasat Fiber')
+            ->subject('Parasat Fiber - Approved Application')
             ->markdown('mail.approved_application.email')
             ->with($this->data);
     }
