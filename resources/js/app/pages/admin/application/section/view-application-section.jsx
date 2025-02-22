@@ -11,6 +11,9 @@ import store from "@/app/pages/store/store";
 import { get_application_thunk, update_application_thunk } from "@/app/redux/application-thunk";
 import ApprovedApplicationSection from "./approved-application-section";
 import DeclineApplicationSection from "./decline-application-section";
+import ElectricBillSection from "./electric-bill-section";
+import ValidIDSection from "./valid-id-section";
+import LocationSection from "./location-section";
 
 export default function ViewApplicationSection({ data, item }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -68,7 +71,7 @@ export default function ViewApplicationSection({ data, item }) {
                 <>
                     <form
                         className="border rounded-lg p-3.5"
-                        // onSubmit={send_approved_application}
+                    // onSubmit={send_approved_application}
                     >
                         <h1 className="text-xl font-semibold mb-3 text-gray-900">
                             Personal Information
@@ -258,9 +261,15 @@ export default function ViewApplicationSection({ data, item }) {
                                 type="text"
                             />
                         </div>
-                        <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-7">
-                            File Uploaded
-                        </h1>
+                        <div>
+                            <ElectricBillSection data={data} />
+                        </div>
+                        <div>
+                            <ValidIDSection data={data} />
+                        </div>
+                        <div>
+                            <LocationSection data={data} />
+                        </div>
                         <div>
                             {/* <FileUploadSection /> */}
                         </div>

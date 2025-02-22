@@ -16,7 +16,7 @@ class ApplicationController extends Controller
 
     public function index()
     {
-        $applications = Application::get();
+        $applications = Application::with(['file_upload'])->get();
         return response()->json([
             'result' => $applications
         ], 200);
