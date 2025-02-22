@@ -24,9 +24,6 @@ export default function ApplicationPage() {
         <div className={flashing ? 'animate-flash' : ''}>
             <TopBarSection />
             <ApplicationFormSection />
-            <section id='contactsss'>
-                <ContactUsSection />
-            </section>
         </div>
     )
 }
