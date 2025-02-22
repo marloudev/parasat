@@ -34,6 +34,7 @@ export default function ApplicationFormSection() {
     console.log('uploadedFile1', uploadedFile1)
     console.log('uploadedFile2', uploadedFile2)
     console.log('uploadedFile3', uploadedFile3)
+
     function data_handler(e) {
         if (e.target.name === 'region') {
             const region = JSON.parse(e.target.value);
@@ -266,7 +267,7 @@ export default function ApplicationFormSection() {
                                             <div className="flex flex-col w-full">
                                                 <Select
                                                     onChange={(event) => data_handler(event)}
-                                                    value={application.region ?? ""}
+                                                    // value={application.region ?? ""}
                                                     options={region.map(res => ({
                                                         label: res.region_name,
                                                         value: JSON.stringify({ name: res.region_name, region_code: res.region_code }),
@@ -279,7 +280,7 @@ export default function ApplicationFormSection() {
                                             <div className="flex flex-col w-full">
                                                 <Select
                                                     onChange={(event) => data_handler(event)}
-                                                    value={application.province ?? ""}
+                                                    // value={application.province ?? ""}
                                                     options={newProvince.map(res => ({
                                                         label: res.province_name,
                                                         value: JSON.stringify({ name: res.province_name, province_code: res.province_code }),
@@ -292,7 +293,7 @@ export default function ApplicationFormSection() {
                                             <div className="flex flex-col w-full">
                                                 <Select
                                                     onChange={(event) => data_handler(event)}
-                                                    value={application.city ?? ""}
+                                                    // value={application.city ?? ""}
                                                     options={newCity.map(res => ({
                                                         label: res.city_name,
                                                         value: JSON.stringify({ name: res.city_name, city_code: res.city_code }),
@@ -307,7 +308,7 @@ export default function ApplicationFormSection() {
                                             <div className="flex flex-col w-1/2">
                                                 <Select
                                                     onChange={(event) => data_handler(event)}
-                                                    value={application.barangay ?? ""}
+                                                    // value={application.barangay ?? ""}
                                                     options={newBarangay.map(res => ({
                                                         label: res.brgy_name,
                                                         value: res.brgy_name,
@@ -476,6 +477,9 @@ export default function ApplicationFormSection() {
                                 </div>
                             </div>
                             <div className='mt-10'>
+                                <section id='contactsss'>
+                                    <ContactUsSection />
+                                </section>
                             </div>
                         </div>
                     </div>
