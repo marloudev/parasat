@@ -245,7 +245,7 @@ export default function SidebarSection() {
                                     ))}
                                 </ul>
                             </li> */}
-                            <li className="mt-auto">
+                            {/* <li className="mt-auto">
                                 <a
                                     href="#"
                                     className="group -mx-2 flex gap-x-3 rounded-sm p-2 text-sm/6 font-semibold text-white hover:bg-gray-800 hover:text-white"
@@ -256,7 +256,7 @@ export default function SidebarSection() {
                                     />
                                     Settings
                                 </a>
-                            </li>
+                            </li> */}
                         </ul>
                     </nav>
                 </div>
