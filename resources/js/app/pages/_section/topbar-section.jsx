@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Menu,
     MenuButton,
@@ -13,11 +13,19 @@ import {
     MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "@inertiajs/react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSidebarOpen } from "@/app/redux/app-slice";
+import store from "../store/store";
+import { get_user_thunk } from "@/app/redux/app-thunk";
 
 export default function TopbarSection() {
     const dispatch = useDispatch()
+    const { user } = useSelector((state) => state.app);
+    console.log('uuuuuuu', user)
+
+    useEffect(() => {
+        store.dispatch(get_user_thunk())
+    }, [])
     return (
         <div className="sticky top-0 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
             <button
@@ -82,7 +90,7 @@ export default function TopbarSection() {
                                     aria-hidden="true"
                                     className="ml-4 text-sm/6 font-semibold text-gray-900"
                                 >
-                                    System Admin
+                                    {user?.name}
                                 </span>
                                 <ChevronDownIcon
                                     aria-hidden="true"

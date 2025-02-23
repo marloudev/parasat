@@ -12,14 +12,14 @@ export default function PlanCardComponent({ name, price, speed, href, popular, d
                         Up to {speed}
                     </h3>
                     <div>
-                        {popular && (
+                        {popular === "true" && (
                             <p className="rounded-full bg-indigo-600/10 px-2.5 py-1 text-xs/5 font-semibold text-indigo-600">
                                 Most popular
                             </p>
                         )}
                     </div>
                 </div>
-            </div>=
+            </div>
             <p className="mx-5 flex items-baseline gap-x-1">
                 <span className="text-5xl font-semibold tracking-tight text-gray-900">₱{price}</span>
                 <span className="text-sm/6 font-semibold text-gray-600">/month</span>

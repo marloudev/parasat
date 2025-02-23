@@ -147,9 +147,9 @@ export default function ApplicationFormSection() {
     return (
         <div className='bg-sky-500 h-screen'>
             {isSubmitted ? (
-                <div className="fixed inset-40 flex items-center justify-center z-50">
-                    <div className="popup-message animate-pop-up  bg-sky-300 text-center p-5 rounded-xl">
-                        Thank you for choosing Parasat :)
+                <div className="fixed inset-40 flex items-center justify-center mb-96 z-50">
+                    <div className="popup-message animate-pop-up text-xl text-white bg-sky-800 text-center p-5 rounded-2xl border-2 border-black">
+                        <b><i>Thank you for submitting your application for our plan. Please ensure that you check your email regularly for any updates regarding your application.</i></b>
                     </div>
                 </div>
             ) : (

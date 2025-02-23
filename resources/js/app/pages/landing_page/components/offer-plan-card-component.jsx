@@ -13,7 +13,7 @@ export default function OfferPlanCardComponent({ name, price, speed, href, popul
                         <u>Up to {speed}</u>
                     </button>
                 </h3>
-                {popular && (
+                {popular === "true" && (
                     <p className="rounded-full bg-indigo-600/10 px-2.5 py-1 text-xs/5 font-semibold text-indigo-600">
                         Most popular
                     </p>

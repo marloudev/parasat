@@ -112,8 +112,8 @@
                     <td>{{$data['plan_price']}}</td>
                 </tr>
             </table>
-
-            <p>Our team will reach out to you shortly to confirm the installation or setup process. If you have any questions or need further assistance, feel free to contact us at <strong>0915-870-1972</strong> / <strong>(034)312-6184</strong>.</p>
+            <p></p>
+            <p>Kindly visit our office at Unit 5, Plaza Building, Rizal Street, San Carlos City, Negros Occidental for billing purposes. Please note that the installation process typically requires 3 to 7 days for completion. We appreciate your understanding and cooperation. If you have any questions or need further assistance, feel free to contact us at <strong>0915-870-1972</strong> / <strong>(034)312-6184</strong>.</p>
 
             <p>Thank you for choosing <strong>PARASAT Parafiber</strong>. We are committed to providing you with the best service and support.</p>
 

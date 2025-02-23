@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, message, Modal } from "antd";
+import { Button, message, Modal, Tooltip } from "antd";
 import { CheckIcon, EyeIcon } from "@heroicons/react/24/outline";
 import { LoadingOutlined, SendOutlined } from "@ant-design/icons";
 import Input from "@/app/pages/_components/input";
@@ -52,13 +52,16 @@ export default function ViewApplicationSection({ data, item }) {
 
     return (
         <>
-            <button
-                type="button"
-                onClick={showModal}
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md"
-            >
-                <EyeIcon className='h-5' />
-            </button>
+            <Tooltip title="View Application">
+                <button
+                    type="button"
+                    onClick={showModal}
+                    className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md"
+                >
+                    <EyeIcon className='h-5' />
+                </button>
+            </Tooltip>
+
             <Modal
                 title="View Application Details"
                 width={1000}
