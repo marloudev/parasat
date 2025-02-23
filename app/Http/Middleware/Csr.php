@@ -22,7 +22,7 @@ class Csr
             return Inertia::location(route('dashboard'));
         } else if ($account->user_type =='2') {
             return Inertia::location(route('tech_team'));
-        }
+        } 
         return $next($request);
     }
 }

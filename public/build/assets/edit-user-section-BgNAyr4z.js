@@ -1,1 +1,0 @@
-import{j as e}from"./app-D3IDw1qy.js";function i(){return e.jsx("div",{children:e.jsxs("a",{href:"#",className:"text-indigo-600 hover:text-indigo-900",children:["Edit",e.jsx("span",{className:"sr-only",children:", "})]})})}export{i as default};

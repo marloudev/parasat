@@ -4,6 +4,7 @@ import Modal from "@/app/pages/_components/modal";
 import Select from "@/app/pages/_components/select";
 import store from "@/app/pages/store/store";
 import { create_request_item_thunk, get_request_item_thunk } from "@/app/redux/request-item-thunk";
+import { SquaresPlusIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -31,9 +32,9 @@ export default function CreateRequestSection() {
         <div>
             <button
                 onClick={() => setOpen(!open)}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                className="bg-blue-500 flex hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
             >
-                Request
+                <SquaresPlusIcon className="h-6" />&nbsp;Request
             </button>
             <Modal open={open} setOpen={setOpen}>
                 <form onSubmit={submit_handler} className="flex flex-col gap-3">
@@ -61,11 +62,11 @@ export default function CreateRequestSection() {
                         type="number"
                     />
                     <Button
-                    disabled={loading}
-                    type="submit" variant="info">
-                     {
-                        loading?"Loading...":"SUBMIT"
-                     }   
+                        disabled={loading}
+                        type="submit" variant="info">
+                        {
+                            loading ? "Loading..." : "SUBMIT"
+                        }
                     </Button>
                 </form>
             </Modal>

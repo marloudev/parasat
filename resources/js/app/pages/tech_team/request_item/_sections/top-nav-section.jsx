@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Menu,
     MenuButton,
@@ -15,10 +15,18 @@ import {
 import { Link } from "@inertiajs/react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSidebarOpen } from "@/app/redux/app-slice";
+import store from "@/app/pages/store/store";
+import { get_user_thunk } from "@/app/redux/app-thunk";
 
 export default function TopNaveSection() {
     const dispatch = useDispatch();
-    const { user } = useSelector((store) => store.app);
+    const { user } = useSelector((state) => state.app);
+    console.log('uuuuuuu', user)
+
+    useEffect(() => {
+        store.dispatch(get_user_thunk())
+    }, [])
+
     return (
         <div className="sticky top-0  flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-blue-700 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
             <button
@@ -75,7 +83,7 @@ export default function TopNaveSection() {
                             <span className="sr-only">Open user menu</span>
                             <img
                                 alt=""
-                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                src="/images/profile.png"
                                 className="size-8 rounded-full bg-gray-50"
                             />
                             <span className="hidden lg:flex lg:items-center">

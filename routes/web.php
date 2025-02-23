@@ -29,7 +29,7 @@ Route::get('/contact', function () {
 
 
 // Route::middleware('auth:sanctum', 'role:1')->prefix('administrator')->group(function () {
-Route::middleware('auth:sanctum','administrator')->prefix('administrator')->group(function () {
+Route::middleware('auth:sanctum', 'administrator')->prefix('administrator')->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('admin/dashboard/page');
     })->name('dashboard');
@@ -61,13 +61,13 @@ Route::middleware('auth:sanctum','administrator')->prefix('administrator')->grou
     //     return Inertia::render('admin/subjects/page');
     // });
 });
-Route::middleware('auth:sanctum','techteam')->prefix('techteam')->group(function () {
+Route::middleware('auth:sanctum', 'techteam')->prefix('techteam')->group(function () {
     Route::get('/request_item', function () {
         return Inertia::render('tech_team/request_item/page');
     })->name('tech_team');
 });
 
-Route::middleware('auth:sanctum','csr')->prefix('csr')->group(function () {
+Route::middleware('auth:sanctum', 'csr')->prefix('csr')->group(function () {
     Route::get('/applications', function () {
         return Inertia::render('csr/applications/page');
     })->name('csr');

@@ -22,7 +22,7 @@ class RedirectBasedOnRole
             } else if ($account->user_type == 2) {
                 return redirect('/techteam/request_item');
             } else if ($account->user_type == 3) {
-                return redirect('/csr/application');
+                return redirect('/csr/applications');
             }
         }
         return $next($request);

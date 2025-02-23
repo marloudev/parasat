@@ -2,11 +2,20 @@ import { create_user_service, delete_user_service, get_user_by_id_service, get_u
 import { appSlice } from './app-slice';
 
 export function get_user_thunk() {
-  return async function (dispatch, getState) {
-   const res = await get_user_service()
-          dispatch(appSlice.actions.setUser(res.data));
-  };
+    return async function (dispatch, getState) {
+        const res = await get_user_service()
+        dispatch(appSlice.actions.setUser(res.data));
+        return res
+    };
 }
+
+// export function get_user_login_thunk() {
+//     return async function (dispatch, getState) {
+//         const res = await get_user_login_service(3)
+//         dispatch(appSlice.actions.setUser(res));
+//         return res
+//     }
+// }
 
 export function create_user_thunk(data) {
     return async function (dispatch, getState) {

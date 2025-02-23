@@ -6,7 +6,7 @@ export default function RequestItemTableSection() {
     const { request_items } = useSelector((store) => store.request_items);
     console.log("request_items?.data", request_items?.data);
     return (
-        <div>
+        <div className="-mx-4 mt-8 p-4 sm:-mx-0 bg-white rounded-md shadow-md">
             <table className="min-w-full divide-y divide-gray-300">
                 <thead>
                     <tr>
@@ -58,8 +58,8 @@ export default function RequestItemTableSection() {
                                 <div>{res.status}</div>
                             </td>
                             <td className="flex py-4 text-sm font-medium sm:pr-0 ">
-                                
-                                <CancelRequestSection data={res}/>
+
+                                <CancelRequestSection data={res} />
                             </td>
                         </tr>
                     ))}
