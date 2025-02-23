@@ -53,7 +53,7 @@ export default function UploadLocationSection({ files, setFiles }) {
 
     return (
         <div>
-            <h1 className="text-xl font-semibold mb-3 text-gray-900 mt-9">Upload Location (<i>Google Maps screenshot</i>)</h1>
+            <h1 className="text-xl font-semibold mb-3 text-gray-900 mt-9">Upload Location Sketch</h1>
             <div className="w-full py-9 bg-gray-50 rounded-2xl border border-gray-300 gap-3 grid border-dashed" onDragOver={handleDragOver} onDrop={handleDrop}>
                 <div className="grid gap-1">
                     <FileImageOutlined className="flex items-center justify-center text-4xl" />

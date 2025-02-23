@@ -53,7 +53,7 @@ class DeclinedApplication extends Mailable
     public function build()
     {
         return $this->from('parasatfiber@gmail.com', 'No Reply')
-            ->subject('Parasat Fiber - Declined Application')
+            ->subject('PARASAT Fiber - Declined Application')
             ->markdown('mail.declined_application.email')
             ->with($this->data);
     }

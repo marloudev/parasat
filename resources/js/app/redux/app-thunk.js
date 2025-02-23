@@ -1,5 +1,9 @@
+import { message } from 'antd';
+import { send_email_service } from '../pages/services/email-service';
 import { create_user_service, delete_user_service, get_user_by_id_service, get_user_service, get_users_service, update_user_service } from '../pages/services/user-service';
 import { appSlice } from './app-slice';
+import axios from 'axios';
+
 
 export function get_user_thunk() {
     return async function (dispatch, getState) {
@@ -52,3 +56,19 @@ export function update_user_thunk(data) {
         const res = await update_user_service(data)
     };
 }
+
+
+export const send_email_thunk = (emailData) => async (dispatch) => {
+    try {
+        // Make a POST request to the API with email data
+        const response = await axios.post('/api/send_email', emailData);
+
+        // Handle the success (e.g., dispatch success action)
+        dispatch({ type: 'SEND_EMAIL_SUCCESS', payload: response.data });
+    } catch (error) {
+        // Handle any errors (e.g., dispatch error action)
+        dispatch({ type: 'SEND_EMAIL_FAILURE', payload: error.message });
+    }
+};
+
+

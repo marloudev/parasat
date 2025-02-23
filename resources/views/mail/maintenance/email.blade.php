@@ -1,26 +1,62 @@
-<x-mail::message>
+<!DOCTYPE html>
+<html lang="en">
 
-    Dear {{$data['fname']}} {{$data['lname']}},
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARASAT Application Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-    I hope this message finds you well. After a thorough review, we regret to inform you that the contract for the position of {{$data['jobPos']}} has been declined due to the following reason(s):
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+        }
 
-    Reason: {{$data['decline_reason'] ?? 'Blurred Contract'}}
+        .content {
+            padding: 20px;
+            line-height: 1.6;
+        }
 
-    In light of this, we kindly request that you re-upload the corrected or signed contract document to proceed with the next steps in the process. Please follow the instructions below:
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
 
-    Download and print the PDF Document Contract.
-    Sign the printed contract.
-    Scan and ensure the document is clear and legible.
-    Convert the scanned file into PDF format.
-    Upload the new version of the signed contract to the link below:
-    Re-upload Link
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
 
-    If you encounter any issues or require assistance during this process, please do not hesitate to reach out. We are committed to providing support to ensure a smooth and successful contract submission.
+<body>
 
-    Thank you for your prompt attention to this matter. We are eager to move forward once the corrected document is received and we remain enthusiastic about the opportunity to have you join our team.
+    <div class="container">
+        <div class="content">
+            {!! $content !!}
+        </div>
+    </div>
 
-    Warm regards,
-    HR Team
-    EmpireOne BPO Solutions Inc
+</body>
 
-</x-mail::message>
+</html>

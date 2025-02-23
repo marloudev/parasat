@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Button({ variant = 'default', type = 'button', disabled = false, children, onClick }) {
+export default function Button({ variant = 'default', type = 'button', disabled = false, children, onClick, icon }) {
     const variantClasses = {
         default: "hover:bg-gray-600 bg-gray-500 text-white px-4 py-2 rounded-md",
         success: "hover:bg-green-600 bg-green-500 text-white px-4 py-2 rounded-md",
@@ -10,12 +10,12 @@ export default function Button({ variant = 'default', type = 'button', disabled 
     };
     return (
         <button
-        type={type}
-            className={`flex items-center justify-center rounded-lg transition duration-300 ease-in-out ${variantClasses[variant]}}`}
+            type={type}
+            className={`flex items-center w-28 justify-center rounded-lg transition duration-300 ease-in-out ${variantClasses[variant]}}`}
             onClick={disabled ? null : onClick}
             disabled={disabled}
         >
-            {children}
+            {icon}{children}
         </button>
     );
 }

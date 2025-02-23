@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\InternetPlansController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\RequestItemController;
@@ -20,6 +21,7 @@ Route::resource('application', ApplicationController::class);
 Route::resource('account', AccountController::class);
 Route::resource('internet_plan', InternetPlansController::class);
 Route::resource('/dashboard', DashboardController::class);
+Route::resource('send_email', EmailController::class);
 
 Route::middleware('auth:sanctum')->prefix('/')->group(function () {
     Route::resource('item', ItemsController::class);
