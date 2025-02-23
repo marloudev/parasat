@@ -20,7 +20,7 @@ Route::get('/user', function (Request $request) {
 Route::resource('application', ApplicationController::class);
 Route::resource('account', AccountController::class);
 Route::resource('internet_plan', InternetPlansController::class);
-Route::resource('dashboard', DashboardController::class);
+Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::resource('send_email', EmailController::class);
 
 Route::middleware('auth:sanctum')->prefix('/')->group(function () {
