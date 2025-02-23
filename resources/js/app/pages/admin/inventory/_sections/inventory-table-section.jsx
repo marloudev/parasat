@@ -11,7 +11,7 @@ export default function InventoryTable() {
     console.log('Items', items)
     return (
         <div className="-mx-4 mt-8 p-8 sm:-mx-0 bg-white rounded-md shadow-md">
-            <table className="min-w-full divide-y divide-gray-300">
+            <table id="report-table" className="min-w-full divide-y divide-gray-300">
                 <thead>
                     <tr>
                         <th

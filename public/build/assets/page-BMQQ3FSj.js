@@ -1,0 +1,17 @@
+import{r as o,s,j as t}from"./app-BPmWwY2I.js";import m from"./layout-BmhXc14x.js";import a from"./inventory-table-section-Cuzpz3lc.js";import l from"./add-item-section-BIyict_-.js";import{g as d}from"./item-thunk-D1jyYElE.js";import"./sidebar-section-D99rIW3K.js";import"./dialog-B3e6muSY.js";import"./portal-BQ_oQ7aW.js";import"./XMarkIcon-TKiRfRAi.js";import"./Cog6ToothIcon-BbTPFCj9.js";import"./topbar-section-D2PAxJnl.js";import"./MagnifyingGlassIcon-DskPeL3H.js";import"./item-detail-section-BUr0NXBz.js";import"./inputfield-LMZ0A4H2.js";import"./modal-DuC5vJGE.js";import"./moment-C5S46NFB.js";import"./restock-section-snVIeR8N.js";import"./serial-number-item-service-C6yuoJtm.js";import"./PlusIcon--Q-PtjGu.js";import"./button-CgtqywAA.js";function c({title:i,titleId:e,...r},n){return o.createElement("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",fill:"none",viewBox:"0 0 24 24",strokeWidth:1.5,stroke:"currentColor","aria-hidden":"true","data-slot":"icon",ref:n,"aria-labelledby":e},r),i?o.createElement("title",{id:e},i):null,o.createElement("path",{strokeLinecap:"round",strokeLinejoin:"round",d:"M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z"}))}const p=o.forwardRef(c);function T(){o.useEffect(()=>{s.dispatch(d())},[]);const i=()=>{const e=document.getElementById("report-table");if(!e){console.error("Table content not found.");return}const r=window.open("","","height=600,width=800");r.document.write(`
+          <html>
+            <head>
+              <title>Report</title>
+              <style>
+                body { font-family: Arial, sans-serif; padding: 20px; }
+                table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                th, td { padding: 10px; text-align: left; border: 1px solid #000; }
+                th { background-color: #f4f4f4; }
+              </style>
+            </head>
+            <body>
+              <h2>Report</h2>
+              ${e.outerHTML} <!-- This ensures the full table is copied -->
+            </body>
+          </html>
+        `),r.document.close(),r.print()};return t.jsx("div",{children:t.jsx(m,{children:t.jsxs("div",{className:"px-4 sm:px-6 lg:px-8",children:[t.jsxs("div",{className:"sm:flex sm:items-center",children:[t.jsxs("div",{className:"sm:flex-auto",children:[t.jsx("h1",{className:"text-base font-semibold text-gray-900",children:"Inventory"}),t.jsx("p",{className:"mt-2 text-sm text-gray-700",children:"A list of all the items in the inventory."})]}),t.jsxs("div",{className:" flex gap-4 mt-4 sm:ml-16 sm:mt-0 sm:flex-none",children:[t.jsx("button",{onClick:i,className:"inline-flex items-center px-2 h-10 text-white bg-gray-600 rounded-md hover:bg-blue-700",children:t.jsx(p,{className:"h-5 w-5"})}),t.jsx(l,{})]})]}),t.jsx(a,{})]})})})}export{T as default};
