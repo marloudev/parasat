@@ -55,11 +55,20 @@
         <div class="content">
             <p>Dear {{$data['fname']}} {{$data['lname']}},</p>
 
-            <p>Thank you for your interest in applying for an internet plan with PARASAT. After careful review, we regret to inform you that your application for the <strong>{{$data['plan_name']}}</strong> has been <strong>declined</strong>.</p>
+            <p>Thank you for your interest in applying for an internet plan with PARASAT. After careful review of your application for the <strong>{{$data['plan_name']}}</strong>, we regret to inform you that it has been <strong>declined</strong>.</p>
 
-            <p>We understand that this may be disappointing, and we encourage you to explore other available options that may better suit your needs. Should you wish to reapply or have any questions about our available plans, please do not hesitate to reach out to us.</p>
+            <p>The reason for the decline of your application may be due to one of the following factors:</p>
+            <ul>
+                <li>An outstanding account with an unpaid balance.</li>
+                <li>The name used in the application differs from an existing account linked to the same location with an unpaid balance.</li>
+                <li>The location provided is currently unserviceable.</li>
+                <li>Incomplete application requirements.</li>
+                <li>Other reasons as determined during the review process.</li>
+            </ul>
 
-            <p>If you have any further inquiries or would like assistance in selecting a suitable plan, our customer support team is available at:</p>
+            <p>We understand that this may be disappointing, and we encourage you to explore other available options that may better suit your needs. Should you wish to reapply or if you need further clarification regarding the reasons for the decline, please do not hesitate to contact us.</p>
+
+            <p>If you have any questions or need assistance in selecting an alternative plan, our customer support team is available at:</p>
             <ul>
                 <li>0915-870-1972</li>
                 <li>(034) 312-6184</li>
@@ -72,10 +81,12 @@
 
             <a href="https://apply-parasat.site" class="button">Visit Us</a>
         </div>
+    </div>
 
-        <div class="footer">
-            <p>&copy; 2025 PARASAT Fiber | All rights reserved.</p>
-        </div>
+
+    <div class="footer">
+        <p>&copy; 2025 PARASAT Fiber | All rights reserved.</p>
+    </div>
     </div>
 
 </body>

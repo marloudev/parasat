@@ -43,13 +43,13 @@ export default function TopBarSection() {
                         </div>
                         <div className="flex gap-5 w-full text-white items-center justify-end">
                             <div className='hover:text-slate-400'>
-                                <a href="http://127.0.0.1:8000/about-us" className='hover:underline'> About Us</a>
+                                <a href="/about-us" className='hover:underline'> About Us</a>
                             </div>
                             <div className='hover:text-slate-400'>
                                 <a href="#contactsss" className='hover:underline'> Contact</a>
                             </div>
                             <div className='hover:text-slate-400'>
-                                <a href="http://127.0.0.1:8000/" className='hover:underline'> Home</a>
+                                <a href="/" className='hover:underline'> Home</a>
                             </div>
                         </div>
 

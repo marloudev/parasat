@@ -113,7 +113,7 @@
                 </tr>
             </table>
             <p></p>
-            <p>Kindly visit our office at Unit 5, Plaza Building, Rizal Street, San Carlos City, Negros Occidental for billing purposes. Please note that the installation process typically requires 3 to 7 days for completion. We appreciate your understanding and cooperation. If you have any questions or need further assistance, feel free to contact us at <strong>0915-870-1972</strong> / <strong>(034)312-6184</strong>.</p>
+            <p>To proceed with the installation, we kindly request that you visit our office at Unit 5, Plaza Building, Rizal Street, San Carlos City, Negros Occidental for billing purposes. Please be advised that the installation process typically takes 3 to 7 business days to complete. We appreciate your understanding and cooperation. Should you have any questions or require further assistance, please do not hesitate to contact us at <strong>0915-870-1972</strong> / <strong>(034)312-6184</strong>.</p>
 
             <p>Thank you for choosing <strong>PARASAT Parafiber</strong>. We are committed to providing you with the best service and support.</p>
 
