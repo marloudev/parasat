@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function MissionVisionSection() {
     return (
-        <div className='bg-sky-600 pb-10 text-white p-14'>
+        <div className='bg-sky-600 pb-10 text-white p-14 mt-10'>
             <div className='flex flex-col gap-8'>
                 <div>
                     <div className='text-5xl flex items-center justify-center mb-5'>

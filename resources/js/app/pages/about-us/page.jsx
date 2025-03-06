@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import TopBarSection from '../landing_page/sections/top-bar-section';
 import FooterSection from '../landing_page/sections/footer-section';
-import AboutUsSection from './sections/about-us-section';
 import MissionVisionSection from './sections/mission-vision-section';
+import ContactUsSection from '../landing_page/sections/contact-us-section';
 
 export default function AboutUsPage() {
     const [flashing, setFlashing] = useState(true);
@@ -20,7 +20,7 @@ export default function AboutUsPage() {
             <TopBarSection />
             <MissionVisionSection />
             <section id='contactsss'>
-                <AboutUsSection />
+                <ContactUsSection />
             </section>
             <FooterSection />
         </div>

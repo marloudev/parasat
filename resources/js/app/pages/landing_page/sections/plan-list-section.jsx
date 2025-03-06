@@ -26,11 +26,12 @@ export default function PlanListSection() {
             <div className="mb-10">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="flex flex-col gap-3">
-                        <p className='mt-4 text-balance text-5xl font-semibold'>
+                        <p className="mt-4 text-balance text-4xl sm:text-5xl lg:text-6xl font-semibold">
                             Internet Plans Offer:
                         </p>
+
                         {/* Mapping over internet_plans */}
-                        <div className="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-5 gap-x-4 divide-y divide-gray-100 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none lg:grid-cols-3 lg:divide-x lg:divide-y-0 xl:-mx-4">
+                        <div className="grid max-w-sm grid-cols-1 gap-y-5 gap-x-4 divide-y divide-gray-100 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none lg:grid-cols-3 ">
                             {
                                 internet_plans &&
                                 internet_plans.map((plan, index) => (
