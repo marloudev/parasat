@@ -24,7 +24,7 @@ export default function PlanListSection() {
     return (
         <div>
             <div className="mb-10">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="mx-auto max-w-7xl px-6 ">
                     <div className="flex flex-col gap-3">
                         <p className="mt-4 text-balance text-4xl sm:text-5xl lg:text-6xl font-semibold">
                             Internet Plans Offer:

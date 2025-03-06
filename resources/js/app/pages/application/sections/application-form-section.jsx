@@ -21,6 +21,7 @@ import ContactUsSection from '../../landing_page/sections/contact-us-section'
 export default function ApplicationFormSection() {
     const { internet_plan } = useSelector((state) => state.internet_plans);
     const [loading, setLoading] = useState(null);
+    const [error, setError] = useState({})
     const [newProvince, setNewProvince] = useState([])
     const [newCity, setNewCity] = useState([])
     const [newBarangay, setNewBarangay] = useState([])
@@ -132,14 +133,20 @@ export default function ApplicationFormSection() {
         }
         try {
             setLoading(true);
-            await store.dispatch(create_application_thunk(fd));
-            message.success("Application Successfully Submitted!");
+            const result = await store.dispatch(create_application_thunk(fd));
+            if (result.status === 200) {
+                message.success("Application Successfully Submitted!");
+            } else {
+                setError(result.response.data.errors);
+                message.error('Failed to submit Application');
+            }
+
             setOpen(false);
         } catch (error) {
             // message.error("Failed to submit Application. Please try again.");
         } finally {
             setLoading(false);
-            setIsSubmitted(true)
+            // setIsSubmitted(true)
         }
     }
 
@@ -174,7 +181,7 @@ export default function ApplicationFormSection() {
                                                     <Input
                                                         onChange={(event) => data_handler(event)}
                                                         value={application?.fname ?? ""}
-                                                        // required={error?.fname ? true : false}
+                                                        required={error?.fname ? true : false}
                                                         name="fname"
                                                         label="First Name"
                                                         type="text"
@@ -182,7 +189,7 @@ export default function ApplicationFormSection() {
                                                     <Input
                                                         onChange={(event) => data_handler(event)}
                                                         value={application?.mname ?? ""}
-                                                        // required={error?.mname ? true : false}
+                                                        required={error?.mname ? true : false}
                                                         name="mname"
                                                         label="Middle Name"
                                                         type="text"
@@ -190,7 +197,7 @@ export default function ApplicationFormSection() {
                                                     <Input
                                                         onChange={(event) => data_handler(event)}
                                                         value={application?.lname ?? ""}
-                                                        // required={error?.lname ? true : false}
+                                                        required={error?.lname ? true : false}
                                                         name="lname"
                                                         label="Last Name"
                                                         type="text"
@@ -222,22 +229,22 @@ export default function ApplicationFormSection() {
                                                         <Input
                                                             onChange={(event) => data_handler(event)}
                                                             value={application?.bdate ?? ""}
-                                                            // required={error?.dob ? true : false}
+                                                            required={error?.bdate ? true : false}
                                                             name="bdate"
                                                             label="Date of Birth"
                                                             type="date"
-                                                        // errorMessage={error?.dob}
+                                                            errorMessage={error?.bdate}
                                                         />
                                                     </div>
                                                     <div className=" w-full">
                                                         <Input
                                                             onChange={(event) => data_handler(event)}
                                                             value={application?.email ?? ""}
-                                                            // required={error?.email ? true : false}
+                                                            required={error?.email ? true : false}
                                                             name="email"
                                                             label="Email"
                                                             type="email"
-                                                        // errorMessage={error?.email}
+                                                            errorMessage={error?.email}
                                                         />
                                                     </div>
                                                 </div>
@@ -249,11 +256,11 @@ export default function ApplicationFormSection() {
                                                         <Input
                                                             onChange={(event) => data_handler(event)}
                                                             value={application?.contact ?? ""}
-                                                            // required={error?.phone ? true : false}
+                                                            required={error?.contact ? true : false}
                                                             name="contact"
                                                             label="Phone Number"
                                                             type="number"
-                                                        // errorMessage={error?.email}
+                                                            errorMessage={error?.contact}
                                                         />
                                                     </div>
                                                 </div>
@@ -338,7 +345,7 @@ export default function ApplicationFormSection() {
                                                     <Input
                                                         onChange={(event) => data_handler(event)}
                                                         value={application?.sfname ?? ""}
-                                                        // required={error?.fname ? true : false}
+                                                        required={error?.sfname ? true : false}
                                                         name="sfname"
                                                         label="First Name"
                                                         type="text"
@@ -346,7 +353,7 @@ export default function ApplicationFormSection() {
                                                     <Input
                                                         onChange={(event) => data_handler(event)}
                                                         value={application?.smname ?? ""}
-                                                        // required={error?.mname ? true : false}
+                                                        required={error?.smname ? true : false}
                                                         name="smname"
                                                         label="Middle Name"
                                                         type="text"
@@ -354,7 +361,7 @@ export default function ApplicationFormSection() {
                                                     <Input
                                                         onChange={(event) => data_handler(event)}
                                                         value={application?.slname ?? ""}
-                                                        // required={error?.lname ? true : false}
+                                                        required={error?.slname ? true : false}
                                                         name="slname"
                                                         label="Last Name"
                                                         type="text"
@@ -386,7 +393,7 @@ export default function ApplicationFormSection() {
                                                         <Input
                                                             onChange={(event) => data_handler(event)}
                                                             value={application?.semail ?? ""}
-                                                            // required={error?.email ? true : false}
+                                                            required={error?.semail ? true : false}
                                                             name="semail"
                                                             label="Email"
                                                             type="email"
@@ -402,11 +409,11 @@ export default function ApplicationFormSection() {
                                                         <Input
                                                             onChange={(event) => data_handler(event)}
                                                             value={application?.scontact ?? ""}
-                                                            // required={error?.phone ? true : false}
+                                                            required={error?.scontact ? true : false}
                                                             name="scontact"
                                                             label="Phone Number"
                                                             type="number"
-                                                        // errorMessage={error?.email}
+                                                            errorMessage={error?.scontact}
                                                         />
                                                     </div>
                                                 </div>

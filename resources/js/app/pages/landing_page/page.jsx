@@ -27,6 +27,11 @@ export default function LandingPage() {
             <TopBarSection />
             <ParasatCoverSection />
             <PlanListSection />
+            <div className='w-screen text-center ps-4 font-semibold flex items-center justify-center '>
+                <h1 className='text-xl'>
+                    <i>Note: For <b>Plan Upgrade</b>, please visit Parasat Office</i>
+                </h1>
+            </div>
             <section id='contactsss'>
                 <ContactUsSection />
             </section>

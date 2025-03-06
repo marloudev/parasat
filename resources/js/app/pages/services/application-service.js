@@ -5,7 +5,7 @@ export function create_application_service(data) {
         const result = axios.post('/api/application', data)
         return result
     } catch (error) {
-
+        return error
     }
 }
 
