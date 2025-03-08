@@ -21,6 +21,7 @@ import ContactUsSection from '../../landing_page/sections/contact-us-section'
 export default function ApplicationFormSection() {
     const { internet_plan } = useSelector((state) => state.internet_plans);
     const [loading, setLoading] = useState(null);
+    const [errors, setErrors] = useState({})
     const [newProvince, setNewProvince] = useState([])
     const [newCity, setNewCity] = useState([])
     const [newBarangay, setNewBarangay] = useState([])
@@ -455,6 +456,9 @@ export default function ApplicationFormSection() {
                                                 files={uploadedFile3}
                                                 setFiles={setUploadedFile3}
                                             />
+                                        </div>
+                                        <div className="mb-4 w-full text-lg">
+                                            <b>"By proceeding with the application, you agree to our <a href='' className=' underline text-blue-500'>Terms</a> and <a href='' className=' underline text-blue-500'>Conditions</a>."</b>
                                         </div>
                                         <div className="flex justify-end mt-2.5">
 

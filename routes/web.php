@@ -18,6 +18,10 @@ Route::get('/application/{id}', function () {
     return Inertia::render('application/page');
 });
 
+Route::get('/terms-condition/{id}', function () {
+    return Inertia::render('terms-condition/page');
+});
+
 Route::get('/about-us', function () {
     return Inertia::render('about-us/page');
 });

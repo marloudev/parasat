@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Input from '../../_components/input'
 import { LoadingOutlined, SendOutlined } from '@ant-design/icons'
 import region from "@/app/address/region.json"
@@ -28,6 +28,7 @@ export default function ApplicationFormSection() {
     const [uploadedFile1, setUploadedFile1] = useState(null);
     const [uploadedFile2, setUploadedFile2] = useState(null);
     const [uploadedFile3, setUploadedFile3] = useState(null);
+    const [errors, setErrors] = useState({})
 
     const dispatch = useDispatch()
 
@@ -135,14 +136,15 @@ export default function ApplicationFormSection() {
             await store.dispatch(create_application_thunk(fd));
             message.success("Application Successfully Submitted!");
             setOpen(false);
-        } catch (error) {
-            // message.error("Failed to submit Application. Please try again.");
-        } finally {
             setLoading(false);
-            // setIsSubmitted(true) 
+            alert()
+        } catch (error) {
+            // console.log('errors',error.response.data.errors)
+            setErrors(error.response.data.errors)
+            setLoading(false);
+            // message.error("Failed to submit Application. Please try again.");
         }
     }
-
 
     return (
         <div className='bg-sky-500 h-screen'>
@@ -168,9 +170,16 @@ export default function ApplicationFormSection() {
                                         <h1 className="text-xl font-semibold mb-4 text-gray-900">Personal Information</h1>
 
                                         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                                            <Input onChange={(event) => data_handler(event)} value={application?.fname ?? ""} name="fname" label="First Name" type="text" />
-                                            <Input onChange={(event) => data_handler(event)} value={application?.mname ?? ""} name="mname" label="Middle Name" type="text" />
-                                            <Input onChange={(event) => data_handler(event)} value={application?.lname ?? ""} name="lname" label="Last Name" type="text" />
+                                            <Input
+                                                required={errors?.fname ? true : false}
+                                                onChange={(event) => data_handler(event)} value={application?.fname ?? ""} name="fname" label="First Name" type="text" />
+                                            <Input
+                                                required={errors?.mname ? true : false}
+                                                onChange={(event) => data_handler(event)} value={application?.mname ?? ""} name="mname" label="Middle Name" type="text" />
+                                            <Input
+
+                                                required={errors?.lname ? true : false}
+                                                onChange={(event) => data_handler(event)} value={application?.lname ?? ""} name="lname" label="Last Name" type="text" />
                                             <select onChange={(event) => data_handler(event)} value={application?.suffix ?? ""} name="suffix" className="border p-2 rounded w-full">
                                                 <option disabled selected>Suffix</option>
                                                 <option></option>
@@ -187,9 +196,15 @@ export default function ApplicationFormSection() {
                                         </div>
 
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                                            <Input onChange={(event) => data_handler(event)} value={application?.bdate ?? ""} name="bdate" label="Date of Birth" type="date" />
-                                            <Input onChange={(event) => data_handler(event)} value={application?.contact ?? ""} name="contact" label="Phone number" type="number" />
-                                            <Input onChange={(event) => data_handler(event)} value={application?.email ?? ""} name="email" label="Email" type="email" />
+                                            <Input
+                                                required={errors?.bdate ? true : false}
+                                                onChange={(event) => data_handler(event)} value={application?.bdate ?? ""} name="bdate" label="Date of Birth" type="date" />
+                                            <Input
+                                                required={errors?.contact ? true : false}
+                                                onChange={(event) => data_handler(event)} value={application?.contact ?? ""} name="contact" label="Phone number" type="number" />
+                                            <Input
+                                                required={errors?.email ? true : false}
+                                                onChange={(event) => data_handler(event)} value={application?.email ?? ""} name="email" label="Email" type="email" />
                                         </div>
 
                                         <div className="mt-4">
@@ -197,7 +212,6 @@ export default function ApplicationFormSection() {
                                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                                 <Select
                                                     onChange={(event) => data_handler(event)}
-                                                    // value={application.region ?? ""}
                                                     options={region.map(res => ({
                                                         label: res.region_name,
                                                         value: JSON.stringify({ name: res.region_name, region_code: res.region_code }),
@@ -205,6 +219,7 @@ export default function ApplicationFormSection() {
                                                     name="region"
                                                     label="Region"
                                                     placeholder="Select Region"
+                                                    required={true}
                                                 />
                                                 <Select
                                                     onChange={(event) => data_handler(event)}
@@ -216,6 +231,7 @@ export default function ApplicationFormSection() {
                                                     name="province"
                                                     label="Province"
                                                     placeholder="Select Province"
+                                                    required={true}
                                                 />
                                                 <Select
                                                     onChange={(event) => data_handler(event)}
@@ -227,6 +243,7 @@ export default function ApplicationFormSection() {
                                                     name="city"
                                                     label="City/Municipality"
                                                     placeholder="Select City"
+                                                    required={true}
                                                 />
                                             </div>
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
@@ -240,6 +257,7 @@ export default function ApplicationFormSection() {
                                                     name="barangay"
                                                     label="Barangay"
                                                     placeholder="Select Barangay"
+                                                    required={true}
                                                 />
                                                 <Input
                                                     onChange={(event) => data_handler(event)}
@@ -258,7 +276,7 @@ export default function ApplicationFormSection() {
                                             <Input
                                                 onChange={(event) => data_handler(event)}
                                                 value={application?.sfname ?? ""}
-                                                // required={error?.fname ? true : false}
+                                                required={errors?.sfname ? true : false}
                                                 name="sfname"
                                                 label="First Name"
                                                 type="text"
@@ -266,7 +284,7 @@ export default function ApplicationFormSection() {
                                             <Input
                                                 onChange={(event) => data_handler(event)}
                                                 value={application?.smname ?? ""}
-                                                // required={error?.mname ? true : false}
+                                                required={errors?.smname ? true : false}
                                                 name="smname"
                                                 label="Middle Name"
                                                 type="text"
@@ -274,7 +292,7 @@ export default function ApplicationFormSection() {
                                             <Input
                                                 onChange={(event) => data_handler(event)}
                                                 value={application?.slname ?? ""}
-                                                // required={error?.lname ? true : false}
+                                                required={errors?.slname ? true : false}
                                                 name="slname"
                                                 label="Last Name"
                                                 type="text"
@@ -302,7 +320,7 @@ export default function ApplicationFormSection() {
                                                 <Input
                                                     onChange={(event) => data_handler(event)}
                                                     value={application?.semail ?? ""}
-                                                    // required={error?.email ? true : false}
+                                                    required={errors?.semail ? true : false}
                                                     name="semail"
                                                     label="Email"
                                                     type="email"
@@ -316,7 +334,7 @@ export default function ApplicationFormSection() {
                                                         <Input
                                                             onChange={(event) => data_handler(event)}
                                                             value={application?.scontact ?? ""}
-                                                            // required={error?.phone ? true : false}
+                                                            required={errors?.scontact ? true : false}
                                                             name="scontact"
                                                             label="Phone Number"
                                                             type="number"
@@ -341,7 +359,9 @@ export default function ApplicationFormSection() {
                                             <UploadValidIDSection files={uploadedFile2} setFiles={setUploadedFile2} />
                                             <UploadLocationSection files={uploadedFile3} setFiles={setUploadedFile3} />
                                         </div>
-
+                                        <div className="mb-4 w-full text-lg">
+                                            <b>"By proceeding with the application, you agree to our <a href='window' className=' underline text-blue-500'>Terms & Conditions</a>."</b>
+                                        </div>
                                         <div className="flex justify-end mt-4">
                                             <button
                                                 type="submit"
