@@ -21,7 +21,6 @@ import ContactUsSection from '../../landing_page/sections/contact-us-section'
 export default function ApplicationFormSection() {
     const { internet_plan } = useSelector((state) => state.internet_plans);
     const [loading, setLoading] = useState(null);
-    const [error, setError] = useState({})
     const [newProvince, setNewProvince] = useState([])
     const [newCity, setNewCity] = useState([])
     const [newBarangay, setNewBarangay] = useState([])
@@ -133,20 +132,14 @@ export default function ApplicationFormSection() {
         }
         try {
             setLoading(true);
-            const result = await store.dispatch(create_application_thunk(fd));
-            if (result.status === 200) {
-                message.success("Application Successfully Submitted!");
-            } else {
-                setError(result.response.data.errors);
-                message.error('Failed to submit Application');
-            }
-
+            await store.dispatch(create_application_thunk(fd));
+            message.success("Application Successfully Submitted!");
             setOpen(false);
         } catch (error) {
             // message.error("Failed to submit Application. Please try again.");
         } finally {
             setLoading(false);
-            // setIsSubmitted(true)
+            setIsSubmitted(true)
         }
     }
 
@@ -156,7 +149,7 @@ export default function ApplicationFormSection() {
             {isSubmitted ? (
                 <div className="fixed inset-40 flex items-center justify-center mb-96 z-50">
                     <div className="popup-message animate-pop-up text-xl text-white bg-sky-800 text-center p-5 rounded-2xl border-2 border-black">
-                        <b><i>Thank you for selecting PARASAT. You will be notified via email regarding the approval or decline of your application. Please monitor your inbox for updates. The application process typically takes 1 to 3 business days and includes a "Location Survey" and a review of any outstanding account balance. During the location survey, our team will reach out to you via the contact number you have provided. We appreciate your cooperation and thank you for choosing PARASAT.</i></b>
+                        <b><i>Thank you for submitting your application for our plan. Please ensure that you check your email regularly for any updates regarding your application.</i></b>
                     </div>
                 </div>
             ) : (
@@ -164,7 +157,7 @@ export default function ApplicationFormSection() {
                     <div className="h-screen overflow-hidden ">
                         <div className="bg-cover bg-[url('/images/SCemp.jpg')] transition-colors duration-300 h-full overflow-y-scroll">
                             <div className="container mx-auto px-10 flex justify-center">
-                                <div className="bg-white shadow-2xl shadow-black rounded-lg p-6 mt-24 w-full">
+                                <div className="bg-white shadow-2xl shadow-black rounded-lg p-6 mt-12 w-full">
                                     <div className='flex text-2xl items-center justify-center'>
                                         <h1><b>APPLICATION FORM</b></h1>
                                     </div>
@@ -181,7 +174,7 @@ export default function ApplicationFormSection() {
                                                     <Input
                                                         onChange={(event) => data_handler(event)}
                                                         value={application?.fname ?? ""}
-                                                        required={error?.fname ? true : false}
+                                                        // required={error?.fname ? true : false}
                                                         name="fname"
                                                         label="First Name"
                                                         type="text"
@@ -189,7 +182,7 @@ export default function ApplicationFormSection() {
                                                     <Input
                                                         onChange={(event) => data_handler(event)}
                                                         value={application?.mname ?? ""}
-                                                        required={error?.mname ? true : false}
+                                                        // required={error?.mname ? true : false}
                                                         name="mname"
                                                         label="Middle Name"
                                                         type="text"
@@ -197,7 +190,7 @@ export default function ApplicationFormSection() {
                                                     <Input
                                                         onChange={(event) => data_handler(event)}
                                                         value={application?.lname ?? ""}
-                                                        required={error?.lname ? true : false}
+                                                        // required={error?.lname ? true : false}
                                                         name="lname"
                                                         label="Last Name"
                                                         type="text"
@@ -229,22 +222,22 @@ export default function ApplicationFormSection() {
                                                         <Input
                                                             onChange={(event) => data_handler(event)}
                                                             value={application?.bdate ?? ""}
-                                                            required={error?.bdate ? true : false}
+                                                            // required={error?.dob ? true : false}
                                                             name="bdate"
                                                             label="Date of Birth"
                                                             type="date"
-                                                            errorMessage={error?.bdate}
+                                                        // errorMessage={error?.dob}
                                                         />
                                                     </div>
                                                     <div className=" w-full">
                                                         <Input
                                                             onChange={(event) => data_handler(event)}
                                                             value={application?.email ?? ""}
-                                                            required={error?.email ? true : false}
+                                                            // required={error?.email ? true : false}
                                                             name="email"
                                                             label="Email"
                                                             type="email"
-                                                            errorMessage={error?.email}
+                                                        // errorMessage={error?.email}
                                                         />
                                                     </div>
                                                 </div>
@@ -256,11 +249,11 @@ export default function ApplicationFormSection() {
                                                         <Input
                                                             onChange={(event) => data_handler(event)}
                                                             value={application?.contact ?? ""}
-                                                            required={error?.contact ? true : false}
+                                                            // required={error?.phone ? true : false}
                                                             name="contact"
                                                             label="Phone Number"
                                                             type="number"
-                                                            errorMessage={error?.contact}
+                                                        // errorMessage={error?.email}
                                                         />
                                                     </div>
                                                 </div>
@@ -345,7 +338,7 @@ export default function ApplicationFormSection() {
                                                     <Input
                                                         onChange={(event) => data_handler(event)}
                                                         value={application?.sfname ?? ""}
-                                                        required={error?.sfname ? true : false}
+                                                        // required={error?.fname ? true : false}
                                                         name="sfname"
                                                         label="First Name"
                                                         type="text"
@@ -353,7 +346,7 @@ export default function ApplicationFormSection() {
                                                     <Input
                                                         onChange={(event) => data_handler(event)}
                                                         value={application?.smname ?? ""}
-                                                        required={error?.smname ? true : false}
+                                                        // required={error?.mname ? true : false}
                                                         name="smname"
                                                         label="Middle Name"
                                                         type="text"
@@ -361,7 +354,7 @@ export default function ApplicationFormSection() {
                                                     <Input
                                                         onChange={(event) => data_handler(event)}
                                                         value={application?.slname ?? ""}
-                                                        required={error?.slname ? true : false}
+                                                        // required={error?.lname ? true : false}
                                                         name="slname"
                                                         label="Last Name"
                                                         type="text"
@@ -393,7 +386,7 @@ export default function ApplicationFormSection() {
                                                         <Input
                                                             onChange={(event) => data_handler(event)}
                                                             value={application?.semail ?? ""}
-                                                            required={error?.semail ? true : false}
+                                                            // required={error?.email ? true : false}
                                                             name="semail"
                                                             label="Email"
                                                             type="email"
@@ -409,11 +402,11 @@ export default function ApplicationFormSection() {
                                                         <Input
                                                             onChange={(event) => data_handler(event)}
                                                             value={application?.scontact ?? ""}
-                                                            required={error?.scontact ? true : false}
+                                                            // required={error?.phone ? true : false}
                                                             name="scontact"
                                                             label="Phone Number"
                                                             type="number"
-                                                            errorMessage={error?.scontact}
+                                                        // errorMessage={error?.email}
                                                         />
                                                     </div>
                                                 </div>
@@ -462,9 +455,6 @@ export default function ApplicationFormSection() {
                                                 files={uploadedFile3}
                                                 setFiles={setUploadedFile3}
                                             />
-                                        </div>
-                                        <div className="mb-4 w-full text-lg">
-                                            <b>"By proceeding with the application, you agree to our <a href='' className=' underline text-blue-500'>Terms</a> and <a href='' className=' underline text-blue-500'>Conditions</a>."</b>
                                         </div>
                                         <div className="flex justify-end mt-2.5">
 

@@ -69,7 +69,7 @@ export default function UploadElectricSection({ files, setFiles }) {
                     </div>
                 </div>
             </div>
-            <div className="mt-4 mb-4 grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {uploadedFiles.map((fileData, index) => (
                     <div key={index} className="flex items-center justify-between bg-neutral-800 rounded-md p-2">
                         <div className="flex items-center">

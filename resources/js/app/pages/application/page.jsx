@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import ApplicationFormSection from './sections/application-form-section'
 import TopBarSection from '../landing_page/sections/top-bar-section'
 import store from '../store/store';
 import { get_internet_plan_by_id_thunk } from '@/app/redux/internet-plan-thunk';
 import ContactUsSection from '../landing_page/sections/contact-us-section';
+import ApplicationSection from './sections/application-section';
+import ApplicationFormSection from './sections/application-form-section';
 
 export default function ApplicationPage() {
     const [flashing, setFlashing] = useState(true);
@@ -23,6 +24,7 @@ export default function ApplicationPage() {
     return (
         <div className={flashing ? 'animate-flash' : ''}>
             <TopBarSection />
+            <ApplicationSection />
             <ApplicationFormSection />
         </div>
     )
