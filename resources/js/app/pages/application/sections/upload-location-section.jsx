@@ -63,7 +63,7 @@ export default function UploadLocationSection({ files, setFiles }) {
                     <h4 className="text-center text-gray-900 text-sm font-medium leading-snug">Drag and Drop your file here or</h4>
                     <div className="flex items-center justify-center">
                         <label>
-                            <input type="file" hidden onChange={handleFileInputChange} multiple required/>
+                            <input type="file" hidden onChange={handleFileInputChange} multiple />
                             <div className="flex w-28 h-9 px-2 flex-col bg-indigo-600 rounded-full shadow text-white text-xs font-semibold leading-4 items-center justify-center cursor-pointer focus:outline-none">Choose File</div>
                         </label>
                     </div>

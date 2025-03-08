@@ -139,10 +139,10 @@ export default function ApplicationFormSection() {
             setLoading(false);
             alert()
         } catch (error) {
-            // console.log('errors',error.response.data.errors)
+            window.location.href = "#error"
             setErrors(error.response.data.errors)
             setLoading(false);
-            // message.error("Failed to submit Application. Please try again.");
+            message.error("Failed to submit Application. Please try again.");
         }
     }
 
@@ -159,7 +159,7 @@ export default function ApplicationFormSection() {
                     <div className="h-screen overflow-hidden ">
                         <div className="bg-cover bg-[url('/images/SCemp.jpg')] transition-colors duration-300 h-full overflow-y-scroll">
                             <div className="container mx-auto px-10 flex justify-center">
-                                <div className="bg-white shadow-2xl shadow-black rounded-lg p-6 mt-12 w-full">
+                                <div id='error' className="bg-white shadow-2xl shadow-black rounded-lg p-6 mt-12 w-full">
                                     <div className='flex text-2xl items-center justify-center'>
                                         <h1><b>APPLICATION FORM</b></h1>
                                     </div>

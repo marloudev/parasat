@@ -136,12 +136,12 @@ export default function ApplicationFormSection() {
             await store.dispatch(create_application_thunk(fd));
             message.success("Application Successfully Submitted!");
             setOpen(false);
-        } catch (error) {
-            // message.error("Failed to submit Application. Please try again.");
-        } finally {
             setLoading(false);
             setIsSubmitted(true)
-        }
+        } catch (error) {
+            message.error("Failed to submit Application. Please try again.");
+            window.location.href = "#error"
+        } 
     }
 
 
@@ -159,7 +159,7 @@ export default function ApplicationFormSection() {
                         <div className="bg-cover bg-[url('/images/SCemp.jpg')] transition-colors duration-300 h-full overflow-y-scroll">
                             <div className="container mx-auto px-10 flex justify-center">
                                 <div className="bg-white shadow-2xl shadow-black rounded-lg p-6 mt-12 w-full">
-                                    <div className='flex text-2xl items-center justify-center'>
+                                    <div id='error' className='flex text-2xl items-center justify-center'>
                                         <h1><b>APPLICATION FORM</b></h1>
                                     </div>
                                     <form
