@@ -94,7 +94,6 @@ class ApplicationController extends Controller
         if ($request->hasFile($fileType)) {
             $files = $request->file($fileType);
             foreach ($files as $file) {
-                // Store the file in S3
                 $path = $file->store('Personal-' . date("Y"), 's3'); // Store in year-based folder
                 $url = Storage::disk('s3')->url($path); // Get file URL from S3
 

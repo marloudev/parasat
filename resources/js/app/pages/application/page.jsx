@@ -25,7 +25,7 @@ export default function ApplicationPage() {
         <div className={flashing ? 'animate-flash' : ''}>
             <TopBarSection />
             <ApplicationSection />
-            <ApplicationFormSection />
+            {/* <ApplicationFormSection /> */}
         </div>
     )
 }

@@ -139,7 +139,7 @@ export default function ApplicationFormSection() {
             // message.error("Failed to submit Application. Please try again.");
         } finally {
             setLoading(false);
-            setIsSubmitted(true)
+            // setIsSubmitted(true) 
         }
     }
 
@@ -168,10 +168,10 @@ export default function ApplicationFormSection() {
                                         <h1 className="text-xl font-semibold mb-4 text-gray-900">Personal Information</h1>
 
                                         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                                            <Input onChange={data_handler} value={application?.fname ?? ""} name="fname" label="First Name" type="text" />
-                                            <Input onChange={data_handler} value={application?.mname ?? ""} name="mname" label="Middle Name" type="text" />
-                                            <Input onChange={data_handler} value={application?.lname ?? ""} name="lname" label="Last Name" type="text" />
-                                            <select onChange={data_handler} value={application?.suffix ?? ""} name="suffix" className="border p-2 rounded w-full">
+                                            <Input onChange={(event) => data_handler(event)} value={application?.fname ?? ""} name="fname" label="First Name" type="text" />
+                                            <Input onChange={(event) => data_handler(event)} value={application?.mname ?? ""} name="mname" label="Middle Name" type="text" />
+                                            <Input onChange={(event) => data_handler(event)} value={application?.lname ?? ""} name="lname" label="Last Name" type="text" />
+                                            <select onChange={(event) => data_handler(event)} value={application?.suffix ?? ""} name="suffix" className="border p-2 rounded w-full">
                                                 <option disabled selected>Suffix</option>
                                                 <option></option>
                                                 <option>Sr.</option>
@@ -187,9 +187,9 @@ export default function ApplicationFormSection() {
                                         </div>
 
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                                            <Input onChange={data_handler} value={application?.bdate ?? ""} name="bdate" label="Date of Birth" type="date" />
-                                            <Input onChange={data_handler} value={application?.contact ?? ""} name="contact" label="Phone number" type="number" />
-                                            <Input onChange={data_handler} value={application?.email ?? ""} name="email" label="Email" type="email" />
+                                            <Input onChange={(event) => data_handler(event)} value={application?.bdate ?? ""} name="bdate" label="Date of Birth" type="date" />
+                                            <Input onChange={(event) => data_handler(event)} value={application?.contact ?? ""} name="contact" label="Phone number" type="number" />
+                                            <Input onChange={(event) => data_handler(event)} value={application?.email ?? ""} name="email" label="Email" type="email" />
                                         </div>
 
                                         <div className="mt-4">
@@ -251,12 +251,88 @@ export default function ApplicationFormSection() {
                                             </div>
                                         </div>
 
+                                        <h1 className="text-xl font-semibold mb-3 text-gray-900  mt-6">
+                                            Second Contact Person
+                                        </h1>
+                                        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                            <Input
+                                                onChange={(event) => data_handler(event)}
+                                                value={application?.sfname ?? ""}
+                                                // required={error?.fname ? true : false}
+                                                name="sfname"
+                                                label="First Name"
+                                                type="text"
+                                            />
+                                            <Input
+                                                onChange={(event) => data_handler(event)}
+                                                value={application?.smname ?? ""}
+                                                // required={error?.mname ? true : false}
+                                                name="smname"
+                                                label="Middle Name"
+                                                type="text"
+                                            />
+                                            <Input
+                                                onChange={(event) => data_handler(event)}
+                                                value={application?.slname ?? ""}
+                                                // required={error?.lname ? true : false}
+                                                name="slname"
+                                                label="Last Name"
+                                                type="text"
+                                            />
+                                            <select
+                                                onChange={(event) => data_handler(event)}
+                                                value={application?.ssuffix ?? ""}
+                                                name="ssuffix"
+                                                className="border p-2 rounded  w-full"
+                                            >
+                                                <option disabled selected>
+                                                    Suffix
+                                                </option>
+                                                <option></option>
+                                                <option> Sr.</option>
+                                                <option> Jr.</option>
+                                                <option> II</option>
+                                                <option> III</option>
+                                                <option> IV</option>
+                                                <option> V</option>
+                                            </select>
+                                        </div>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                            <div className=" w-full">
+                                                <Input
+                                                    onChange={(event) => data_handler(event)}
+                                                    value={application?.semail ?? ""}
+                                                    // required={error?.email ? true : false}
+                                                    name="semail"
+                                                    label="Email"
+                                                    type="email"
+                                                // errorMessage={error?.email}
+                                                />
+                                            </div>
+
+                                            <div className="flex w-full">
+                                                <div className="flex flex-col gap-4 mb-4 w-full">
+                                                    <div className="w-full">
+                                                        <Input
+                                                            onChange={(event) => data_handler(event)}
+                                                            value={application?.scontact ?? ""}
+                                                            // required={error?.phone ? true : false}
+                                                            name="scontact"
+                                                            label="Phone Number"
+                                                            type="number"
+                                                        // errorMessage={error?.email}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div className="mt-4">
                                             <h1 className="text-xl font-semibold mb-4 text-gray-900">Plan Details</h1>
                                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                                <Input onChange={data_handler} value={internet_plan?.name ?? ""} name="plan_name" label="Plan Name" type="text" />
-                                                <Input onChange={data_handler} value={internet_plan?.speed ?? ""} name="plan_speed" label="Plan Speed" type="text" />
-                                                <InputPrice onChange={data_handler} value={internet_plan?.price ?? ""} name="plan_price" label="Plan Price" type="text" />
+                                                <Input oonChange={(event) => data_handler(event)} value={internet_plan?.name ?? ""} name="plan_name" label="Plan Name" type="text" />
+                                                <Input oonChange={(event) => data_handler(event)} value={internet_plan?.speed ?? ""} name="plan_speed" label="Plan Speed" type="text" />
+                                                <InputPrice oonChange={(event) => data_handler(event)} value={internet_plan?.price ?? ""} name="plan_price" label="Plan Price" type="text" />
                                             </div>
                                         </div>
 
