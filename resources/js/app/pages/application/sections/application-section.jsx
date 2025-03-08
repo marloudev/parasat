@@ -17,6 +17,7 @@ import UploadElectricBillSection from './upload-electric-bill-section'
 import UploadLocationSection from './upload-location-section'
 import UploadValidIDSection from './upload-valid-id-section'
 import ContactUsSection from '../../landing_page/sections/contact-us-section'
+import { router } from '@inertiajs/react'
 
 export default function ApplicationFormSection() {
     const { internet_plan } = useSelector((state) => state.internet_plans);
@@ -37,6 +38,7 @@ export default function ApplicationFormSection() {
     console.log('uploadedFile3', uploadedFile3)
 
     function data_handler(e) {
+        // e.preventDefault();
         if (e.target.name === 'region') {
             const region = JSON.parse(e.target.value);
             if (region && region.region_code) {
@@ -135,17 +137,16 @@ export default function ApplicationFormSection() {
             setLoading(true);
             await store.dispatch(create_application_thunk(fd));
             message.success("Application Successfully Submitted!");
-            setOpen(false);
             setLoading(false);
-            alert()
+            setIsSubmitted(true)
         } catch (error) {
             window.location.href = "#error"
+            console.log('error', error.response.data.errors)
             setErrors(error.response.data.errors)
-            setLoading(false);
             message.error("Failed to submit Application. Please try again.");
+            setLoading(false);
         }
     }
-
     return (
         <div className='bg-sky-500 h-screen'>
             {isSubmitted ? (
@@ -360,7 +361,21 @@ export default function ApplicationFormSection() {
                                             <UploadLocationSection files={uploadedFile3} setFiles={setUploadedFile3} />
                                         </div>
                                         <div className="mb-4 w-full text-lg">
-                                            <b>"By proceeding with the application, you agree to our <a href='window' className=' underline text-blue-500'>Terms & Conditions</a>."</b>
+                                            <b>
+                                                "By proceeding with the application, you agree to our&nbsp;
+                                                <a
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        router.visit(`/application/${internet_plan.id}/terms-condition`);
+                                                        // window.open("/terms-condition", "_blank");
+                                                        // window.open("https://apply-parasat.site", "_blank");
+                                                    }}
+                                                    href="#"
+                                                    className="underline text-blue-500"
+                                                >
+                                                    Terms & Conditions
+                                                </a>."
+                                            </b>
                                         </div>
                                         <div className="flex justify-end mt-4">
                                             <button
@@ -370,13 +385,11 @@ export default function ApplicationFormSection() {
                                                 disabled={isSubmitted || loading}
                                             >
                                                 {loading ? (
-                                                    <span className="flex items-center space-x-2">
-                                                        <LoadingOutlined className="animate-spin" />
-                                                        <span>PROCESSING APPLICATION...</span>
-                                                    </span>
+                                                    <LoadingOutlined spin />
                                                 ) : (
-                                                    "SUBMIT APPLICATION"
+                                                    <SendOutlined />
                                                 )}
+                                                {loading ? " PROCESSING APPLICATION... this will take few seconds" : " SUBMIT APPLICATION"}
                                             </button>
                                         </div>
                                     </form>

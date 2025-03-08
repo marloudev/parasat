@@ -14,13 +14,16 @@ Route::middleware('redirectBasedOnRole')->get('/auth/login', function () {
     return Inertia::render('login/page');
 })->name('login');
 
-Route::get('/application/{id}', function () {
-    return Inertia::render('application/page');
+Route::prefix('/application')->group(function () {
+    Route::get('/{id}', function () {
+        return Inertia::render('application/page');
+    });
+
+    Route::get('/{id}/terms-condition', function () {
+        return Inertia::render('application/terms-condition/page');
+    });
 });
 
-Route::get('/terms-condition/{id}', function () {
-    return Inertia::render('terms-condition/page');
-});
 
 Route::get('/about-us', function () {
     return Inertia::render('about-us/page');
