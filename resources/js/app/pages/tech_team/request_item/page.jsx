@@ -6,6 +6,7 @@ import { get_request_item_thunk } from '@/app/redux/request-item-thunk'
 import RequestItemTableSection from './_sections/request-item-table-section'
 import { get_item_thunk } from '@/app/redux/item-thunk'
 import { get_user_thunk, get_users_thunk } from '@/app/redux/app-thunk'
+import TechTeamLayout from '../layout'
 
 const people = [
   { name: '252', title: 'ONT', email: '200', role: 'Headend' },
@@ -22,12 +23,7 @@ export default function RequestItemPage() {
     store.dispatch(get_users_thunk())
   }, [])
   return (
-
-    <div className="py-8">
-      <div className='pb-8'>
-        <TopNaveSection />
-      </div>
-
+    <TechTeamLayout>
       <div className="flex items-center justify-between px-4">
         <div className="sm:flex-auto">
           <h1 className="text-2xl font-semibold text-gray-900">Request Item</h1>
@@ -43,6 +39,6 @@ export default function RequestItemPage() {
       <div className="-mx-4 px-4 sm:-mx-0">
         <RequestItemTableSection />
       </div>
-    </div>
+    </TechTeamLayout>
   )
 }

@@ -72,12 +72,28 @@ Route::middleware('auth:sanctum', 'techteam')->prefix('techteam')->group(functio
     Route::get('/request_item', function () {
         return Inertia::render('tech_team/request_item/page');
     })->name('tech_team');
+    Route::get('/dashboard', function () {
+        return Inertia::render('tech_team/dashboard/page');
+    });
 });
 
 Route::middleware('auth:sanctum', 'csr')->prefix('csr')->group(function () {
     Route::get('/applications', function () {
         return Inertia::render('csr/applications/page');
     })->name('csr');
+
+    Route::get('/dashboard', function () {
+        return Inertia::render('csr/dashboard/page');
+    });
+});
+
+Route::middleware('auth:sanctum')->prefix('inventorycustodian')->group(function () {
+    Route::get('/inventory', function () {
+        return Inertia::render('inventory_custodian/inventory/page');
+    })->name('inventorycustodian');
+    Route::get('/requests', function () {
+        return Inertia::render('inventory_custodian/requests/page');
+    });
 });
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

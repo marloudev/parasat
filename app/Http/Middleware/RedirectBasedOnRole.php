@@ -23,6 +23,8 @@ class RedirectBasedOnRole
                 return redirect('/techteam/request_item');
             } else if ($account->user_type == 3) {
                 return redirect('/csr/applications');
+            } else if ($account->user_type == 4) {
+                return redirect('/inventorycustodian/inventory');
             }
         }
         return $next($request);

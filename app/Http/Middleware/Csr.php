@@ -20,9 +20,12 @@ class Csr
         $account = $request->user();
         if ($account->user_type == '1') {
             return Inertia::location(route('dashboard'));
-        } else if ($account->user_type =='2') {
+        } else if ($account->user_type == '2') {
             return Inertia::location(route('tech_team'));
-        } 
+        } else if ($account->user_type == '4') {
+            return Inertia::location(route('inventory_custodian'));
+        }
+
         return $next($request);
     }
 }

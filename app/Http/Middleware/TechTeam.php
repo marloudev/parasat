@@ -18,11 +18,14 @@ class TechTeam
     public function handle(Request $request, Closure $next): Response
     {
         $account = $request->user();
-        if ($account->user_type =='1') {
+        if ($account->user_type == '1') {
             return Inertia::location(route('dashboard'));
-        }else if ($account->user_type =='3') {
+        } else if ($account->user_type == '3') {
             return Inertia::location(route('csr'));
+        } else if ($account->user_type == '4') {
+            return Inertia::location(route('inventory_custodian'));
         }
+
         return $next($request);
     }
 }

@@ -16,6 +16,7 @@ export default function AddUserSection() {
         { value: '1', label: 'Admin' },
         { value: '2', label: 'Tech Team' },
         { value: '3', label: 'CSR' },
+        { value: '4', label: 'Inventory Custodian' },
     ];
     async function submit_form(e) {
         e.preventDefault()
@@ -42,7 +43,7 @@ export default function AddUserSection() {
 
             <Modal open={isModalOpen} setOpen={closeModal}>
                 <form onSubmit={submit_form}>
-                    <div className='m-4'>
+                    <div className=''>
                         <InputField
                             type="text"
                             label='Name'
@@ -55,7 +56,7 @@ export default function AddUserSection() {
                         />
                     </div>
 
-                    <div className='m-4'>
+                    <div className=''>
                         <InputField
                             type="text"
                             name="email"
@@ -68,7 +69,7 @@ export default function AddUserSection() {
                         />
                     </div>
 
-                    <div className='m-4'>
+                    <div className=''>
                         <InputField
                             type="password"
                             label='Password'
@@ -82,7 +83,7 @@ export default function AddUserSection() {
                     </div>
 
 
-                    <div className='m-4 mt-8'>
+                    <div className=' mb-4 mt-8'>
                         <Select
                             name="user_type"
                             label="Role"
@@ -94,13 +95,14 @@ export default function AddUserSection() {
                         />
                     </div>
 
-                    <div className='flex justify-end'>
-                        <Button
-                            type='submit'
+                    <div className='flex w-full'>
+                        <button
+                            type="submit"
                             disabled={loading}
-                            variant='info'>
+                            className="bg-blue-500 p-2 w-full rounded-md text-white hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
                             {loading ? "Loading..." : "Save"}
-                        </Button>
+                        </button>
                     </div>
                 </form>
             </Modal>

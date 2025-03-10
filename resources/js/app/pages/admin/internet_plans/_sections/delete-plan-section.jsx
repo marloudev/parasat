@@ -32,7 +32,7 @@ export default function DeletePlanSection({ data }) {
     };
 
     return (
-        <div className="flex justify-end mt-4">
+        <>
             <Tooltip title="Remove Plan">
                 <button
                     className="text-white font-bold py-2 px-4 rounded"
@@ -67,6 +67,6 @@ export default function DeletePlanSection({ data }) {
                     </div>
                 </form>
             </Modal>
-        </div>
+        </>
     );
 }

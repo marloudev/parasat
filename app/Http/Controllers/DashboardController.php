@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Application;
 use App\Models\Items;
+use App\Models\RequestItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,6 +20,7 @@ class DashboardController extends Controller
         $declined = Application::where('status', '=', 'Declined')->count();
         $total = Application::count();
         $total_item = Items::count();
+        $total_request_item = RequestItem::count();
 
 
 
@@ -29,7 +31,8 @@ class DashboardController extends Controller
             'pending' => $pending,
             'declined' => $declined,
             'total' => $total,
-            'total_item' => $total_item
+            'total_item' => $total_item,
+            'total_request_item' => $total_request_item
         ], 200);
     }
 }

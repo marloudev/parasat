@@ -33,12 +33,12 @@ export default function UpdatePlanSection({ data }) {
   };
 
   return (
-    <div className='flex justify-end mt-4'>
+    <>
       <Tooltip title="Update Plan">
         <button className=" text-blue-500 font-bold " onClick={openModal}><PencilIcon className="h-5 w-5 inline-block" /></button>
       </Tooltip>
       <Modal open={isModalOpen} setOpen={setIsModalOpen} width='w-1/4'>
-        <h2 className="text-xl font-semibold mb-4">Create Internet Plan</h2>
+        <h2 className="text-xl font-semibold mb-4">Update Internet Plan</h2>
         <form action="" onSubmit={submitPlan}>
           <div className="mb-4">
             <label htmlFor="planName" className="block text-sm font-medium text-gray-700">Plan Name</label>
@@ -105,6 +105,6 @@ export default function UpdatePlanSection({ data }) {
           </div>
         </form>
       </Modal>
-    </div>
+    </>
   )
 }

@@ -25,7 +25,6 @@ export default function TermsConditionSection() {
                                     <b>3. Service Activation</b> <br /> Service activation is subject to approval and network feasibility. Installation will be scheduled within 3-7 business days from approval. The customer agrees to allow authorized personnel access to the premises for installation and maintenance.<br /><br />
 
                                     <b>4. Payment and Billing</b><br /> Monthly fees, installation charges, and applicable taxes will be billed as per the selected plan. Payments must be made on or before the due date to avoid service disruption. Late payments may incur penalties or suspension of service.<br /><br />
-                                    <br />
 
                                     <b>5. Fair Usage Policy (FUP)</b><br /> The service is subject to a Fair Usage Policy to ensure optimal network performance. Excessive data consumption may result in speed reduction or additional charges.<br /><br />
 
