@@ -158,9 +158,9 @@ export default function ApplicationFormSection() {
             ) : (
                 <div className=''>
                     <div className="h-screen overflow-hidden ">
-                        <div className="bg-cover bg-[url('/images/SCemp.jpg')] transition-colors duration-300 h-full overflow-y-scroll">
-                            <div className="container mx-auto px-10 flex justify-center">
-                                <div id='error' className="bg-white shadow-2xl shadow-black rounded-lg p-6 mt-12 w-full">
+                        <div className="bg-cover transition-colors duration-300 h-full overflow-y-scroll">
+                            <div className="container mx-auto px-6 flex justify-center">
+                                <div id='error' className="bg-white shadow-2xl shadow-black rounded-lg p-3 mt-20 w-full">
                                     <div className='flex text-2xl items-center justify-center'>
                                         <h1><b>APPLICATION FORM</b></h1>
                                     </div>
@@ -360,21 +360,33 @@ export default function ApplicationFormSection() {
                                             <UploadValidIDSection files={uploadedFile2} setFiles={setUploadedFile2} />
                                             <UploadLocationSection files={uploadedFile3} setFiles={setUploadedFile3} />
                                         </div>
-                                        <div className="mb-4 w-full text-lg">
+                                        <div className="mb-4 w-full text-lg mt-8">
+                                            <input
+                                                // onChange={(e) =>
+                                                //     setForm({
+                                                //         ...form,
+                                                //         [e.target.name]: JSON.stringify(
+                                                //             e.target.checked
+                                                //         ),
+                                                //     })
+                                                // }
+                                                // checked={form.popular == "true"}
+                                                type="checkbox"
+                                                name="popular"
+                                                class="w-5 h-5 text-blue-600 bg-gray-200 border-gray-600 rounded focus:ring-blue-500   focus:ring-2 " />
                                             <b>
-                                                "By proceeding with the application, you agree to our&nbsp;
+                                                &nbsp;I have read and agreed with the&nbsp;
                                                 <a
                                                     onClick={(e) => {
                                                         e.preventDefault();
-                                                        router.visit(`/application/${internet_plan.id}/terms-condition`);
-                                                        // window.open("/terms-condition", "_blank");
-                                                        // window.open("https://apply-parasat.site", "_blank");
+                                                        // router.visit(`/application/${internet_plan.id}/terms-condition`);
+                                                        window.open(`/application/${internet_plan.id}/terms-condition`, "_blank");
                                                     }}
                                                     href="#"
                                                     className="underline text-blue-500"
                                                 >
                                                     Terms & Conditions
-                                                </a>."
+                                                </a>.
                                             </b>
                                         </div>
                                         <div className="flex justify-end mt-4">

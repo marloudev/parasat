@@ -29,7 +29,7 @@ export default function LandingPage() {
             <PlanListSection />
             <div className='w-screen text-center ps-4 font-semibold flex items-center justify-center mb-4'>
                 <h1 className='text-xl'>
-                    <i>Note: For <b>Plan Upgrade</b>, please visit Parasat Office</i>
+                    <i>Note: For <b className='text-blue-700'>Plan Upgrade</b>, please visit Parasat Office</i>
                 </h1>
             </div>
             <section id='contactsss'>

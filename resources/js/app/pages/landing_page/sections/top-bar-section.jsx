@@ -46,7 +46,7 @@ export default function TopBarSection() {
       <a href="/about-us" className="hover:underline"> About Us</a>
     </div>
     <div className="hover:text-slate-400">
-      <a href="#contactsss" className="hover:underline"> Contact</a>
+      <a href="#contactsss" className="hover:underline"> Contact Us</a>
     </div>
     <div className="hover:text-slate-400">
       <a href="/" className="hover:underline"> Home</a>

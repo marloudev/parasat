@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import TopBarSection from '../../landing_page/sections/top-bar-section';
+import TermsConditionSection from './section/terms-condition-section';
 
 export default function TermsConditionPage() {
     const [flashing, setFlashing] = useState(true);
@@ -19,6 +20,7 @@ export default function TermsConditionPage() {
     return (
         <div className={flashing ? 'animate-flash' : ''}>
             <TopBarSection />
+            <TermsConditionSection />
         </div>
     )
 }

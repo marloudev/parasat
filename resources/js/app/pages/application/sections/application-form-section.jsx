@@ -156,7 +156,7 @@ export default function ApplicationFormSection() {
             ) : (
                 <div className=''>
                     <div className="h-screen overflow-hidden ">
-                        <div className="bg-cover bg-[url('/images/SCemp.jpg')] transition-colors duration-300 h-full overflow-y-scroll">
+                        <div className="bg-cover transition-colors duration-300 h-full overflow-y-scroll">
                             <div className="container mx-auto px-10 flex justify-center">
                                 <div className="bg-white shadow-2xl shadow-black rounded-lg p-6 mt-12 w-full">
                                     <div id='error' className='flex text-2xl items-center justify-center'>
