@@ -18,65 +18,29 @@ export default function TermsConditionSection() {
                                 <p>
                                     <b>1. Introduction</b><br />
                                     Welcome to PARASAT Fiber. By applying for our internet plan, you agree to comply with the following terms and conditions. Please read them carefully before proceeding.<br /><br />
+
                                     <b>2. Eligibility</b><br />
+                                    The applicant must be at least 18 years old. A valid government-issued ID and proof of address are required. The service is available only in designated coverage areas.<br /><br />
 
-                                    The applicant must be at least 18 years old.
+                                    <b>3. Service Activation</b> <br /> Service activation is subject to approval and network feasibility. Installation will be scheduled within 3-7 business days from approval. The customer agrees to allow authorized personnel access to the premises for installation and maintenance.<br /><br />
 
-                                    A valid government-issued ID and proof of address are required.
-
-                                    The service is available only in designated coverage areas.<br /><br />
-                                    <b>3. Service Activation</b> <br />
-
-                                    Service activation is subject to approval and network feasibility.
-
-                                    Installation will be scheduled within 3-7 business days from approval.
-
-                                    The customer agrees to allow authorized personnel access to the premises for installation and maintenance.<br /><br />
-
-                                    <b>4. Payment and Billing</b><br />
-
-                                    Monthly fees, installation charges, and applicable taxes will be billed as per the selected plan.
-
-                                    Payments must be made on or before the due date to avoid service disruption.
-
-                                    Late payments may incur penalties or suspension of service.<br /><br />
+                                    <b>4. Payment and Billing</b><br /> Monthly fees, installation charges, and applicable taxes will be billed as per the selected plan. Payments must be made on or before the due date to avoid service disruption. Late payments may incur penalties or suspension of service.<br /><br />
                                     <br />
-                                    <b>5. Fair Usage Policy (FUP)</b><br />
 
-                                    The service is subject to a Fair Usage Policy to ensure optimal network performance.
+                                    <b>5. Fair Usage Policy (FUP)</b><br /> The service is subject to a Fair Usage Policy to ensure optimal network performance. Excessive data consumption may result in speed reduction or additional charges.<br /><br />
 
-                                    Excessive data consumption may result in speed reduction or additional charges.<br /><br />
+                                    <b>6. Service Reliability</b><br /> While we strive to provide uninterrupted service, outages may occur due to maintenance, technical issues, or force majeure events. PARASAT Fiber is not liable for damages resulting from service interruptions.<br /><br />
 
-                                    <b>6. Service Reliability</b><br />
+                                    <b>7. Customer Responsibilities</b><br /> The customer must use the service legally and not engage in any activities that violate laws or regulations. Sharing, reselling, or unauthorized distribution of the service is prohibited. Customers must ensure the security of their devices and network from unauthorized access.<br /><br />
 
-                                    While we strive to provide uninterrupted service, outages may occur due to maintenance, technical issues, or force majeure events.
+                                    <b>8. Termination and Cancellation</b><br /> Customers may cancel their subscription by providing 3-5 days' notice. Early termination fees may apply if the contract is ended before the minimum lock-in period. PARASAT Fiber reserves the right to suspend or terminate service for non-compliance with these terms.<br /><br />
 
-                                    PARASAT Fiber is not liable for damages resulting from service interruptions.<br /><br />
-
-                                    <b>7. Customer Responsibilities</b><br />
-
-                                    The customer must use the service legally and not engage in any activities that violate laws or regulations.
-
-                                    Sharing, reselling, or unauthorized distribution of the service is prohibited.
-
-                                    Customers must ensure the security of their devices and network from unauthorized access.<br /><br />
-
-                                    <b>8. Termination and Cancellation</b><br />
-
-                                    Customers may cancel their subscription by providing 3-5 days' notice.
-
-                                    Early termination fees may apply if the contract is ended before the minimum lock-in period.
-
-                                    PARASAT Fiber reserves the right to suspend or terminate service for non-compliance with these terms.<br /><br />
-
-                                    <b>9. Amendments</b><br />
-
-                                    PARASAT Fiber may update these terms and conditions from time to time. Customers will be notified of any changes.<br /><br />
+                                    <b>9. Amendments</b><br />  PARASAT Fiber may update these terms and conditions from time to time. Customers will be notified of any changes.<br /><br />
 
                                     <b>10. Contact Information</b><br />
-                                    For any inquiries or concerns, please contact our customer support at <b>0915-870-1972</b> / <b>(034)312-6184</b>.<br />
+                                    For any inquiries or concerns, please contact our customer support at <b>0915-870-1972</b> / <b>(034)312-6184</b>.<br /><br />
 
-                                    By applying for our internet plan, you acknowledge that you have read, understood, and agreed to these terms and conditions.<br />
+                                    <b>By applying for our internet plan, you acknowledge that you have read, understood, and agreed to these terms and conditions.</b>
                                 </p>
                                 <div className="flex justify-end mt-4">
                                     {/* <button

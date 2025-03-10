@@ -1,27 +1,27 @@
 import Modal from "@/app/pages/_components/modal";
 import store from "@/app/pages/store/store";
-import { create_internet_plan_thunk, delete_internet_plan_thunk, get_internet_plan_thunk } from "@/app/redux/internet-plan-thunk";
-import { PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { delete_application_thunk, get_application_thunk } from "@/app/redux/application-thunk";
+import { TrashIcon } from "@heroicons/react/24/outline";
 import { message, Tooltip } from "antd";
 import React, { useState } from "react";
 
-export default function DeletePlanSection({ data }) {
+export default function DeleteApplicationSection({ data }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const openModal = () => setIsModalOpen(true);
     const [loading, setLoading] = useState(false);
 
-    const submitPlan = async (e) => {
+    const deleteApplication = async (e) => {
         e.preventDefault();
         setLoading(true);
         try {
             await store.dispatch(
-                delete_internet_plan_thunk(data.id)
+                delete_application_thunk(data.id)
             );
-            store.dispatch(get_internet_plan_thunk())
-            message.success("Plan Deleted Successfully!");
+            store.dispatch(get_application_thunk())
+            message.success("Application Deleted Successfully!");
             setIsModalOpen(false);
         } catch (error) {
-            message.error("Failed to Delete Plan. Please try again."); // Show error message
+            message.error("Failed to Delete Application. Please try again."); // Show error message
         } finally {
             setLoading(false); // Always reset loading state
         }
@@ -31,21 +31,23 @@ export default function DeletePlanSection({ data }) {
         setIsModalOpen(false);
     };
 
+
     return (
-        <div className="flex justify-end mt-4">
-            <Tooltip title="Remove Plan">
+        <>
+            <Tooltip title="Delete Application">
                 <button
-                    className="text-white font-bold py-2 px-4 rounded"
+                    type="button"
                     onClick={openModal}
+                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md"
                 >
-                    <TrashIcon className="h-5 w-5 inline-block text-red-600" />
+                    <TrashIcon className='h-5' />
                 </button>
             </Tooltip>
-            <Modal open={isModalOpen} setOpen={setIsModalOpen} width="w-1/4">
+            <Modal open={isModalOpen} setOpen={setIsModalOpen} width="w-1/2">
                 <h2 className="text-xl font-semibold mb-4">
-                    Are you sure you want to delete your plan?
+                    Are you sure you want to delete this Application?
                 </h2>
-                <form action="" onSubmit={submitPlan}>
+                <form action="" onSubmit={deleteApplication}>
                     <div className="flex w-full gap-5">
                         <button
                             type="button"
@@ -67,6 +69,6 @@ export default function DeletePlanSection({ data }) {
                     </div>
                 </form>
             </Modal>
-        </div>
+        </>
     );
 }

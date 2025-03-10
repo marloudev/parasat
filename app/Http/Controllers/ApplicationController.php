@@ -142,4 +142,12 @@ class ApplicationController extends Controller
             'data' => 'success'
         ], 200);
     }
+
+    public function destroy($id)
+    {
+        Application::where('id', $id)->delete();
+        return response()->json([
+            'response' => 'success',
+        ], 200);
+    }
 }

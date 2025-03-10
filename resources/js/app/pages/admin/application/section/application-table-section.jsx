@@ -2,6 +2,7 @@ import { EyeIcon, ViewfinderCircleIcon } from '@heroicons/react/24/outline'
 import React from 'react'
 import ViewApplicationSection from './view-application-section'
 import { useSelector } from 'react-redux';
+import DeleteApplicationSection from './delete-application-section';
 
 export default function ApplicationTableSection() {
 
@@ -68,8 +69,9 @@ export default function ApplicationTableSection() {
                                             application?.status === 'Declined' ? 'bg-red-500 text-white' : ''
                                     }`}>{application?.status}</p>
                             </td>
-                            <td className="flex py-5 text-sm font-medium sm:pr-0 ">
+                            <td className="flex gap-2 py-5 px-2 text-sm font-medium sm:pr-0 ">
                                 <ViewApplicationSection data={application} />
+                                <DeleteApplicationSection data={application} />
                             </td>
                         </tr>
                     ))}

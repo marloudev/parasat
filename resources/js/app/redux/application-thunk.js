@@ -1,4 +1,4 @@
-import { create_application_service, get_application_service, update_application_service } from "../pages/services/application-service";
+import { create_application_service, delete_application_service, get_application_service, update_application_service } from "../pages/services/application-service";
 import { applicationSlice } from "./application-slice";
 
 export function create_application_thunk(data) {
@@ -18,5 +18,11 @@ export function get_application_thunk() {
 export function update_application_thunk(data) {
     return async function (dispatch, getState) {
         const res = await update_application_service(data)
+    };
+}
+
+export function delete_application_thunk(id) {
+    return async function (dispatch, getState) {
+        const res = await delete_application_service(id)
     };
 }

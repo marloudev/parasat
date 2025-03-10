@@ -27,3 +27,12 @@ export function update_application_service(data) {
 
     }
 }
+
+export function delete_application_service(id) {
+    try {
+        const result = axios.delete(`/api/application/${id}`)
+        return result
+    } catch (error) {
+
+    }
+}
