@@ -1,6 +1,7 @@
 import Modal from '@/app/pages/_components/modal'
 import Select from '@/app/pages/_components/select';
 import store from '@/app/pages/store/store';
+import { get_users_thunk, update_user_thunk } from '@/app/redux/app-thunk';
 import { create_internet_plan_thunk, get_internet_plan_thunk, update_internet_plan_thunk } from '@/app/redux/internet-plan-thunk';
 import { PencilIcon, PencilSquareIcon, PlusIcon } from '@heroicons/react/24/outline'
 import { message, Tooltip } from 'antd';
@@ -28,9 +29,9 @@ export default function EditUserSection({ data }) {
         setLoading(true);
         try {
             await store.dispatch(
-                update_internet_plan_thunk(form)
+                update_user_thunk(form)
             );
-            store.dispatch(get_internet_plan_thunk())
+            store.dispatch(get_users_thunk())
             // message.success("Successfully Added!"); 
             setIsModalOpen(false);
         } catch (error) {
@@ -81,7 +82,7 @@ export default function EditUserSection({ data }) {
                             name="email"
                             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" />
                     </div>
-                    <div className="mb-4">
+                    {/* <div className="mb-4">
                         <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
                         <input
                             onChange={(e) =>
@@ -94,10 +95,11 @@ export default function EditUserSection({ data }) {
                             type="text"
                             name="password"
                             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" />
-                    </div>
+                    </div> */}
                     <div className='mb-4 mt-8'>
                         <Select
                             name="user_type"
+                            value={data?.role}
                             label="Role"
                             onChange={(e) => setForm({
                                 ...form,

@@ -28,6 +28,15 @@ class AccountController extends Controller
         ], 200);
     }
 
+    public function update(Request $request,  $id)
+    {
+
+        $user = User::where('id', $id)->first();
+        if ($user) {
+            $user->update($request->all());
+        }
+    }
+
     public function destroy($id)
     {
         User::where('id', $id)->delete();
