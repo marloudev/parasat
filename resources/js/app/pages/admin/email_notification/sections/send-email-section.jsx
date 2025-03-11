@@ -18,10 +18,7 @@ export default function SendEmailSection() {
 
     // Handles form submission
     async function sendEmail(e) {
-        e.preventDefault();
         setLoading(true);
-
-        console.log('Form before submit:', form);  // Check the current state of form fields
 
         try {
             const { type, area, content } = form;
@@ -33,8 +30,10 @@ export default function SendEmailSection() {
 
             await store.dispatch(send_email_thunk({ type, area, content }));
             message.success("Email has been sent.");
+            setLoading(false);
         } catch (error) {
             console.error("Error sending email:", error);
+            setLoading(false);
             message.error("Failed to send email. Please try again.");
         } finally {
             setLoading(false);
@@ -129,7 +128,7 @@ export default function SendEmailSection() {
                             type="submit" // Now using form submission
                             disabled={loading}
                         >
-                            &nbsp;Send
+                            &nbsp;{loading ? "Sending..." : "Send"}
                         </Button>
                     </div>
                 </div>

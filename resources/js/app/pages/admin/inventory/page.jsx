@@ -31,11 +31,21 @@ export default function InventoryPage() {
                 table { width: 100%; border-collapse: collapse; margin-top: 20px; }
                 th, td { padding: 10px; text-align: left; border: 1px solid #000; }
                 th { background-color: #f4f4f4; }
+                
+                // th:nth-child(4), td:nth-child(4) {
+                //   display: none;
+                // }
+    
+                /* Adjust icon sizes */
+                img, svg, i, .icon { 
+                  width: 16px !important;
+                  height: 16px !important;
+                }
               </style>
             </head>
             <body>
               <h2>Report</h2>
-              ${printContent.outerHTML} <!-- This ensures the full table is copied -->
+              ${printContent.outerHTML} <!-- Copy the table content -->
             </body>
           </html>
         `);
@@ -43,6 +53,7 @@ export default function InventoryPage() {
         printWindow.document.close();
         printWindow.print();
     };
+
     return (
         <div>
             <AdminLayout>
