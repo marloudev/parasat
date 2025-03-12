@@ -31,7 +31,7 @@ export default function PlanListSection() {
                         </p>
 
                         {/* Mapping over internet_plans */}
-                        <div className="grid max-w-sm grid-cols-1 gap-y-5 gap-x-4 divide-y divide-gray-100 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none lg:grid-cols-3 ">
+                        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-sm sm:max-w-2xl lg:max-w-none mx-90">
                             {
                                 internet_plans &&
                                 internet_plans.map((plan, index) => (
