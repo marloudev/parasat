@@ -20,7 +20,7 @@ export const appSlice = createSlice({
       state.pathname = action.payload
     },
     setSidebarOpen: (state, action) => {
-      state.sidebarOpen = action.payload
+      state.sidebarOpen = action.payload ?? !state.sidebarOpen;
     },
     setUser: (state, action) => {
       state.user = action.payload

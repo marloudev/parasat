@@ -31,7 +31,7 @@ export default function CustodianSidebarSection() {
         { name: "Requests", href: "/inventorycustodian/requests", icon: ClipboardDocumentListIcon, current: path == 'requests' },
     ];
 
-    const { sidebarOpen } = useSelector((store) => store.app);
+    const sidebarOpen = useSelector((state) => !!state.app.sidebarOpen);
     const dispatch = useDispatch();
     function close_sidebar(params) {
         dispatch(setSidebarOpen());

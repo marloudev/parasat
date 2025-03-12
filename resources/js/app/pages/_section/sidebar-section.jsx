@@ -36,7 +36,7 @@ export default function SidebarSection() {
         { name: "Email notifications", href: "/administrator/email_notification", icon: EnvelopeOpenIcon, current: path == '' },
     ];
 
-    const { sidebarOpen } = useSelector((store) => store.app);
+    const sidebarOpen = useSelector((state) => !!state.app.sidebarOpen);
     const dispatch = useDispatch();
     function close_sidebar(params) {
         dispatch(setSidebarOpen());

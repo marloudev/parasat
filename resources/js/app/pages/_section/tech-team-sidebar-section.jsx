@@ -43,7 +43,7 @@ export default function TechTeamSidebarSection() {
     //     { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
     // ];
 
-    const { sidebarOpen } = useSelector((store) => store.app);
+    const sidebarOpen = useSelector((state) => !!state.app.sidebarOpen);
     const dispatch = useDispatch();
     function close_sidebar(params) {
         dispatch(setSidebarOpen());

@@ -31,7 +31,7 @@ export default function CSRSidebarSection() {
         { name: "Applications", href: "/administrator/application", icon: UsersIcon, current: path == 'application' },
     ];
 
-    const { sidebarOpen } = useSelector((store) => store.app);
+    const sidebarOpen = useSelector((state) => !!state.app.sidebarOpen);
     const dispatch = useDispatch();
     function close_sidebar(params) {
         dispatch(setSidebarOpen());
