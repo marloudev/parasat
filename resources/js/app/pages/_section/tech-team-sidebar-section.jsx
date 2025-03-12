@@ -31,17 +31,17 @@ export default function TechTeamSidebarSection() {
         { name: "Request", href: "/techteam/request_item", icon: ClipboardDocumentListIcon, current: path == 'request' },
     ];
 
-    const teams = [
-        { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
-        {
-            id: 2,
-            name: "Tailwind Labs",
-            href: "#",
-            initial: "T",
-            current: false,
-        },
-        { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
-    ];
+    // const teams = [
+    //     { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
+    //     {
+    //         id: 2,
+    //         name: "Tailwind Labs",
+    //         href: "#",
+    //         initial: "T",
+    //         current: false,
+    //     },
+    //     { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
+    // ];
 
     const { sidebarOpen } = useSelector((store) => store.app);
     const dispatch = useDispatch();
