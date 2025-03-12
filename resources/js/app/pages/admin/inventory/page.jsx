@@ -32,9 +32,9 @@ export default function InventoryPage() {
                 th, td { padding: 10px; text-align: left; border: 1px solid #000; }
                 th { background-color: #f4f4f4; }
                 
-                // th:nth-child(4), td:nth-child(4) {
-                //   display: none;
-                // }
+                th:nth-child(4), td:nth-child(4) {
+                  display: none;
+                }
     
                 /* Adjust icon sizes */
                 img, svg, i, .icon { 
