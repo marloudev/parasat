@@ -46,7 +46,7 @@ export default function RequestItemTableSection() {
                     {request_items?.data?.map((res, i) => (
                         <tr key={i}>
                             <td className="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-0">
-                                {res?.user?.name}
+                                {res?.id}
                             </td>
                             <td className="hidden px-3 py-4 text-sm text-gray-900 lg:table-cell">
                                 {res?.item?.name}
