@@ -125,7 +125,7 @@ export default function ReviewRequestSection({ data }) {
                                     Requested By
                                 </td>
                                 <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">
-                                    {data.user.name}
+                                    {data?.user?.name}
                                 </td>
                             </tr>
 
@@ -134,7 +134,7 @@ export default function ReviewRequestSection({ data }) {
                                     Item Name
                                 </td>
                                 <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">
-                                    {data.item.name}
+                                    {data?.item?.name}
                                 </td>
                             </tr>
                             <tr>
@@ -142,7 +142,7 @@ export default function ReviewRequestSection({ data }) {
                                     Quantity
                                 </td>
                                 <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">
-                                    {data.amount}
+                                    {data?.amount}
                                 </td>
                             </tr>
                         </tbody>

@@ -1,1 +1,0 @@
-import{j as a}from"./app-CdR7ZR8r.js";function r(){return a.jsx("div",{className:"mt-16",children:a.jsx("div",{children:a.jsx("img",{src:"/images/parasat-cover.jpg",className:"",alt:""})})})}export{r as default};
