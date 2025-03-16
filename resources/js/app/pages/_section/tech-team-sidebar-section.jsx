@@ -123,7 +123,7 @@ export default function TechTeamSidebarSection() {
                                             ))}
                                         </ul>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <div className="text-xs/6 font-semibold text-gray-400">
                                             Your teams
                                         </div>
@@ -131,7 +131,7 @@ export default function TechTeamSidebarSection() {
                                             role="list"
                                             className="-mx-2 mt-2 space-y-1"
                                         >
-                                            {teams.map((team) => (
+                                            {teams?.map((team) => (
                                                 <li key={team.name}>
                                                     <Link
                                                         href={team.href}
@@ -164,7 +164,7 @@ export default function TechTeamSidebarSection() {
                                             />
                                             Settings
                                         </a>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </nav>
                         </div>
