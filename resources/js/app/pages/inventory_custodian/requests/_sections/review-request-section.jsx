@@ -85,31 +85,30 @@ export default function ReviewRequestSection({ data }) {
 
     async function change_status_handler(params) {
         setLoading(true);
-       
-       try {
-        await store.dispatch(
-            update_change_status_thunk({
-                id: data.id,
-                status: "declined",
-            })
-        );
-        await store.dispatch(get_request_item_thunk());
-        setOpen(false);
-        setLoading(false);
-       } catch (error) {
-        setLoading(false);
-       }
+
+        try {
+            await store.dispatch(
+                update_change_status_thunk({
+                    id: data.id,
+                    status: "declined",
+                })
+            );
+            await store.dispatch(get_request_item_thunk());
+            setOpen(false);
+            setLoading(false);
+        } catch (error) {
+            setLoading(false);
+        }
     }
     return (
         <div>
             <button
                 disabled={data.status == "declined" || data.status == "cancelled"}
                 onClick={() => setOpen(!open)}
-                className={`capitalize w-36 ${
-                    data.status == "declined" || data.status == "cancelled"
+                className={`capitalize w-36 ${data.status == "declined" || data.status == "cancelled"
                         ? "bg-gray-600 hover:bg-gray-500 focus-visible:outline-gray-600"
                         : "bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600"
-                }  text-white font-bold py-2 px-4 rounded ml-2`}
+                    }  text-white font-bold py-2 px-4 rounded ml-2`}
             >
                 {data.status === "cancelled" ? "Cancelled" : data.status === "declined" ? "Declined" : "Review"}
             </button>
@@ -125,7 +124,7 @@ export default function ReviewRequestSection({ data }) {
                                     Requested By
                                 </td>
                                 <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">
-                                    {data.user.name}
+                                    {data?.user?.name}
                                 </td>
                             </tr>
 
@@ -134,7 +133,7 @@ export default function ReviewRequestSection({ data }) {
                                     Item Name
                                 </td>
                                 <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">
-                                    {data.item.name}
+                                    {data?.item?.name}
                                 </td>
                             </tr>
                             <tr>
@@ -142,7 +141,7 @@ export default function ReviewRequestSection({ data }) {
                                     Quantity
                                 </td>
                                 <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">
-                                    {data.amount}
+                                    {data?.amount}
                                 </td>
                             </tr>
                         </tbody>
