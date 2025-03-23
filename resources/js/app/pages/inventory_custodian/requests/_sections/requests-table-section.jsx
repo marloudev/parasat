@@ -85,16 +85,16 @@ export default function RequestsTableSection() {
                         console.log('resres',res)
                         return   <tr key={i}>
                         <td className="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-0">
-                            {res.user.name}
+                            {res?.user?.name}
                         </td>
                         <td className="hidden px-3 py-4 text-sm text-gray-900 lg:table-cell">
-                            {res.item.name}
+                            {res?.item?.name}
                         </td>
                         <td className="hidden px-3 py-4 text-sm text-gray-900 sm:table-cell">
-                            {res.amount}
+                            {res?.amount}
                         </td>
                         <td className="capitalize py-4 text-sm font-medium sm:pr-0 ">
-                            <div>{res.status}</div>
+                            <div>{res?.status}</div>
                         </td>
                         <td className="flex py-4 text-sm font-medium sm:pr-0 ">
                             {/* <CancelRequestSection data={res}/> */}
