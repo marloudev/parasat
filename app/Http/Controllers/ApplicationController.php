@@ -16,7 +16,11 @@ class ApplicationController extends Controller
 
     public function index()
     {
-        $applications = Application::with(['file_upload'])->get();
+        $applications = Application::with(['file_upload'])
+            ->orderByRaw("CASE WHEN status = 'pending' THEN 0 ELSE 1 END")
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         return response()->json([
             'result' => $applications
         ], 200);

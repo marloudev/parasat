@@ -27,7 +27,7 @@ export default function OfferPlanCardComponent({ name, price, speed, href, popul
                 href={href}
                 className="mt-6 sm:mt-7 mb-3 block rounded-md bg-blue-600 px-4 py-2 text-center text-sm sm:text-base font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
-                Purchase Plan
+                Apply Plan
             </Link>
         </div>
     )
