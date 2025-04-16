@@ -17,11 +17,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSidebarOpen } from "@/app/redux/app-slice";
 import store from "../store/store";
 import { get_user_thunk } from "@/app/redux/app-thunk";
+import NotificationSection from "./notification-section";
 
 export default function TopbarSection() {
     const dispatch = useDispatch()
     const { user } = useSelector((state) => state.app);
-    console.log('uuuuuuu', user)
 
     useEffect(() => {
         store.dispatch(get_user_thunk())
@@ -62,14 +62,8 @@ export default function TopbarSection() {
                     />
                 </form>
                 <div className="flex items-center gap-x-4 lg:gap-x-6">
-                    <button
-                        type="button"
-                        className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500"
-                    >
-                        <span className="sr-only">View notifications</span>
-                        <BellIcon aria-hidden="true" className="size-6" />
-                    </button>
-
+                    <NotificationSection />
+                   
                     {/* Separator */}
                     <div
                         aria-hidden="true"

@@ -13,6 +13,7 @@ class FileUpload extends Model
     protected $fillable = [
         'app_id',
         'file_name',
+        
         'image',
         'type'
     ];

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NotificationSent;
 use App\Mail\ApprovedApplication;
 use App\Mail\DeclinedApplication;
 use App\Models\Application;
 use App\Models\FileUpload;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Storage;
 
 class ApplicationController extends Controller
 {
+
+    public function send_notification()
+    {
+        event(new NotificationSent('hello world'));
+        return 'successsss';
+    }
 
     public function index()
     {
@@ -30,7 +38,7 @@ class ApplicationController extends Controller
     public function store(Request $request)
     {
         // Validate the incoming request
-        $request->validate([
+       $request->validate([
             'fname' => 'required|string',
             'mname' => 'required|string',
             'lname' => 'required|string',
@@ -48,7 +56,7 @@ class ApplicationController extends Controller
             'slname' => 'required|string',
             'ssuffix' => 'nullable|string',
             'semail' => 'required|email',
-            'scontact' => 'required|string',
+            'scontact' => 'nullable|string',
             'status' => 'required|string',
             'plan_name' => 'required|string',
             'plan_speed' => 'required|string',
@@ -86,6 +94,13 @@ class ApplicationController extends Controller
         $this->handleFileUploads($request, 'valid_id', $application);
         $this->handleFileUploads($request, 'locations', $application);
 
+
+        Notification::create([
+            'application_id' => $application->id,
+            'from' => 'application',
+            'status' => 'unread',
+        ]);
+        event(new NotificationSent('hello world'));
         // Return success response with application data
         return response()->json([
             'status' => 'success',

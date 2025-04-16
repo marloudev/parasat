@@ -14,10 +14,13 @@ import DeclineApplicationSection from "./decline-application-section";
 import ElectricBillSection from "./electric-bill-section";
 import ValidIDSection from "./valid-id-section";
 import LocationSection from "./location-section";
+import { useEffect } from "react";
 
 export default function ViewApplicationSection({ data, item }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [loading, setLoading] = useState(false);
+    const params = new URLSearchParams(window.location.search);
+    const search = params.get("search");
 
     const showModal = () => {
         setIsModalOpen(true);
@@ -26,6 +29,12 @@ export default function ViewApplicationSection({ data, item }) {
     const handleCancel = () => {
         setIsModalOpen(false);
     };
+
+    useEffect(()=>{
+        if (search == data.id) {
+            setIsModalOpen(true) 
+        }
+    },[])
 
     const [isSubmitted, setIsSubmitted] = useState(false);
     // async function send_approved_application(e) {

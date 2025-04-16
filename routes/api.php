@@ -6,9 +6,11 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\InternetPlansController;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\RequestItemController;
 use App\Http\Controllers\SerialNumberItemController;
 use App\Http\Controllers\StockItemController;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +24,10 @@ Route::resource('account', AccountController::class);
 Route::resource('internet_plan', InternetPlansController::class);
 Route::resource('dashboard', DashboardController::class);
 Route::resource('send_email', EmailController::class);
+Route::resource('notification', NotificationController::class);
 
+
+Route::get('/send_notification', [ApplicationController::class, 'send_notification']);
 Route::middleware('auth:sanctum')->prefix('/')->group(function () {
     Route::resource('item', ItemsController::class);
     Route::resource('stock_item', StockItemController::class);
