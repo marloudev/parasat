@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\InternetPlansController;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\JobOrderController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\RequestItemController;
 use App\Http\Controllers\SerialNumberItemController;
@@ -25,6 +26,7 @@ Route::resource('internet_plan', InternetPlansController::class);
 Route::resource('dashboard', DashboardController::class);
 Route::resource('send_email', EmailController::class);
 Route::resource('notification', NotificationController::class);
+Route::resource('job_order', JobOrderController::class);
 
 
 Route::get('/send_notification', [ApplicationController::class, 'send_notification']);

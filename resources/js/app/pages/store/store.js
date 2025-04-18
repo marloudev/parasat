@@ -9,6 +9,7 @@ import stockItemSlice from '@/app/redux/stock-item-slice';
 import requestItemSlice  from '@/app/redux/request-item-slice';
 import { notification } from 'antd';
 import notificationSlice  from '@/app/redux/notification-slice';
+import jobOrderSlice  from '@/app/redux/job-order-slice';
 
 const store = configureStore({
     reducer: {
@@ -19,7 +20,8 @@ const store = configureStore({
         serial_number_items: serialNumberItemSlice,
         stock_items:stockItemSlice,
         request_items:requestItemSlice,
-        notification:notificationSlice
+        notification:notificationSlice,
+        job_order:jobOrderSlice
     },
 });
 
