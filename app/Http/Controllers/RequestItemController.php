@@ -10,6 +10,17 @@ use Illuminate\Support\Facades\Auth;
 
 class RequestItemController extends Controller
 {
+
+    public function get_request_item_by_user_id($id)
+    {
+        $request_items = RequestItem::where('user_id', $id)->with(['user', 'item'])->orderBy('id','desc')->paginate();
+        $items = Items::with(['serial_numbers','available','stock_items'])->get();
+        return response()->json([
+            'result' => $request_items,
+            'items' => $items
+        ], 200);
+        return response()->json('success', 200);
+    }
     public function change_status(Request $request)
     {
 

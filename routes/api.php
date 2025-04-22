@@ -27,6 +27,7 @@ Route::resource('dashboard', DashboardController::class);
 Route::resource('send_email', EmailController::class);
 Route::resource('notification', NotificationController::class);
 Route::resource('job_order', JobOrderController::class);
+Route::post('/auth/login', [AccountController::class, 'login']);
 
 
 Route::get('/send_notification', [ApplicationController::class, 'send_notification']);
@@ -36,5 +37,7 @@ Route::middleware('auth:sanctum')->prefix('/')->group(function () {
     Route::resource('serial_number_item', SerialNumberItemController::class);
     Route::post('/search_item', [SerialNumberItemController::class, 'search_item']);
     Route::resource('request_item', RequestItemController::class);
+    Route::get('/get_request_item_by_user_id/{userid}', [RequestItemController::class, 'get_request_item_by_user_id']);
+    Route::get('/get_job_order_by_user_id/{userid}', [JobOrderController::class, 'get_job_order_by_user_id']);
     Route::post('/change_status', [RequestItemController::class, 'change_status']);
 });

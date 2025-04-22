@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NotificationSent;
 use App\Models\Application;
 use App\Models\JobOrder;
 use Illuminate\Http\Request;
 
 class JobOrderController extends Controller
 {
+    public function get_job_order_by_user_id($id)
+    {
+        $job_order = JobOrder::where('tech_id', $id)->with(['application'])->orderBy('id', 'desc')->paginate();
+        return response()->json([
+            'result' => $job_order
+        ], 200);
+    }
     public function index()
     {
         $internet_plans = JobOrder::get();
@@ -19,12 +27,13 @@ class JobOrderController extends Controller
 
     public function store(Request $request)
     {
-        JobOrder::create([
+        $jo= JobOrder::create([
             'tech_id' => $request->tech_id,
             'application_id' => $request->id,
             'job_type' => $request->job_type,
             'status' => 'pending',
         ]);
+        event(new NotificationSent($jo));
         $app = Application::where('id', $request->id)->first();
         if ($app) {
             $app->update([
@@ -58,6 +67,12 @@ class JobOrderController extends Controller
     {
 
         $plan = JobOrder::where('id', $id)->first();
+        $app = Application::where('id', $plan->application_id)->first();
+        if ($app) {
+            $app->update([
+                'status' => $request->status
+            ]);
+        }
         if ($plan) {
             $plan->update($request->all());
         }
