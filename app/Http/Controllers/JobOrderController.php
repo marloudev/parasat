@@ -69,9 +69,16 @@ class JobOrderController extends Controller
         $plan = JobOrder::where('id', $id)->first();
         $app = Application::where('id', $plan->application_id)->first();
         if ($app) {
-            $app->update([
-                'status' => $request->status
-            ]);
+            if ($request->status == 'Approved Installation') {
+                $app->update([
+                    'status' => 'Approved'
+                ]);
+            }else{
+                $app->update([
+                    'status' => $request->status
+                ]);
+            }
+            
         }
         if ($plan) {
             $plan->update([
