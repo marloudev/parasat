@@ -94,7 +94,7 @@ export default function AssignJobOrderSection({ data }) {
 
                 <div className="flex gap-3 py-4 items-center justify-evenly">
                     {(data.status == "Pending" ||
-                        application?.status != "Approved Survey") && (
+                        data?.status != "Approved Survey") && (
                         <div className="flex items-center">
                             <input
                                 id="radio-survey"
