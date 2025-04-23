@@ -25,7 +25,6 @@ export default function AdminLayout({ children }) {
         const channel = pusher.subscribe("my-channel");
 
         const handleNotification = (data) => {
-            alert()
             get_notification();
         };
 
