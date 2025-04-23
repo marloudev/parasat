@@ -31,7 +31,7 @@ class JobOrderController extends Controller
             'tech_id' => $request->tech_id,
             'application_id' => $request->id,
             'job_type' => $request->job_type,
-            'status' => 'pending',
+            'status' => 'Pending',
         ]);
         event(new NotificationSent($jo));
         $app = Application::where('id', $request->id)->first();
@@ -74,7 +74,9 @@ class JobOrderController extends Controller
             ]);
         }
         if ($plan) {
-            $plan->update($request->all());
+            $plan->update([
+                'status' => $request->status
+            ]);
         }
     }
 
