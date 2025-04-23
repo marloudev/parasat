@@ -93,23 +93,26 @@ export default function AssignJobOrderSection({ data }) {
                 />
 
                 <div className="flex gap-3 py-4 items-center justify-evenly">
-                    <div className="flex items-center">
-                        <input
-                            id="radio-survey"
-                            type="radio"
-                            name="job_type"
-                            value="Survey"
-                            checked={form.job_type === "Survey"}
-                            onChange={handleInputChange}
-                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
-                        />
-                        <label
-                            htmlFor="radio-survey"
-                            className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        >
-                            Survey
-                        </label>
-                    </div>
+                    {(data.status == "Pending" ||
+                        application?.status != "Approved Survey") && (
+                        <div className="flex items-center">
+                            <input
+                                id="radio-survey"
+                                type="radio"
+                                name="job_type"
+                                value="Survey"
+                                checked={form.job_type === "Survey"}
+                                onChange={handleInputChange}
+                                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
+                            />
+                            <label
+                                htmlFor="radio-survey"
+                                className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >
+                                Survey
+                            </label>
+                        </div>
+                    )}
                     <div className="flex items-center">
                         <input
                             id="radio-installation"
