@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\NotificationSent;
 use App\Mail\ApprovedApplication;
+use App\Mail\DeclinedApplication;
 use App\Models\Application;
 use App\Models\JobOrder;
 use Illuminate\Http\Request;
@@ -82,7 +83,7 @@ class JobOrderController extends Controller
             } else {
 
                 if ($request->status == 'Not Approve Installation') {
-                    Mail::to($app->email)->send(new ApprovedApplication(array_merge(
+                    Mail::to($app->email)->send(new DeclinedApplication(array_merge(
                         $app->toArray(),
                         ['id' => $app->id],
                     )));
