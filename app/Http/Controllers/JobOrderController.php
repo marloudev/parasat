@@ -72,7 +72,10 @@ class JobOrderController extends Controller
         $app = Application::where('id', $plan->application_id)->first();
         if ($app) {
             if ($request->status == 'Approved Installation') {
-                Mail::to($app->email)->send(new ApprovedApplication($app));
+                Mail::to($app->email)->send(new ApprovedApplication(array_merge(
+                    $app,
+                    ['id' => $app->id],
+                )));
                 $app->update([
                     'status' => 'Approved'
                 ]);
