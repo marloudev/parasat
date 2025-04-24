@@ -29,7 +29,7 @@ class JobOrderController extends Controller
 
     public function store(Request $request)
     {
-        $jo= JobOrder::create([
+        $jo = JobOrder::create([
             'tech_id' => $request->tech_id,
             'application_id' => $request->id,
             'job_type' => $request->job_type,
@@ -79,12 +79,18 @@ class JobOrderController extends Controller
                 $app->update([
                     'status' => 'Approved'
                 ]);
-            }else{
+            } else {
+
+                if ($request->status == 'Not Approve Installation') {
+                    Mail::to($app->email)->send(new ApprovedApplication(array_merge(
+                        $app->toArray(),
+                        ['id' => $app->id],
+                    )));
+                }
                 $app->update([
                     'status' => $request->status
                 ]);
             }
-            
         }
         if ($plan) {
             $plan->update([
