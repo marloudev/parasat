@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Events\NotificationSent;
+use App\Mail\ApprovedApplication;
 use App\Models\Application;
 use App\Models\JobOrder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class JobOrderController extends Controller
 {
@@ -70,6 +72,7 @@ class JobOrderController extends Controller
         $app = Application::where('id', $plan->application_id)->first();
         if ($app) {
             if ($request->status == 'Approved Installation') {
+                Mail::to($request->email)->send(new ApprovedApplication($app));
                 $app->update([
                     'status' => 'Approved'
                 ]);
