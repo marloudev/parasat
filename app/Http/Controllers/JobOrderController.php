@@ -87,10 +87,14 @@ class JobOrderController extends Controller
                         $app->toArray(),
                         ['id' => $app->id],
                     )));
+                    $app->update([
+                        'status' => 'Declined'
+                    ]);
+                } else {
+                    $app->update([
+                        'status' => $request->status
+                    ]);
                 }
-                $app->update([
-                    'status' => $request->status
-                ]);
             }
         }
         if ($plan) {

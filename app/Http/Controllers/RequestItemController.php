@@ -34,9 +34,10 @@ class RequestItemController extends Controller
             'result' => 'success'
         ], 200);
     }
-    public function index()
+    public function index(Request $request)
     {
-        $items = RequestItem::with(['user', 'item'])->paginate();
+        $items = RequestItem::with(['user', 'item'])->orderBy('id','desc')->paginate(10);
+    
         return response()->json([
             'result' => $items
         ], 200);

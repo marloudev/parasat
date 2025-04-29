@@ -19,7 +19,7 @@ export function create_request_item_service(data) {
 
 export function get_request_item_service() {
     try {
-        const result = axios.get('/api/request_item')
+        const result = axios.get('/api/request_item'+window.location.search)
         return result
     } catch (error) {
 
