@@ -95,7 +95,8 @@ export default function ApplicationTableSection() {
                                 <td className="flex gap-2 py-5 px-2 text-sm font-medium sm:pr-0 ">
                                     {(application?.status == "Survey" ||
                                         application?.status == "Installation" ||
-                                        application?.status == "Pending") && (
+                                        application?.status == "Pending" ||
+                                        application?.status == "Approved Survey") && (
                                         <AssignJobOrderSection
                                             data={application}
                                         />
